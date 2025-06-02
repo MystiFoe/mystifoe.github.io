@@ -144,28 +144,28 @@ export default function SkillsSection() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg transform hover:scale-110 transition-transform">
                   <Database className="w-8 h-8 text-blue-600" />
                 </div>
-                <p className="text-3xl font-bold text-blue-600 mb-1">500+</p>
+                <p className="text-3xl font-bold text-blue-600 mb-1">25+</p>
                 <p className="text-gray-600 text-sm">Data Models Built</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg transform hover:scale-110 transition-transform">
                   <BarChart3 className="w-8 h-8 text-green-600" />
                 </div>
-                <p className="text-3xl font-bold text-green-600 mb-1">50+</p>
+                <p className="text-3xl font-bold text-green-600 mb-1">15+</p>
                 <p className="text-gray-600 text-sm">Dashboards Created</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg transform hover:scale-110 transition-transform">
                   <Bot className="w-8 h-8 text-purple-600" />
                 </div>
-                <p className="text-3xl font-bold text-purple-600 mb-1">20+</p>
+                <p className="text-3xl font-bold text-purple-600 mb-1">8+</p>
                 <p className="text-gray-600 text-sm">AI Solutions Deployed</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg transform hover:scale-110 transition-transform">
                   <TrendingUp className="w-8 h-8 text-orange-600" />
                 </div>
-                <p className="text-3xl font-bold text-orange-600 mb-1">90%</p>
+                <p className="text-3xl font-bold text-orange-600 mb-1">85%</p>
                 <p className="text-gray-600 text-sm">Process Optimization</p>
               </div>
             </div>

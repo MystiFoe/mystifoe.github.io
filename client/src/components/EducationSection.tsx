@@ -75,42 +75,42 @@ export default function EducationSection() {
         {/* Education Timeline */}
         <div className="relative mb-16">
           {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-green-400/30"></div>
+          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-blue-300"></div>
           
           <div className="space-y-12">
             {education.map((edu, index) => (
               <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                 {/* Timeline Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-400 rounded-full border-4 border-gray-900 z-10 animate-cyber-pulse"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-gray-50 z-10 shadow-lg"></div>
                 
                 {/* Content Card */}
                 <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'}`}>
-                  <Card className={`p-6 bg-gray-800/90 backdrop-blur-lg border ${edu.borderColor} hover:border-opacity-60 transition-all github-card-hover cursor-glow slide-up`}>
+                  <Card className={`p-6 bg-white backdrop-blur-lg border-2 ${edu.borderColor} hover:border-opacity-80 hover:shadow-xl transition-all github-card-hover cursor-glow slide-up`}>
                     <div className="flex items-start justify-between mb-4">
-                      <div className={`w-12 h-12 bg-gradient-to-r ${edu.color} rounded-xl flex items-center justify-center animate-matrix-glow`}>
+                      <div className={`w-12 h-12 bg-gradient-to-r ${edu.color} rounded-xl flex items-center justify-center shadow-lg`}>
                         <GraduationCap className="w-6 h-6 text-white" />
                       </div>
-                      <Badge className="bg-gray-700/50 text-gray-300 border-gray-600">{edu.type}</Badge>
+                      <Badge className="bg-gray-100 text-gray-700 border-gray-300">{edu.type}</Badge>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-white mb-2">{edu.degree}</h3>
-                    <h4 className="text-lg text-green-400 mb-2">{edu.institution}</h4>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{edu.degree}</h3>
+                    <h4 className="text-lg text-blue-600 mb-2">{edu.institution}</h4>
                     
-                    <div className="flex items-center text-gray-400 mb-2">
+                    <div className="flex items-center text-gray-600 mb-2">
                       <MapPin className="w-4 h-4 mr-2" />
                       <span className="text-sm">{edu.location}</span>
                     </div>
                     
-                    <div className="flex items-center text-gray-400 mb-4">
+                    <div className="flex items-center text-gray-600 mb-4">
                       <Calendar className="w-4 h-4 mr-2" />
                       <span className="text-sm">{edu.period}</span>
-                      <span className="ml-4 text-green-400 font-semibold">{edu.grade}</span>
+                      <span className="ml-4 text-blue-600 font-semibold">{edu.grade}</span>
                     </div>
                     
                     <div className="space-y-2">
                       {edu.achievements.map((achievement, achIndex) => (
-                        <div key={achIndex} className="flex items-center text-gray-300">
-                          <Award className="w-3 h-3 mr-2 text-yellow-400" />
+                        <div key={achIndex} className="flex items-center text-gray-700">
+                          <Award className="w-3 h-3 mr-2 text-orange-500" />
                           <span className="text-sm">{achievement}</span>
                         </div>
                       ))}

@@ -50,14 +50,14 @@ export default function HeroSection() {
             {/* Main Header */}
             <div>
               <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                <span className="typing-animation">Data to{" "}</span>
-                <span className="text-blue-600 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Data to{" "}
+                <span className="text-blue-600 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent typing-animation">
                   Decisions
                 </span>
               </h1>
               <p className="text-2xl text-gray-700 mb-8 font-medium">
                 <Code className="inline w-6 h-6 mr-2 text-blue-600" />
-                Coding Intelligence, Driving Impact
+                Digging Data, Driving Business Growth
               </p>
             </div>
 
@@ -85,7 +85,7 @@ export default function HeroSection() {
                 </div>
                 <div className="text-center">
                   <Badge className="mb-1 bg-green-100 text-green-800 border-green-300 text-xs px-2 py-1">Google Certified</Badge>
-                  <p className="text-xs text-gray-600">BI Professional</p>
+                  <p className="text-xs text-gray-600">Data Analytics & BI Professional</p>
                 </div>
               </Card>
 
@@ -96,8 +96,8 @@ export default function HeroSection() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <Badge className="mb-1 bg-purple-100 text-purple-800 border-purple-300 text-xs px-2 py-1">Global</Badge>
-                  <p className="text-xs text-gray-600">UK, US, Korea</p>
+                  <Badge className="mb-1 bg-purple-100 text-purple-800 border-purple-300 text-xs px-2 py-1">Global Experience</Badge>
+                  <p className="text-xs text-gray-600">with clients: UK, US, Korea</p>
                 </div>
               </Card>
             </div>
@@ -126,7 +126,7 @@ export default function HeroSection() {
                 <img 
                   src={profileImage} 
                   alt="Giritharan Mani - Data Analyst & AI Expert" 
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-80 h-80 object-cover object-top rounded-2xl"
                 />
               </div>
               
