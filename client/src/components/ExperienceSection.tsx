@@ -20,8 +20,8 @@ export default function ExperienceSection() {
         { label: "Students Empowered", value: "300+", color: "text-blue-600" },
         { label: "Team Members", value: "30", color: "text-blue-600" }
       ],
-      bgColor: "from-blue-50 to-indigo-50",
-      borderColor: "border-blue-100",
+      bgColor: "from-blue-50 to-indigo-50 dark:from-blue-900 dark:to-indigo-900",
+      borderColor: "border-blue-100 dark:border-blue-800",
       iconBg: "bg-blue-500",
       icon: "G"
     },
@@ -34,8 +34,8 @@ export default function ExperienceSection() {
         { label: "Community Members", value: "400+", color: "text-purple-600" },
         { label: "Tech Events", value: "15+", color: "text-purple-600" }
       ],
-      bgColor: "from-purple-50 to-pink-50",
-      borderColor: "border-purple-100",
+      bgColor: "from-purple-50 to-pink-50 dark:from-purple-900 dark:to-pink-900",
+      borderColor: "border-purple-100 dark:border-purple-800",
       iconBg: "bg-purple-500",
       icon: "A"
     }
@@ -45,58 +45,81 @@ export default function ExperienceSection() {
     {
       title: "AI Engineer Intern",
       company: "Allied Worldwide, Bengaluru",
-      period: "February 2024 - Present",
+      period: "February 2025 - Present",
       status: "Current",
-      statusColor: "bg-green-100 text-green-800",
+      statusColor: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
       description: "Designed intelligent automation tools to support business operations and sales efficiency. Streamlined lead generation by building an AI-powered LinkedIn outreach system, aligning technical automation with sales strategy. Saved 5+ hours/week for teams by automating reporting workflows using Python and SQL. Structured unorganized lead data from external sources, enhancing CRM efficiency and business decision-making.",
       metrics: [
-        { label: "Saved per week", value: "5+ hrs", color: "text-blue-600" },
-        { label: "Process efficiency", value: "65%", color: "text-green-600" }
+        { label: "Time Saved per Week", value: "5+ hrs", color: "text-blue-600" },
+        { label: "Process Efficiency", value: "65%", color: "text-green-600" }
       ],
       dotColor: "bg-green-500",
       side: "right"
     },
     {
-      title: "ML Research Intern",
-      company: "KNU, South Korea",
-      period: "Dec 2024 - Present",
-      status: "Research",
-      statusColor: "bg-red-100 text-red-800",
-      description: "Enhanced data pipelines through structured feature engineering, improving downstream analytics. Boosted ML model accuracy to support better forecasting—translating data patterns into actionable insights.",
+      title: "Machine Learning Engineer Intern",
+      company: "Kovan Labs, Coimbatore",
+      period: "March 2024 - August 2024",
+      status: "ML Focus",
+      statusColor: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+      description: "Reduced manual support workload by 65% by fine-tuning Llama models using LLM-powered RAG systems. Ensured data integrity by validating datasets with engineers and product leads.",
       metrics: [
-        { label: "Model accuracy boost", value: "15%", color: "text-red-600" },
-        { label: "Research scope", value: "Global", color: "text-orange-600" }
+        { label: "Support Load Reduction", value: "65%", color: "text-purple-600" },
+        { label: "Model Implementation", value: "RAG", color: "text-indigo-600" }
       ],
-      dotColor: "bg-red-500",
+      dotColor: "bg-purple-500",
       side: "left"
     },
     {
-      title: "Machine Learning Intern",
-      company: "Kovan Labs, Coimbatore",
-      period: "March 2023 - August 2024",
-      status: "ML Focus",
-      statusColor: "bg-purple-100 text-purple-800",
-      description: "Reduced manual support load by 65% through RAG-based Llama model fine-tuning, enabling scalable AI integration. Collaborated with cross-functional stakeholders to ensure data relevance and model alignment with business goals.",
+      title: "Research Intern",
+      company: "Kyungpook National University, South Korea",
+      period: "Dec 2022 - Jan 2023",
+      status: "Research",
+      statusColor: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
+      description: "Enhanced datasets through data preparation and feature engineering. Improved classification model accuracy and interpretability by analyzing structured data patterns.",
       metrics: [
-        { label: "Support load reduction", value: "65%", color: "text-purple-600" },
-        { label: "Model implementation", value: "RAG", color: "text-indigo-600" }
+        { label: "Model Accuracy Boost", value: "15%", color: "text-red-600" },
+        { label: "Research Scope", value: "Global", color: "text-orange-600" }
       ],
-      dotColor: "bg-purple-500",
+      dotColor: "bg-red-500",
       side: "right"
     },
     {
       title: "Data Analyst Intern",
       company: "Lenovo, Pondicherry",
-      period: "August 2022 - September 2022",
+      period: "August 2022",
       status: "Foundation",
-      statusColor: "bg-yellow-100 text-yellow-800",
-      description: "Automated complex data workflows, cutting reporting time by 30% and empowering faster decisions. Cleaned and processed high-volume production data, delivering insights via Tableau for internal business analysis.",
+      statusColor: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
+      description: "Processed and cleaned large-scale operational data using Excel and Python. Automated manual data workflows, reducing reporting time by 30%. Identified data relationships within manufacturing reports to support internal analysis using Tableau.",
       metrics: [
-        { label: "Reporting time saved", value: "30%", color: "text-yellow-600" },
-        { label: "Visualization tool", value: "Tableau", color: "text-blue-600" }
+        { label: "Reporting Time Saved", value: "30%", color: "text-yellow-600" },
+        { label: "Visualization Tool", value: "Tableau", color: "text-blue-600" }
       ],
       dotColor: "bg-yellow-500",
       side: "left"
+    }
+  ];
+
+  const freelanceWork = [
+    {
+      title: "Data Analytics Consultant",
+      company: "Akshaya Tex, Tiruppur",
+      period: "2024",
+      description: "Collected and analyzed manufacturing data for textile industry. Created comprehensive data visualizations and helped navigate business growth through data-driven decisions for cotton cloth and inner garment manufacturing.",
+      metrics: [
+        { label: "Business Impact", value: "High", color: "text-green-600" },
+        { label: "Industry", value: "Textile", color: "text-blue-600" }
+      ]
+    },
+    {
+      title: "Business Intelligence Analyst",
+      company: "Metresa ITech Solutions",
+      period: "2024",
+      description: "Analyzed business data for stealth startup and provided strategic business solutions based on data insights. Delivered actionable recommendations for business optimization and growth strategies.",
+      metrics: [
+        { label: "Solutions Delivered", value: "5+", color: "text-purple-600" },
+        { label: "Startup Type", value: "Stealth", color: "text-indigo-600" }
+      ]
     }
   ];
 
@@ -143,9 +166,40 @@ export default function ExperienceSection() {
           </div>
         </div>
 
+        {/* Freelance Work */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Freelance Experience</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            {freelanceWork.map((work, index) => (
+              <Card key={index} className="p-6 shadow-lg border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 hover:shadow-xl transition-all">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl flex items-center justify-center">
+                    <span className="text-white text-lg font-bold">F</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{work.title}</h4>
+                    <p className="text-gray-600 dark:text-gray-300 mb-2">{work.company}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{work.period}</p>
+                    <p className="text-gray-700 dark:text-gray-300 mb-4">{work.description}</p>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      {work.metrics.map((metric, metricIndex) => (
+                        <div key={metricIndex} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+                          <p className={`text-lg font-bold ${metric.color}`}>{metric.value}</p>
+                          <p className="text-xs text-gray-600 dark:text-gray-400">{metric.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+
         {/* Internships Timeline */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Internships</h3>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Internships</h3>
           
           <div className="relative">
             {/* Timeline Line */}
