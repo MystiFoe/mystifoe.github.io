@@ -43,27 +43,36 @@ export default function AboutSection() {
 
         {/* Companies Section */}
         <div className="mt-20 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">I am fortunate to have worked with these companies</h3>
-          <Card className="p-8 border-blue-100">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-              <div className="flex items-center justify-center">
-                <div className="bg-red-500 text-white font-bold text-xl px-6 py-3 rounded-lg shadow-lg">
-                  Lenovo
-                </div>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">I am fortunate to have worked with these companies</h3>
+          <Card className="p-8 border-blue-100 dark:border-gray-700 bg-white dark:bg-gray-800">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
+              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <img 
+                  src="https://logos-world.net/wp-content/uploads/2020/09/Lenovo-Logo.png" 
+                  alt="Lenovo" 
+                  className="h-12 w-auto object-contain"
+                />
               </div>
-              <div className="flex items-center justify-center">
-                <div className="bg-blue-500 text-white font-bold text-xl px-6 py-3 rounded-lg shadow-lg">
+              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg px-4 py-2 rounded-lg shadow-lg">
                   Kovan Labs
                 </div>
               </div>
-              <div className="flex items-center justify-center">
-                <div className="bg-orange-500 text-white font-bold text-xl px-6 py-3 rounded-lg shadow-lg">
+              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold text-lg px-4 py-2 rounded-lg shadow-lg">
                   Allied Worldwide
                 </div>
               </div>
-              <div className="flex items-center justify-center">
-                <div className="bg-red-600 text-white font-bold text-xl px-6 py-3 rounded-lg shadow-lg">
-                  KNU
+              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <img 
+                  src="https://www.knu.ac.kr/wbbs/wbbs/user/course/image/knu_logo_en.gif" 
+                  alt="Kyungpook National University" 
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold text-lg px-4 py-2 rounded-lg shadow-lg">
+                  Freelance
                 </div>
               </div>
             </div>

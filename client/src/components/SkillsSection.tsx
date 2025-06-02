@@ -26,10 +26,10 @@ export default function SkillsSection() {
           new Chart(ctx, {
             type: 'radar',
             data: {
-              labels: ['Python', 'Machine Learning', 'Data Visualization', 'Business Analytics', 'Deep Learning', 'SQL', 'Cloud Computing', 'Statistical Analysis'],
+              labels: ['Data Analytics', 'Business Intelligence', 'Machine Learning', 'AI Development', 'Statistical Analysis', 'Data Visualization'],
               datasets: [{
-                label: 'Proficiency Level',
-                data: [95, 90, 95, 92, 85, 88, 80, 93],
+                label: 'Focus Areas',
+                data: [95, 92, 88, 85, 90, 95],
                 backgroundColor: 'rgba(59, 130, 246, 0.1)',
                 borderColor: 'rgba(59, 130, 246, 1)',
                 borderWidth: 2,
@@ -69,38 +69,46 @@ export default function SkillsSection() {
     {
       title: "Data Analytics & Visualization",
       icon: BarChart3,
-      bgColor: "bg-blue-100",
-      iconColor: "text-blue-600",
-      proficiency: 95,
-      skills: ["Power BI", "Tableau", "Excel"],
-      skillIcons: [Database, BarChart3, FileSpreadsheet]
+      bgColor: "bg-blue-100 dark:bg-blue-900",
+      iconColor: "text-blue-600 dark:text-blue-400",
+      skills: [
+        { name: "Power BI", logo: "https://logos-world.net/wp-content/uploads/2022/02/Microsoft-Power-BI-Symbol.png" },
+        { name: "Tableau", logo: "https://logos-world.net/wp-content/uploads/2021/10/Tableau-Logo.png" },
+        { name: "Excel", logo: "https://logos-world.net/wp-content/uploads/2020/12/Excel-Logo.png" }
+      ]
     },
     {
       title: "Data Science & Machine Learning",
       icon: Brain,
-      bgColor: "bg-purple-100",
-      iconColor: "text-purple-600",
-      proficiency: 90,
-      skills: ["Python", "Pandas", "Scikit-learn"],
-      skillIcons: [Code, Database, TrendingUp]
+      bgColor: "bg-purple-100 dark:bg-purple-900",
+      iconColor: "text-purple-600 dark:text-purple-400",
+      skills: [
+        { name: "Python", logo: "https://logos-world.net/wp-content/uploads/2021/10/Python-Logo.png" },
+        { name: "Pandas", logo: "https://pandas.pydata.org/static/img/pandas_white.svg" },
+        { name: "Scikit-learn", logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" }
+      ]
     },
     {
-      title: "Generative AI & Deep Learning",
+      title: "AI & Machine Learning",
       icon: Cpu,
-      bgColor: "bg-indigo-100",
-      iconColor: "text-indigo-600",
-      proficiency: 85,
-      skills: ["OpenAI", "Hugging Face", "TensorFlow"],
-      skillIcons: [Cpu, Brain, Settings]
+      bgColor: "bg-indigo-100 dark:bg-indigo-900",
+      iconColor: "text-indigo-600 dark:text-indigo-400",
+      skills: [
+        { name: "TensorFlow", logo: "https://logos-world.net/wp-content/uploads/2021/10/TensorFlow-Logo.png" },
+        { name: "OpenAI", logo: "https://cdn.worldvectorlogo.com/logos/openai-2.svg" },
+        { name: "Hugging Face", logo: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg" }
+      ]
     },
     {
-      title: "Business Analytics & Strategy",
+      title: "Business Intelligence",
       icon: TrendingUp,
-      bgColor: "bg-emerald-100",
-      iconColor: "text-emerald-600",
-      proficiency: 92,
-      skills: ["Notion", "Power BI", "Google Data Studio"],
-      skillIcons: [FileSpreadsheet, BarChart3, Database]
+      bgColor: "bg-emerald-100 dark:bg-emerald-900",
+      iconColor: "text-emerald-600 dark:text-emerald-400",
+      skills: [
+        { name: "SQL", logo: "https://www.svgrepo.com/show/331760/sql-database-generic.svg" },
+        { name: "MongoDB", logo: "https://logos-world.net/wp-content/uploads/2020/12/MongoDB-Logo.png" },
+        { name: "Google Data Studio", logo: "https://logos-world.net/wp-content/uploads/2021/02/Google-Data-Studio-Logo.png" }
+      ]
     }
   ];
 
@@ -119,29 +127,28 @@ export default function SkillsSection() {
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
-              <Card key={index} className="p-6 shadow-lg border-gray-100 hover:shadow-xl transition-all transform hover:scale-105">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-lg text-gray-900">{category.title}</h3>
-                  <div className={`w-10 h-10 ${category.bgColor} rounded-lg flex items-center justify-center`}>
+              <Card key={index} className="p-6 shadow-lg border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 hover:shadow-xl transition-all transform hover:scale-105">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="font-bold text-lg text-gray-900 dark:text-white">{category.title}</h3>
+                  <div className={`w-12 h-12 ${category.bgColor} rounded-lg flex items-center justify-center`}>
                     <IconComponent className={`w-6 h-6 ${category.iconColor}`} />
                   </div>
                 </div>
                 
                 <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => {
-                    const SkillIcon = category.skillIcons[skillIndex];
-                    return (
-                      <div key={skillIndex} className="flex items-center space-x-3">
-                        <SkillIcon className="w-5 h-5 text-gray-500" />
-                        <span className="text-sm font-medium">{skill}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-                
-                <div className="mt-4 pt-4 border-t border-gray-100">
-                  <Progress value={category.proficiency} className="h-2 mb-2" />
-                  <p className="text-xs text-gray-500">Proficiency: {category.proficiency}%</p>
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                      <img 
+                        src={skill.logo} 
+                        alt={skill.name}
+                        className="w-6 h-6 object-contain"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+                    </div>
+                  ))}
                 </div>
               </Card>
             );
