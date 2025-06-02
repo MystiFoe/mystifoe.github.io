@@ -189,20 +189,20 @@
   animation: modern-glow 2s ease-in-out infinite;
 }
 
-@keyframes cyber-pulse {
+@keyframes modern-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
   }
 }
 
-.animate-cyber-pulse {
-  animation: cyber-pulse 2s infinite;
+.animate-modern-pulse {
+  animation: modern-pulse 2s infinite;
 }
 
 @keyframes typing {
