@@ -89,12 +89,12 @@ export default function SkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gray-800">
+    <section id="skills" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in">
-          <h2 className="text-4xl font-bold text-white mb-4">Technical Arsenal</h2>
-          <div className="w-24 h-1 bg-green-400 mx-auto rounded mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Technical Arsenal</h2>
+          <div className="w-24 h-1 bg-blue-600 mx-auto rounded mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Comprehensive expertise across the data science and AI technology stack
           </p>
         </div>
@@ -103,24 +103,24 @@ export default function SkillsSection() {
           {skillCategories.map((category, categoryIndex) => (
             <Card 
               key={categoryIndex} 
-              className={`p-6 bg-gray-900/90 backdrop-blur-lg border ${category.borderColor} hover:border-opacity-60 transition-all github-card-hover cursor-glow`}
+              className={`p-6 bg-white/90 backdrop-blur-lg border-2 ${category.borderColor} hover:border-opacity-80 hover:shadow-xl transition-all github-card-hover cursor-glow`}
             >
               <div className="flex items-center mb-6">
-                <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center mr-4 animate-matrix-glow`}>
+                <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center mr-4 shadow-lg`}>
                   <category.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white">{category.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900">{category.title}</h3>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 {category.skills.map((skill, skillIndex) => (
                   <div 
                     key={skillIndex} 
-                    className={`flex items-center justify-between p-3 bg-gray-800/60 rounded-lg border border-gray-700/50 hover:border-gray-600 transition-all stagger-${skillIndex % 5 + 1}`}
+                    className={`flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all stagger-${skillIndex % 5 + 1}`}
                   >
                     <div className="flex items-center space-x-2">
-                      <skill.icon className="w-4 h-4 text-gray-400" />
-                      <span className="text-gray-300 font-medium text-sm">{skill.name}</span>
+                      <skill.icon className="w-4 h-4 text-gray-600" />
+                      <span className="text-gray-800 font-medium text-sm">{skill.name}</span>
                     </div>
                     <Badge className={`text-xs px-2 py-1 ${getLevelColor(skill.level)}`}>
                       {skill.level}
@@ -134,39 +134,39 @@ export default function SkillsSection() {
 
         {/* Technical Proficiency Overview */}
         <div className="mt-16 slide-up">
-          <Card className="p-8 bg-gray-900/90 backdrop-blur-lg border border-green-500/30 hover:border-green-400/50 transition-all">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center">
-              <Zap className="w-6 h-6 mr-3 text-green-400" />
+          <Card className="p-8 bg-gradient-to-br from-blue-50 to-indigo-50 backdrop-blur-lg border-2 border-blue-200 hover:border-blue-300 hover:shadow-xl transition-all">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
+              <Zap className="w-6 h-6 mr-3 text-blue-600" />
               Impact Metrics
             </h3>
             <div className="grid md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3 animate-cyber-pulse">
-                  <Database className="w-8 h-8 text-green-400" />
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg transform hover:scale-110 transition-transform">
+                  <Database className="w-8 h-8 text-blue-600" />
                 </div>
-                <p className="text-3xl font-bold text-green-400 mb-1">500+</p>
-                <p className="text-gray-400 text-sm">Data Models Built</p>
+                <p className="text-3xl font-bold text-blue-600 mb-1">500+</p>
+                <p className="text-gray-600 text-sm">Data Models Built</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3 animate-cyber-pulse" style={{animationDelay: '0.5s'}}>
-                  <BarChart3 className="w-8 h-8 text-blue-400" />
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg transform hover:scale-110 transition-transform">
+                  <BarChart3 className="w-8 h-8 text-green-600" />
                 </div>
-                <p className="text-3xl font-bold text-blue-400 mb-1">50+</p>
-                <p className="text-gray-400 text-sm">Dashboards Created</p>
+                <p className="text-3xl font-bold text-green-600 mb-1">50+</p>
+                <p className="text-gray-600 text-sm">Dashboards Created</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3 animate-cyber-pulse" style={{animationDelay: '1s'}}>
-                  <Bot className="w-8 h-8 text-purple-400" />
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg transform hover:scale-110 transition-transform">
+                  <Bot className="w-8 h-8 text-purple-600" />
                 </div>
-                <p className="text-3xl font-bold text-purple-400 mb-1">20+</p>
-                <p className="text-gray-400 text-sm">AI Solutions Deployed</p>
+                <p className="text-3xl font-bold text-purple-600 mb-1">20+</p>
+                <p className="text-gray-600 text-sm">AI Solutions Deployed</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-3 animate-cyber-pulse" style={{animationDelay: '1.5s'}}>
-                  <TrendingUp className="w-8 h-8 text-orange-400" />
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg transform hover:scale-110 transition-transform">
+                  <TrendingUp className="w-8 h-8 text-orange-600" />
                 </div>
-                <p className="text-3xl font-bold text-orange-400 mb-1">90%</p>
-                <p className="text-gray-400 text-sm">Process Optimization</p>
+                <p className="text-3xl font-bold text-orange-600 mb-1">90%</p>
+                <p className="text-gray-600 text-sm">Process Optimization</p>
               </div>
             </div>
           </Card>
