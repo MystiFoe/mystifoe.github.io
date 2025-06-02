@@ -20,22 +20,34 @@ export default function ExperienceSection() {
         { label: "Students Empowered", value: "300+", color: "text-blue-600" },
         { label: "Team Members", value: "30", color: "text-blue-600" }
       ],
-      bgColor: "from-blue-50 to-indigo-50 dark:from-blue-900 dark:to-indigo-900",
-      borderColor: "border-blue-100 dark:border-blue-800",
+      bgColor: "from-blue-50 to-indigo-50",
+      borderColor: "border-blue-100",
       iconBg: "bg-blue-500",
       icon: "G"
     },
     {
+      title: "Microsoft Learn Student Ambassador",
+      organization: "Microsoft",
+      description: "Educated peers on data analysis and AI through workshops and global collaborations. Translated complex technical concepts into business-relevant skills, helping students and startups alike adopt a more strategic mindset towards technology.",
+      metrics: [
+        { label: "Workshops Conducted", value: "20+", color: "text-blue-600" },
+        { label: "Global Reach", value: "500+", color: "text-green-600" }
+      ],
+      bgColor: "from-blue-50 to-cyan-50",
+      borderColor: "border-blue-100",
+      iconBg: "bg-blue-600",
+      icon: "M"
+    },
+    {
       title: "President - ArtificGenix",
-      subtitle: "Microsoft Learn Student Ambassador",
-      organization: "ArtificGenix & Microsoft",
+      organization: "ArtificGenix",
       description: "Spearheaded initiatives that blended technical knowledge with business insight. Worked with industry leaders to host events that emphasized real-world AI applications in business, fostering leadership and organizational impact across a community of 400+ students.",
       metrics: [
         { label: "Community Members", value: "400+", color: "text-purple-600" },
         { label: "Tech Events", value: "15+", color: "text-purple-600" }
       ],
-      bgColor: "from-purple-50 to-pink-50 dark:from-purple-900 dark:to-pink-900",
-      borderColor: "border-purple-100 dark:border-purple-800",
+      bgColor: "from-purple-50 to-pink-50",
+      borderColor: "border-purple-100",
       iconBg: "bg-purple-500",
       icon: "A"
     }
@@ -134,72 +146,9 @@ export default function ExperienceSection() {
           </p>
         </div>
 
-        {/* Leadership Section */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Leadership</h3>
-          <div className="grid md:grid-cols-2 gap-8">
-            {leadership.map((item, index) => (
-              <Card key={index} className={`bg-gradient-to-br ${item.bgColor} p-8 ${item.borderColor} hover:shadow-xl transition-all`}>
-                <div className="flex items-start space-x-4">
-                  <div className={`w-16 h-16 ${item.iconBg} rounded-xl flex items-center justify-center`}>
-                    <span className="text-white text-2xl font-bold">{item.icon}</span>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h4>
-                    {item.subtitle && (
-                      <p className="text-lg font-semibold text-gray-700 mb-2">{item.subtitle}</p>
-                    )}
-                    <p className="text-gray-700 mb-4">{item.description}</p>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      {item.metrics.map((metric, metricIndex) => (
-                        <div key={metricIndex} className="bg-white rounded-lg p-3">
-                          <p className={`text-2xl font-bold ${metric.color}`}>{metric.value}</p>
-                          <p className="text-sm text-gray-600">{metric.label}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Freelance Work */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Freelance Experience</h3>
-          <div className="grid md:grid-cols-2 gap-8">
-            {freelanceWork.map((work, index) => (
-              <Card key={index} className="p-6 shadow-lg border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 hover:shadow-xl transition-all">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl flex items-center justify-center">
-                    <span className="text-white text-lg font-bold">F</span>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{work.title}</h4>
-                    <p className="text-gray-600 dark:text-gray-300 mb-2">{work.company}</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{work.period}</p>
-                    <p className="text-gray-700 dark:text-gray-300 mb-4">{work.description}</p>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      {work.metrics.map((metric, metricIndex) => (
-                        <div key={metricIndex} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
-                          <p className={`text-lg font-bold ${metric.color}`}>{metric.value}</p>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">{metric.label}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-
         {/* Internships Timeline */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Internships</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Experience</h3>
           
           <div className="relative">
             {/* Timeline Line */}

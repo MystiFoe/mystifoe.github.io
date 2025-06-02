@@ -9,16 +9,8 @@ export default function AboutSection() {
           <div className="w-24 h-1 bg-blue-600 mx-auto rounded"></div>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="fade-in">
-            <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600" 
-              alt="Modern data analytics dashboard" 
-              className="rounded-xl shadow-2xl" 
-            />
-          </div>
-          
-          <div className="space-y-6 slide-up">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-6 slide-up text-center">
             <p className="text-lg text-gray-700 leading-relaxed">
               Experienced in <span className="font-semibold text-blue-600">Data Science, Machine Learning, and Business Intelligence</span>. I apply advanced analytics and AI to solve complex business problems. Through global internships and research, I turn complex data into actionable insights that drive measurable results.
             </p>
@@ -26,53 +18,53 @@ export default function AboutSection() {
             <p className="text-lg text-gray-700 leading-relaxed">
               I bridge technology and business by automating processes, optimizing ML models, and building decision-support dashboards. Collaborating with clients and teams across the <span className="font-semibold text-blue-600">UK, US, South Korea, and enterprise environments</span>, I deliver data-driven solutions that combine technical expertise with business impact.
             </p>
-            
-            {/* Key Achievements */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
-              <Card className="bg-blue-50 p-4 border-blue-100">
-                <h4 className="font-semibold text-blue-700 mb-2">Global Experience</h4>
-                <p className="text-sm text-gray-600">UK, US, South Korea</p>
-              </Card>
-              <Card className="bg-emerald-50 p-4 border-emerald-100">
-                <h4 className="font-semibold text-emerald-700 mb-2">Google Certified</h4>
-                <p className="text-sm text-gray-600">Business Intelligence & Analytics</p>
-              </Card>
-            </div>
           </div>
         </div>
 
         {/* Companies Section */}
         <div className="mt-20 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">I am fortunate to have worked with these companies</h3>
-          <Card className="p-8 border-blue-100 dark:border-gray-700 bg-white dark:bg-gray-800">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
-              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
-                <img 
-                  src="https://logos-world.net/wp-content/uploads/2020/09/Lenovo-Logo.png" 
-                  alt="Lenovo" 
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg px-4 py-2 rounded-lg shadow-lg">
-                  Kovan Labs
+          <h3 className="text-2xl font-bold text-gray-900 mb-8">I am fortunate to have worked with these companies</h3>
+          <Card className="p-8 border-blue-100 bg-white shadow-lg">
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
+              {/* Lenovo */}
+              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-lg shadow-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">LOGO</span>
                 </div>
               </div>
-              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
-                <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold text-lg px-4 py-2 rounded-lg shadow-lg">
-                  Allied Worldwide
+              
+              {/* Kovan Labs */}
+              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">LOGO</span>
                 </div>
               </div>
-              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
-                <img 
-                  src="https://www.knu.ac.kr/wbbs/wbbs/user/course/image/knu_logo_en.gif" 
-                  alt="Kyungpook National University" 
-                  className="h-12 w-auto object-contain"
-                />
+              
+              {/* Allied Worldwide */}
+              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg shadow-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">LOGO</span>
+                </div>
               </div>
-              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
-                <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold text-lg px-4 py-2 rounded-lg shadow-lg">
-                  Freelance
+              
+              {/* Kyungpook National University */}
+              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-lg shadow-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">LOGO</span>
+                </div>
+              </div>
+              
+              {/* Akshaya Tex */}
+              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg shadow-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">LOGO</span>
+                </div>
+              </div>
+              
+              {/* Metresa ITech Solutions */}
+              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg shadow-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">LOGO</span>
                 </div>
               </div>
             </div>
