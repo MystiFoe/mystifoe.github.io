@@ -232,6 +232,66 @@ export default function ExperienceSection() {
             </div>
           </div>
         </div>
+
+        {/* Freelance Work */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Freelance Experience</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            {freelanceWork.map((work, index) => (
+              <Card key={index} className="p-6 shadow-lg border-gray-100 bg-white hover:shadow-xl transition-all">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl flex items-center justify-center">
+                    <span className="text-white text-lg font-bold">LOGO</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-xl font-bold text-gray-900 mb-1">{work.title}</h4>
+                    <p className="text-gray-600 mb-2">{work.company}</p>
+                    <p className="text-sm text-gray-500 mb-3">{work.period}</p>
+                    <p className="text-gray-700 mb-4">{work.description}</p>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      {work.metrics.map((metric, metricIndex) => (
+                        <div key={metricIndex} className="bg-gray-50 rounded-lg p-3">
+                          <p className={`text-lg font-bold ${metric.color}`}>{metric.value}</p>
+                          <p className="text-xs text-gray-600">{metric.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Leadership Section */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Leadership</h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            {leadership.map((item, index) => (
+              <Card key={index} className={`bg-gradient-to-br ${item.bgColor} p-6 ${item.borderColor} hover:shadow-xl transition-all transform hover:scale-105`}>
+                <div className="flex flex-col items-center text-center">
+                  <div className={`w-16 h-16 ${item.iconBg} rounded-xl flex items-center justify-center mb-4`}>
+                    <span className="text-white text-2xl font-bold">{item.icon}</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
+                    <p className="text-gray-700 mb-4 text-sm">{item.description}</p>
+                    
+                    <div className="grid grid-cols-2 gap-3">
+                      {item.metrics.map((metric, metricIndex) => (
+                        <div key={metricIndex} className="bg-white/80 rounded-lg p-2">
+                          <p className={`text-lg font-bold ${metric.color}`}>{metric.value}</p>
+                          <p className="text-xs text-gray-600">{metric.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

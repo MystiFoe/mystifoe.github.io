@@ -153,35 +153,7 @@ export default function ProjectsSection() {
             );
           })}
         </div>
-        
-        {/* Data to Decisions Visualization */}
-        <div className="mt-16">
-          <Card className="p-8 shadow-lg border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center flex items-center justify-center">
-              <Zap className="w-6 h-6 mr-3 text-yellow-500" />
-              Data to Decisions Journey
-            </h3>
-            <div className="grid md:grid-cols-5 gap-4">
-              {[
-                { step: "Collect", icon: "📊", color: "bg-blue-100 dark:bg-blue-900" },
-                { step: "Analyze", icon: "🔍", color: "bg-purple-100 dark:bg-purple-900" },
-                { step: "Visualize", icon: "📈", color: "bg-green-100 dark:bg-green-900" },
-                { step: "Insights", icon: "💡", color: "bg-yellow-100 dark:bg-yellow-900" },
-                { step: "Decisions", icon: "🎯", color: "bg-red-100 dark:bg-red-900" }
-              ].map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className={`w-16 h-16 ${item.color} rounded-full flex items-center justify-center mx-auto mb-3 text-2xl`}>
-                    {item.icon}
-                  </div>
-                  <p className="font-semibold text-gray-900 dark:text-white">{item.step}</p>
-                  {index < 4 && (
-                    <div className="hidden md:block absolute mt-8 ml-16 w-8 h-0.5 bg-gray-300 dark:bg-gray-600"></div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </Card>
-        </div>
+
       </div>
     </section>
   );
