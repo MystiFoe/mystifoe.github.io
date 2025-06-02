@@ -1,169 +1,176 @@
-import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
 import { 
+  Database, 
   BarChart3, 
   Brain, 
-  Database, 
+  Code2,
   TrendingUp,
-  Code,
+  Zap,
+  PieChart,
+  LineChart,
+  Bot,
+  Calculator,
   FileSpreadsheet,
-  Cpu,
-  Settings
+  Activity
 } from "lucide-react";
 
 export default function SkillsSection() {
-  const chartRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    // Initialize Chart.js radar chart
-    const initChart = async () => {
-      const Chart = (await import('chart.js/auto')).default;
-      
-      if (chartRef.current) {
-        const ctx = chartRef.current.getContext('2d');
-        if (ctx) {
-          new Chart(ctx, {
-            type: 'radar',
-            data: {
-              labels: ['Data Analytics', 'Business Intelligence', 'Machine Learning', 'AI Development', 'Statistical Analysis', 'Data Visualization'],
-              datasets: [{
-                label: 'Focus Areas',
-                data: [95, 92, 88, 85, 90, 95],
-                backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                borderColor: 'rgba(59, 130, 246, 1)',
-                borderWidth: 2,
-                pointBackgroundColor: 'rgba(59, 130, 246, 1)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(59, 130, 246, 1)'
-              }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              scales: {
-                r: {
-                  beginAtZero: true,
-                  max: 100,
-                  ticks: {
-                    stepSize: 20
-                  }
-                }
-              },
-              plugins: {
-                legend: {
-                  display: false
-                }
-              }
-            }
-          });
-        }
-      }
-    };
-
-    initChart();
-  }, []);
-
   const skillCategories = [
     {
-      title: "Data Analytics & Visualization",
-      icon: BarChart3,
-      bgColor: "bg-blue-100 dark:bg-blue-900",
-      iconColor: "text-blue-600 dark:text-blue-400",
+      title: "Data Analytics & Data Science",
+      icon: Database,
+      color: "from-blue-500 to-cyan-500",
+      borderColor: "border-blue-500/30",
       skills: [
-        { name: "Power BI", logo: "https://logos-world.net/wp-content/uploads/2022/02/Microsoft-Power-BI-Symbol.png" },
-        { name: "Tableau", logo: "https://logos-world.net/wp-content/uploads/2021/10/Tableau-Logo.png" },
-        { name: "Excel", logo: "https://logos-world.net/wp-content/uploads/2020/12/Excel-Logo.png" }
+        { name: "Python", icon: Code2, level: "Expert" },
+        { name: "SQL", icon: Database, level: "Expert" },
+        { name: "R", icon: Activity, level: "Advanced" },
+        { name: "Pandas", icon: FileSpreadsheet, level: "Expert" },
+        { name: "NumPy", icon: Calculator, level: "Expert" },
+        { name: "Scikit-learn", icon: Brain, level: "Advanced" },
+        { name: "Jupyter", icon: Code2, level: "Expert" }
       ]
     },
     {
-      title: "Data Science & Machine Learning",
-      icon: Brain,
-      bgColor: "bg-purple-100 dark:bg-purple-900",
-      iconColor: "text-purple-600 dark:text-purple-400",
-      skills: [
-        { name: "Python", logo: "https://logos-world.net/wp-content/uploads/2021/10/Python-Logo.png" },
-        { name: "Pandas", logo: "https://pandas.pydata.org/static/img/pandas_white.svg" },
-        { name: "Scikit-learn", logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" }
-      ]
-    },
-    {
-      title: "AI & Machine Learning",
-      icon: Cpu,
-      bgColor: "bg-indigo-100 dark:bg-indigo-900",
-      iconColor: "text-indigo-600 dark:text-indigo-400",
-      skills: [
-        { name: "TensorFlow", logo: "https://logos-world.net/wp-content/uploads/2021/10/TensorFlow-Logo.png" },
-        { name: "OpenAI", logo: "https://cdn.worldvectorlogo.com/logos/openai-2.svg" },
-        { name: "Hugging Face", logo: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg" }
-      ]
-    },
-    {
-      title: "Business Intelligence",
+      title: "Business Analytics & Strategy",
       icon: TrendingUp,
-      bgColor: "bg-emerald-100 dark:bg-emerald-900",
-      iconColor: "text-emerald-600 dark:text-emerald-400",
+      color: "from-green-500 to-emerald-500",
+      borderColor: "border-green-500/30",
       skills: [
-        { name: "SQL", logo: "https://www.svgrepo.com/show/331760/sql-database-generic.svg" },
-        { name: "MongoDB", logo: "https://logos-world.net/wp-content/uploads/2020/12/MongoDB-Logo.png" },
-        { name: "Google Data Studio", logo: "https://logos-world.net/wp-content/uploads/2021/02/Google-Data-Studio-Logo.png" }
+        { name: "Tableau", icon: BarChart3, level: "Expert" },
+        { name: "Power BI", icon: PieChart, level: "Advanced" },
+        { name: "Excel", icon: FileSpreadsheet, level: "Expert" },
+        { name: "Google Analytics", icon: LineChart, level: "Advanced" },
+        { name: "Looker", icon: BarChart3, level: "Intermediate" },
+        { name: "QlikView", icon: PieChart, level: "Intermediate" },
+        { name: "Business Intelligence", icon: TrendingUp, level: "Expert" }
+      ]
+    },
+    {
+      title: "AI & Large Language Models",
+      icon: Bot,
+      color: "from-purple-500 to-pink-500",
+      borderColor: "border-purple-500/30",
+      skills: [
+        { name: "OpenAI GPT", icon: Bot, level: "Advanced" },
+        { name: "LangChain", icon: Zap, level: "Advanced" },
+        { name: "Hugging Face", icon: Brain, level: "Intermediate" },
+        { name: "RAG Systems", icon: Database, level: "Advanced" },
+        { name: "Prompt Engineering", icon: Code2, level: "Expert" },
+        { name: "AI Automation", icon: Zap, level: "Advanced" },
+        { name: "Chatbot Development", icon: Bot, level: "Advanced" }
+      ]
+    },
+    {
+      title: "Machine Learning & Deep Learning",
+      icon: Brain,
+      color: "from-orange-500 to-red-500",
+      borderColor: "border-orange-500/30",
+      skills: [
+        { name: "TensorFlow", icon: Brain, level: "Advanced" },
+        { name: "PyTorch", icon: Brain, level: "Intermediate" },
+        { name: "Keras", icon: Activity, level: "Advanced" },
+        { name: "Computer Vision", icon: Brain, level: "Intermediate" },
+        { name: "NLP", icon: Bot, level: "Advanced" },
+        { name: "Time Series", icon: LineChart, level: "Advanced" },
+        { name: "MLOps", icon: Zap, level: "Intermediate" }
       ]
     }
   ];
 
+  const getLevelColor = (level: string) => {
+    switch (level) {
+      case "Expert": return "bg-green-500/20 text-green-400 border-green-500/50";
+      case "Advanced": return "bg-blue-500/20 text-blue-400 border-blue-500/50";
+      case "Intermediate": return "bg-yellow-500/20 text-yellow-400 border-yellow-500/50";
+      default: return "bg-gray-500/20 text-gray-400 border-gray-500/50";
+    }
+  };
+
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section id="skills" className="py-20 bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">What I Do</h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto rounded mb-4"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Interactive dashboard showcasing technical expertise and business impact across multiple domains
+        <div className="text-center mb-16 fade-in">
+          <h2 className="text-4xl font-bold text-white mb-4">Technical Arsenal</h2>
+          <div className="w-24 h-1 bg-green-400 mx-auto rounded mb-6"></div>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Comprehensive expertise across the data science and AI technology stack
           </p>
         </div>
-        
-        <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-16">
-          {skillCategories.map((category, index) => {
-            const IconComponent = category.icon;
-            return (
-              <Card key={index} className="p-6 shadow-lg border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 hover:shadow-xl transition-all transform hover:scale-105">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="font-bold text-lg text-gray-900 dark:text-white">{category.title}</h3>
-                  <div className={`w-12 h-12 ${category.bgColor} rounded-lg flex items-center justify-center`}>
-                    <IconComponent className={`w-6 h-6 ${category.iconColor}`} />
-                  </div>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {skillCategories.map((category, categoryIndex) => (
+            <Card 
+              key={categoryIndex} 
+              className={`p-6 bg-gray-900/90 backdrop-blur-lg border ${category.borderColor} hover:border-opacity-60 transition-all github-card-hover cursor-glow`}
+            >
+              <div className="flex items-center mb-6">
+                <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center mr-4 animate-matrix-glow`}>
+                  <category.icon className="w-6 h-6 text-white" />
                 </div>
-                
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-                      <img 
-                        src={skill.logo} 
-                        alt={skill.name}
-                        className="w-6 h-6 object-contain"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                        }}
-                      />
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+                <h3 className="text-xl font-bold text-white">{category.title}</h3>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                {category.skills.map((skill, skillIndex) => (
+                  <div 
+                    key={skillIndex} 
+                    className={`flex items-center justify-between p-3 bg-gray-800/60 rounded-lg border border-gray-700/50 hover:border-gray-600 transition-all stagger-${skillIndex % 5 + 1}`}
+                  >
+                    <div className="flex items-center space-x-2">
+                      <skill.icon className="w-4 h-4 text-gray-400" />
+                      <span className="text-gray-300 font-medium text-sm">{skill.name}</span>
                     </div>
-                  ))}
-                </div>
-              </Card>
-            );
-          })}
+                    <Badge className={`text-xs px-2 py-1 ${getLevelColor(skill.level)}`}>
+                      {skill.level}
+                    </Badge>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          ))}
         </div>
 
-        {/* Interactive Skills Chart */}
-        <Card className="p-8 shadow-lg border-gray-100">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-            Technical Proficiency Overview
-          </h3>
-          <div className="max-w-4xl mx-auto" style={{ height: '400px' }}>
-            <canvas ref={chartRef}></canvas>
-          </div>
-        </Card>
+        {/* Technical Proficiency Overview */}
+        <div className="mt-16 slide-up">
+          <Card className="p-8 bg-gray-900/90 backdrop-blur-lg border border-green-500/30 hover:border-green-400/50 transition-all">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center">
+              <Zap className="w-6 h-6 mr-3 text-green-400" />
+              Impact Metrics
+            </h3>
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3 animate-cyber-pulse">
+                  <Database className="w-8 h-8 text-green-400" />
+                </div>
+                <p className="text-3xl font-bold text-green-400 mb-1">500+</p>
+                <p className="text-gray-400 text-sm">Data Models Built</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3 animate-cyber-pulse" style={{animationDelay: '0.5s'}}>
+                  <BarChart3 className="w-8 h-8 text-blue-400" />
+                </div>
+                <p className="text-3xl font-bold text-blue-400 mb-1">50+</p>
+                <p className="text-gray-400 text-sm">Dashboards Created</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3 animate-cyber-pulse" style={{animationDelay: '1s'}}>
+                  <Bot className="w-8 h-8 text-purple-400" />
+                </div>
+                <p className="text-3xl font-bold text-purple-400 mb-1">20+</p>
+                <p className="text-gray-400 text-sm">AI Solutions Deployed</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-3 animate-cyber-pulse" style={{animationDelay: '1.5s'}}>
+                  <TrendingUp className="w-8 h-8 text-orange-400" />
+                </div>
+                <p className="text-3xl font-bold text-orange-400 mb-1">90%</p>
+                <p className="text-gray-400 text-sm">Process Optimization</p>
+              </div>
+            </div>
+          </Card>
+        </div>
       </div>
     </section>
   );
