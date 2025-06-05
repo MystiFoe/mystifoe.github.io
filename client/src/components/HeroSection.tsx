@@ -4,6 +4,12 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, Building, Globe, Award, CheckCircle, Code, Database, Brain } from "lucide-react";
 import profileImage from "@assets/1728054411169-removebg-preview.png";
+import alliedWorldwideImage from "@assets/Allied Worldwide.png";
+import kovanLabsImage from "@assets/Kovan labs.png";
+import knuImage from "@assets/KNU.png";
+import lenovoImage from "@assets/lenovo.png";
+import metresaImage from "@assets/Metresa.png";
+import akshayaTexImage from "@assets/Akshaya Tex.png";
 
 interface AnimatedCounterProps {
   target: number;
@@ -41,6 +47,15 @@ export default function HeroSection() {
     }
   };
 
+  const companyLogos = [
+    { name: "Allied Worldwide", image: alliedWorldwideImage },
+    { name: "Kovan Labs", image: kovanLabsImage },
+    { name: "KNU", image: knuImage },
+    { name: "Lenovo", image: lenovoImage },
+    { name: "Metresa", image: metresaImage },
+    { name: "Akshaya Tex", image: akshayaTexImage }
+  ];
+
   return (
     <section id="hero" className="pt-16 min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden cursor-glow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
@@ -50,15 +65,26 @@ export default function HeroSection() {
             {/* Main Header */}
             <div>
               <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Data to{" "}
+                Giritharan{" "}
                 <span className="text-blue-600 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent typing-animation">
-                  Decisions
+                  Mani
                 </span>
               </h1>
               <p className="text-2xl text-gray-700 mb-8 font-medium">
                 <Code className="inline w-6 h-6 mr-2 text-blue-600" />
                 Digging Data, Driving Business Growth
               </p>
+            </div>
+
+            {/* CTA Button */}
+            <div className="fade-in mb-8">
+              <Button
+                onClick={scrollToContact}
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg transform hover:scale-105 transition-all shadow-xl rounded-xl font-semibold"
+              >
+                <MessageCircle className="w-5 h-5 mr-3" />
+                Hire me
+              </Button>
             </div>
 
             {/* Key Highlights */}
@@ -101,45 +127,26 @@ export default function HeroSection() {
                 </div>
               </Card>
             </div>
-
-            {/* CTA Button */}
-            <div className="fade-in">
-              <Button
-                onClick={scrollToContact}
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg transform hover:scale-105 transition-all shadow-xl rounded-xl font-semibold"
-              >
-                <MessageCircle className="w-5 h-5 mr-3" />
-                Let's Connect
-              </Button>
-            </div>
           </div>
           
           {/* Right Image Section */}
           <div className="relative slide-up">
             <div className="relative">
-              {/* Animated Background Elements */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl blur-xl animate-pulse"></div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-3xl animate-pulse-subtle"></div>
-              
               {/* Professional Image */}
-              <div className="relative z-10 w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden border border-blue-200">
+              <div className="relative z-10 w-full h-96 bg-white rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden border border-blue-200">
                 <img 
                   src={profileImage} 
                   alt="Giritharan Mani - Data Analyst & AI Expert" 
-                  className="w-80 h-80 object-cover object-top rounded-2xl"
+                  className="w-full h-full object-cover object-center rounded-2xl"
                 />
               </div>
               
-              {/* Floating Achievement Cards */}
-              <div className="absolute -top-6 -left-6 bg-white border border-blue-200 rounded-lg shadow-lg p-3 animate-float">
-                <div className="flex items-center space-x-2">
-                  <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">G</span>
-                  </div>
-                  <span className="text-sm font-medium text-blue-600">Google Certified</span>
-                </div>
+              {/* "Data to Decisions" overlay */}
+              <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm border border-blue-200 rounded-lg shadow-lg p-3">
+                <span className="text-lg font-bold text-blue-600">Data to Decisions</span>
               </div>
               
+              {/* Floating Achievement Cards */}
               <div className="absolute -bottom-6 -right-6 bg-white border border-orange-200 rounded-lg shadow-lg p-3 animate-pulse">
                 <div className="flex items-center space-x-2">
                   <Brain className="w-5 h-5 text-orange-600" />
@@ -154,6 +161,24 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Company Logos Section */}
+        <div className="mt-20 slide-up">
+          <div className="text-center mb-8">
+            <p className="text-lg text-gray-600 font-medium">I am fortunate to have worked with these companies</p>
+          </div>
+          <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12 opacity-70 hover:opacity-100 transition-opacity">
+            {companyLogos.map((company, index) => (
+              <div key={index} className="flex items-center justify-center h-12 w-24 grayscale hover:grayscale-0 transition-all transform hover:scale-110">
+                <img
+                  src={company.image}
+                  alt={`${company.name} logo`}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

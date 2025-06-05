@@ -25,7 +25,6 @@ export default function SkillsSection() {
       skills: [
         { name: "Python", icon: Code2, level: "Expert" },
         { name: "SQL", icon: Database, level: "Expert" },
-        { name: "R", icon: Activity, level: "Advanced" },
         { name: "Pandas", icon: FileSpreadsheet, level: "Expert" },
         { name: "NumPy", icon: Calculator, level: "Expert" },
         { name: "Scikit-learn", icon: Brain, level: "Advanced" },
@@ -43,7 +42,6 @@ export default function SkillsSection() {
         { name: "Excel", icon: FileSpreadsheet, level: "Expert" },
         { name: "Google Analytics", icon: LineChart, level: "Advanced" },
         { name: "Looker", icon: BarChart3, level: "Intermediate" },
-        { name: "QlikView", icon: PieChart, level: "Intermediate" },
         { name: "Business Intelligence", icon: TrendingUp, level: "Expert" }
       ]
     },
@@ -58,8 +56,7 @@ export default function SkillsSection() {
         { name: "Hugging Face", icon: Brain, level: "Intermediate" },
         { name: "RAG Systems", icon: Database, level: "Advanced" },
         { name: "Prompt Engineering", icon: Code2, level: "Expert" },
-        { name: "AI Automation", icon: Zap, level: "Advanced" },
-        { name: "Chatbot Development", icon: Bot, level: "Advanced" }
+        { name: "AI Automation", icon: Zap, level: "Advanced" }
       ]
     },
     {
@@ -73,8 +70,7 @@ export default function SkillsSection() {
         { name: "Keras", icon: Activity, level: "Advanced" },
         { name: "Computer Vision", icon: Brain, level: "Intermediate" },
         { name: "NLP", icon: Bot, level: "Advanced" },
-        { name: "Time Series", icon: LineChart, level: "Advanced" },
-        { name: "MLOps", icon: Zap, level: "Intermediate" }
+        { name: "Time Series", icon: LineChart, level: "Advanced" }
       ]
     }
   ];
@@ -144,14 +140,14 @@ export default function SkillsSection() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg transform hover:scale-110 transition-transform">
                   <Database className="w-8 h-8 text-blue-600" />
                 </div>
-                <p className="text-3xl font-bold text-blue-600 mb-1">25+</p>
+                <p className="text-3xl font-bold text-blue-600 mb-1">100+</p>
                 <p className="text-gray-600 text-sm">Data Models Built</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg transform hover:scale-110 transition-transform">
                   <BarChart3 className="w-8 h-8 text-green-600" />
                 </div>
-                <p className="text-3xl font-bold text-green-600 mb-1">15+</p>
+                <p className="text-3xl font-bold text-green-600 mb-1">25+</p>
                 <p className="text-gray-600 text-sm">Dashboards Created</p>
               </div>
               <div className="text-center">
@@ -165,7 +161,7 @@ export default function SkillsSection() {
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg transform hover:scale-110 transition-transform">
                   <TrendingUp className="w-8 h-8 text-orange-600" />
                 </div>
-                <p className="text-3xl font-bold text-orange-600 mb-1">85%</p>
+                <p className="text-3xl font-bold text-orange-600 mb-1">90%</p>
                 <p className="text-gray-600 text-sm">Process Optimization</p>
               </div>
             </div>
