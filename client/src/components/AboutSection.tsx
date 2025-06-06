@@ -1,4 +1,10 @@
 import { Card } from "@/components/ui/card";
+import alliedWorldwideImage from "@assets/Allied Worldwide.png";
+import kovanLabsImage from "@assets/Kovan labs.png";
+import knuImage from "@assets/KNU.png";
+import lenovoImage from "@assets/lenovo.png";
+import metresaImage from "@assets/Metresa.png";
+import akshayaTexImage from "@assets/Akshaya Tex.png";
 
 export default function AboutSection() {
   return (
@@ -29,7 +35,7 @@ export default function AboutSection() {
               {/* Allied Worldwide */}
               <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
                 <img
-                  src="@assets/Allied Worldwide.png"
+                  src={alliedWorldwideImage}
                   alt="Allied Worldwide logo"
                   className="w-full h-full object-contain"
                 />
@@ -38,7 +44,7 @@ export default function AboutSection() {
               {/* Kovan Labs */}
               <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
                 <img
-                  src="@assets/Kovan labs.png"
+                  src={kovanLabsImage}
                   alt="Kovan Labs logo"
                   className="w-full h-full object-contain"
                 />
@@ -47,7 +53,7 @@ export default function AboutSection() {
               {/* KNU */}
               <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
                 <img
-                  src="@assets/KNU.png"
+                  src={knuImage}
                   alt="KNU logo"
                   className="w-full h-full object-contain"
                 />
@@ -56,7 +62,7 @@ export default function AboutSection() {
               {/* Lenovo */}
               <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
                 <img
-                  src="@assets/lenovo.png"
+                  src={lenovoImage}
                   alt="Lenovo logo"
                   className="w-full h-full object-contain"
                 />
@@ -65,7 +71,7 @@ export default function AboutSection() {
               {/* Metresa */}
               <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
                 <img
-                  src="@assets/Metresa.png"
+                  src={metresaImage}
                   alt="Metresa logo"
                   className="w-full h-full object-contain"
                 />
@@ -74,7 +80,7 @@ export default function AboutSection() {
               {/* Akshaya Tex */}
               <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
                 <img
-                  src="@assets/Akshaya Tex.png"
+                  src={akshayaTexImage}
                   alt="Akshaya Tex logo"
                   className="w-full h-full object-contain"
                 />
