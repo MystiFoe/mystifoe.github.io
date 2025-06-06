@@ -59,15 +59,15 @@ export default function HeroSection() {
   return (
     <section id="hero" className="pt-16 min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden cursor-glow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+        <div className="grid lg:grid-cols-[1.8fr_1.2fr] gap-12 items-center min-h-[80vh]">
           {/* Left Content */}
           <div className="space-y-8 fade-in">
             {/* Main Header */}
             <div>
               <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Giritharan{" "}
+                Data{" "}
                 <span className="text-blue-600 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent typing-animation">
-                  Mani
+                  Analyst
                 </span>
               </h1>
               <p className="text-2xl text-gray-700 mb-8 font-medium">
@@ -96,9 +96,7 @@ export default function HeroSection() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-blue-600 mb-1">
-                    <AnimatedCounter target={5} suffix="+" />
-                  </p>
+                  <p className="text-2xl font-bold text-blue-600 mb-1">worked with <AnimatedCounter target={5} suffix="+" /></p>
                   <p className="text-xs text-gray-600">Companies</p>
                 </div>
               </Card>
@@ -130,14 +128,14 @@ export default function HeroSection() {
           </div>
           
           {/* Right Image Section */}
-          <div className="relative slide-up">
-            <div className="relative">
+          <div className="relative slide-up flex justify-end">
+            <div className="relative w-4/5 max-w-sm">
               {/* Professional Image */}
-              <div className="relative z-10 w-full h-96 bg-white rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden border border-blue-200">
+              <div className="relative z-10 w-full h-80 flex items-center justify-center overflow-hidden">
                 <img 
                   src={profileImage} 
-                  alt="Giritharan Mani - Data Analyst & AI Expert" 
-                  className="w-full h-full object-cover object-center rounded-2xl"
+                  alt="Data Analyst & AI Expert" 
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
               
@@ -164,23 +162,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Company Logos Section */}
-        <div className="mt-20 slide-up">
-          <div className="text-center mb-8">
-            <p className="text-lg text-gray-600 font-medium">I am fortunate to have worked with these companies</p>
-          </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12 opacity-70 hover:opacity-100 transition-opacity">
-            {companyLogos.map((company, index) => (
-              <div key={index} className="flex items-center justify-center h-12 w-24 grayscale hover:grayscale-0 transition-all transform hover:scale-110">
-                <img
-                  src={company.image}
-                  alt={`${company.name} logo`}
-                  className="max-h-full max-w-full object-contain"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   );

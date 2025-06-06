@@ -22,50 +22,62 @@ export default function AboutSection() {
         </div>
 
         {/* Companies Section */}
-        <div className="mt-20 text-center">
+        <div className="mt-20 text-center slide-up">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">I am fortunate to have worked with these companies</h3>
           <Card className="p-8 border-blue-100 bg-white shadow-lg">
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
-              {/* Lenovo */}
-              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-lg shadow-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">LOGO</span>
-                </div>
+            <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
+              {/* Allied Worldwide */}
+              <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <img
+                  src="@assets/Allied Worldwide.png"
+                  alt="Allied Worldwide logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               
               {/* Kovan Labs */}
-              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">LOGO</span>
-                </div>
+              <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <img
+                  src="@assets/Kovan labs.png"
+                  alt="Kovan Labs logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               
-              {/* Allied Worldwide */}
-              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg shadow-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">LOGO</span>
-                </div>
+              {/* KNU */}
+              <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <img
+                  src="@assets/KNU.png"
+                  alt="KNU logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               
-              {/* Kyungpook National University */}
-              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-lg shadow-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">LOGO</span>
-                </div>
+              {/* Lenovo */}
+              <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <img
+                  src="@assets/lenovo.png"
+                  alt="Lenovo logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              
+              {/* Metresa */}
+              <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <img
+                  src="@assets/Metresa.png"
+                  alt="Metresa logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               
               {/* Akshaya Tex */}
-              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg shadow-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">LOGO</span>
-                </div>
-              </div>
-              
-              {/* Metresa ITech Solutions */}
-              <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
-                <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg shadow-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">LOGO</span>
-                </div>
+              <div className="flex items-center justify-center w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <img
+                  src="@assets/Akshaya Tex.png"
+                  alt="Akshaya Tex logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
           </Card>

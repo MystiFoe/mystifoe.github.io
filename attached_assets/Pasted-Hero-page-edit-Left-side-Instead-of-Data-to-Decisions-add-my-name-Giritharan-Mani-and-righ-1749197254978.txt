@@ -1,0 +1,125 @@
+Hero page edit.
+
+Left side Instead of Data to Decisions , add my name Giritharan Mani.
+
+and right side, Image and Data to decsions, image must be well fit with the background frame, hero section must be well alligned.
+
+and the backgroudn animation can be removed that backgroudn set backgrund of the image or else make it well seenable.
+
+and then
+
+worked with
+5+
+Companies
+
+Google Certified
+Data Analytics & BI Professional
+
+Global Experience
+with clients: UK, US, Korea
+
+this is can be added after the lets connect button. Rename the button to "Hire me"
+
+Add company logos and make it well fit. in this I am fortunate to have worked with these companies.
+logos : attached_assets/Allied Worldwide.png, attached_assets/Kovan labs.png, attached_assets/KNU.png,
+attached_assets/lenovo.png, attached_assets/Metresa.png, attached_assets/Akshaya Tex.png
+
+in Technical Arsenal, in Data Analytics & Data Science,
+remove "R Advanced", in Business Analytics & Strategy remove "QlikView Intermediate" , in AI & Large Language Models remove "Chatbot Development Advanced", in Machine Learning & Deep Learning remove "MLOps
+Intermediate"
+
+in Impact Metrics, ulpdate this :
+
+"100+
+
+Data Models Built
+
+25+
+
+Dashboards Created
+
+8+
+
+AI Solutions Deployed
+
+90%
+
+Process Optimization"
+
+in Academic Journey,
+University
+Bachelor of Technology in Artificial Intelligence and Data Science
+Jai Shriram Engineering College
+Tirupur, Tamil Nadu, India
+2021 – 2025
+CGPA: 8.43 / 10.0
+
+Winner: AWS DeepRacer League (Top 1%)
+
+1st Place: National Project Presentation Competition
+
+Winner: Googleathon 2023 among 100+ teams
+
+1st Place: National-Level AI Stock Prediction Hackathon
+
+Higher Secondary
+Higher Secondary Certificate (12th Grade)
+SCM Higher Secondary School
+Coimbatore, Tamil Nadu, India
+2020 – 2021
+Percentage: 91%
+
+School First Rank Holder
+
+Recipient: Kamarajar Award by Tamil Nadu Government
+
+Secondary School
+Secondary School Certificate (10th Grade)
+SCM Higher Secondary School
+Coimbatore, Tamil Nadu, India
+2018 – 2019
+Percentage: 89%
+
+School Topper and First Rank Holder
+
+NCC Cadet
+
+Winner: District-level Science Exhibition
+
+Kho-Kho Team Captain
+
+dont use any background as black ad grey color for anything like this :"Professional Certifications", "Tech Sessions & Events" , "1250+
+Total Attendees
+
+25+
+
+Events Organized
+
+5+
+
+Countries
+
+95%
+
+Satisfaction Rate"
+
+Professional Certifications
+Google Data Analytics Professional Certificate
+Google
+Google Business Intelligence Professional Certificate
+Alison Python for data science, from beginning to advanced.
+Programming techniques Certification from Bharathidasan university.
+
+in Freelance Experience
+add logo :"
+Data Analytics Consultant
+Akshaya Tex, Tiruppur" - attached_assets/Akshaya Tex.png
+this is in 2024
+
+Business Intelligence Analyst
+Metresa ITech Solutions
+
+2023 logo : attached_assets/Metresa.png
+
+in Leadership
+also add logos

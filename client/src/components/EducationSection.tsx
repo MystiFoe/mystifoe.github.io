@@ -5,16 +5,16 @@ import { GraduationCap, Calendar, MapPin, Award } from "lucide-react";
 export default function EducationSection() {
   const education = [
     {
-      degree: "Bachelor of Technology in Computer Science",
-      institution: "Kyungpook National University",
-      location: "Daegu, South Korea",
-      period: "2021 - 2025",
-      grade: "CGPA: 3.8/4.0",
+      degree: "Bachelor of Technology in Artificial Intelligence and Data Science",
+      institution: "Jai Shriram Engineering College",
+      location: "Tirupur, Tamil Nadu, India",
+      period: "2021 – 2025",
+      grade: "CGPA: 8.43 / 10.0",
       achievements: [
-        "International Student Scholarship Recipient",
-        "Dean's List - 4 semesters",
-        "Research in AI and Machine Learning",
-        "Global Exchange Program"
+        "Winner: AWS DeepRacer League (Top 1%)",
+        "1st Place: National Project Presentation Competition",
+        "Winner: Googleathon 2023 among 100+ teams",
+        "1st Place: National-Level AI Stock Prediction Hackathon"
       ],
       type: "University",
       color: "from-blue-500 to-indigo-600",
@@ -22,15 +22,13 @@ export default function EducationSection() {
     },
     {
       degree: "Higher Secondary Certificate (12th Grade)",
-      institution: "Sri Chaitanya Junior College",
-      location: "Visakhapatnam, India", 
-      period: "2019 - 2021",
-      grade: "Percentage: 95.2%",
+      institution: "SCM Higher Secondary School",
+      location: "Coimbatore, Tamil Nadu, India", 
+      period: "2020 – 2021",
+      grade: "Percentage: 91%",
       achievements: [
-        "Mathematics & Physics Excellence Award",
-        "State Rank in Top 100",
-        "Science Exhibition Winner",
-        "Academic Merit Scholarship"
+        "School First Rank Holder",
+        "Recipient: Kamarajar Award by Tamil Nadu Government"
       ],
       type: "Higher Secondary",
       color: "from-green-500 to-emerald-600",
@@ -38,15 +36,15 @@ export default function EducationSection() {
     },
     {
       degree: "Secondary School Certificate (10th Grade)",
-      institution: "Narayana High School",
-      location: "Visakhapatnam, India",
-      period: "2018 - 2019", 
-      grade: "CGPA: 10.0/10.0",
+      institution: "SCM Higher Secondary School",
+      location: "Coimbatore, Tamil Nadu, India",
+      period: "2018 – 2019", 
+      grade: "Percentage: 89%",
       achievements: [
-        "Perfect CGPA Achievement",
-        "School Topper",
-        "Mathematics Olympiad Winner",
-        "Leadership Excellence Award"
+        "School Topper and First Rank Holder",
+        "NCC Cadet",
+        "Winner: District-level Science Exhibition",
+        "Kho-Kho Team Captain"
       ],
       type: "Secondary School",
       color: "from-purple-500 to-pink-600",
