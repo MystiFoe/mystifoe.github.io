@@ -53,10 +53,10 @@ export default function EducationSection() {
   ];
 
   const certifications = [
-    { name: "Google Data Analytics Professional Certificate", issuer: "Google", year: "2024", color: "text-blue-400" },
-    { name: "Google Business Intelligence Professional Certificate", issuer: "Google", year: "2024", color: "text-green-400" },
-    { name: "Microsoft Azure AI Fundamentals", issuer: "Microsoft", year: "2023", color: "text-blue-400" },
-    { name: "AWS Cloud Practitioner", issuer: "Amazon", year: "2023", color: "text-orange-400" }
+    { name: "Data Analytics Professional Career certification", issuer: "Google", logo: "🟢", color: "text-blue-400" },
+    { name: "Business Intelligence Professional Career certification", issuer: "Google", logo: "🟢", color: "text-green-400" },
+    { name: "Certificate in Programming Techniques", issuer: "Bharathidasan University (BDU)", logo: "🎓", color: "text-purple-400" },
+    { name: "Python for Data Science: From the Basics to Advanced", issuer: "Alison", logo: "🐍", color: "text-orange-400" }
   ];
 
   return (
@@ -122,21 +122,21 @@ export default function EducationSection() {
 
         {/* Certifications */}
         <div className="slide-up">
-          <Card className="p-8 bg-gray-800/90 backdrop-blur-lg border border-green-500/30 hover:border-green-400/50 transition-all">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center">
-              <Award className="w-6 h-6 mr-3 text-green-400" />
+          <Card className="p-8 bg-white border border-blue-200 shadow-lg hover:shadow-xl transition-all">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
+              <Award className="w-6 h-6 mr-3 text-blue-600" />
               Professional Certifications
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               {certifications.map((cert, index) => (
-                <div key={index} className="flex items-center justify-between p-4 bg-gray-900/60 rounded-lg border border-gray-700/50 hover:border-gray-600 transition-all">
-                  <div>
-                    <h4 className="font-semibold text-white text-sm">{cert.name}</h4>
-                    <p className="text-gray-400 text-xs">{cert.issuer}</p>
+                <div key={index} className="flex items-center justify-between p-4 bg-blue-50 rounded-lg border border-blue-200 hover:border-blue-300 transition-all">
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-900 text-sm">{cert.name}</h4>
+                    <p className="text-gray-600 text-xs">{cert.issuer}</p>
                   </div>
-                  <Badge className={`${cert.color} bg-transparent border-current`}>
-                    {cert.year}
-                  </Badge>
+                  <div className="text-2xl ml-4">
+                    {cert.logo}
+                  </div>
                 </div>
               ))}
             </div>

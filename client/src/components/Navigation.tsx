@@ -38,7 +38,9 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="font-bold text-xl text-gray-900">Portfolio</div>
+          <div className="font-bold text-xl text-gray-900">
+            <span className="typing-animation">Business Analyst | Data Analyst | ML Engineer | AI Engineer</span>
+          </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
