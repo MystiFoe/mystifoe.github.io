@@ -64,12 +64,10 @@ export default function HeroSection() {
           <div className="space-y-8 fade-in">
             {/* Main Header */}
             <div>
-              <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Data Analyst
+              <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                <span className="text-gray-900">Giritharan{" "}</span>
+                <span className="text-blue-600 typing-animation">Mani</span>
               </h1>
-              <h2 className="text-3xl lg:text-4xl font-semibold text-gray-800 mb-6">
-                Giritharan Mani
-              </h2>
               <p className="text-2xl text-gray-700 mb-8 font-medium">
                 <Code className="inline w-6 h-6 mr-2 text-blue-600" />
                 Digging Data, Driving Business Growth
@@ -90,12 +88,10 @@ export default function HeroSection() {
             {/* Key Highlights */}
             <div className="grid md:grid-cols-3 gap-4 slide-up">
               <Card className="p-4 bg-white/90 backdrop-blur-lg border border-blue-200 hover:border-blue-400 hover:shadow-xl transition-all transform hover:scale-105 github-card-hover">
-                <div className="flex items-center justify-center mb-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <Building className="w-5 h-5 text-blue-600" />
                   </div>
-                </div>
-                <div className="text-center">
                   <p className="text-sm text-gray-600 mb-1">worked with</p>
                   <p className="text-3xl font-bold text-blue-600 mb-1"><AnimatedCounter target={5} suffix="+" /></p>
                   <p className="text-xs text-gray-600">Companies</p>
@@ -141,7 +137,7 @@ export default function HeroSection() {
               </div>
               
               {/* "Data to Decisions" overlay */}
-              <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm border border-blue-200 rounded-lg shadow-lg p-3">
+              <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm border border-blue-200 rounded-lg shadow-lg p-3">
                 <span className="text-lg font-bold text-blue-600">Data to Decisions</span>
               </div>
               

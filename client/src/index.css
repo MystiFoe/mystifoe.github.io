@@ -101,18 +101,18 @@
   .typing-animation {
     overflow: hidden;
     white-space: nowrap;
-    animation: typing 4s steps(50, end) infinite, blink-caret 1s step-end infinite;
+    border-right: 2px solid;
+    animation: typing 2s steps(20, end), blink-caret 1s step-end infinite;
   }
   
   @keyframes typing {
-    0% { width: 0; }
-    50% { width: 100%; }
-    100% { width: 0; }
+    from { width: 0; }
+    to { width: 100%; }
   }
   
   @keyframes blink-caret {
-    0%, 50% { border-right: 2px solid transparent; }
-    51%, 100% { border-right: 2px solid #3b82f6; }
+    0%, 50% { border-color: transparent; }
+    51%, 100% { border-color: currentColor; }
   }
 }
 

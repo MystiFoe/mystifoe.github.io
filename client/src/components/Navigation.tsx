@@ -5,6 +5,14 @@ import { Download, Menu, X, Code } from "lucide-react";
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+  const roles = [
+    { text: "Business Analyst", color: "text-blue-600" },
+    { text: "Data Analyst", color: "text-green-600" },
+    { text: "ML Engineer", color: "text-purple-600" },
+    { text: "AI Engineer", color: "text-orange-600" }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +21,14 @@ export default function Navigation() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -38,8 +54,10 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="font-bold text-xl text-gray-900">
-            <span className="typing-animation">Business Analyst | Data Analyst | ML Engineer | AI Engineer</span>
+          <div className="font-bold text-xl">
+            <span className={`${roles[currentRoleIndex].color} transition-all duration-500 typing-animation`}>
+              {roles[currentRoleIndex].text}
+            </span>
           </div>
           
           {/* Desktop Navigation */}
