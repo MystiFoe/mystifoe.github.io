@@ -54,8 +54,11 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="font-bold text-xl">
-            <span className={`${roles[currentRoleIndex].color} transition-all duration-500 typing-animation`}>
+          <div className="font-bold text-xl w-48 flex justify-start items-center">
+            <span
+              className={`${roles[currentRoleIndex].color} transition-all duration-500 typing-animation`}
+              style={{ borderRight: 'none' }}
+            >
               {roles[currentRoleIndex].text}
             </span>
           </div>
