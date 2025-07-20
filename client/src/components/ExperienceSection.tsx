@@ -14,6 +14,10 @@ import metresaImage from "@assets/Metresa.png";
 import gdscLogo from "@assets/gdsc.png";
 import mlsaLogo from "@assets/MLSA.png";
 import artificgenixLogo from "@assets/Artificgenix.png";
+import alliedWorldwideImage from "@assets/Allied Worldwide.png";
+import kovanLabsImage from "@assets/Kovan labs.png";
+import knuImage from "@assets/KNU.png";
+import lenovoImage from "@assets/lenovo.png";
 
 export default function ExperienceSection() {
   const leadership = [
@@ -68,7 +72,8 @@ export default function ExperienceSection() {
         { label: "Process Efficiency", value: "65%", color: "text-green-600" }
       ],
       dotColor: "bg-green-500",
-      side: "right"
+      side: "right",
+      logo: alliedWorldwideImage
     },
     {
       title: "Machine Learning Engineer Intern",
@@ -82,7 +87,8 @@ export default function ExperienceSection() {
         { label: "Model Implementation", value: "RAG", color: "text-indigo-600" }
       ],
       dotColor: "bg-purple-500",
-      side: "left"
+      side: "left",
+      logo: kovanLabsImage
     },
     {
       title: "Research Intern",
@@ -96,7 +102,8 @@ export default function ExperienceSection() {
         { label: "Research Scope", value: "Global", color: "text-orange-600" }
       ],
       dotColor: "bg-red-500",
-      side: "right"
+      side: "right",
+      logo: knuImage
     },
     {
       title: "Data Analyst Intern",
@@ -110,7 +117,8 @@ export default function ExperienceSection() {
         { label: "Visualization Tool", value: "Tableau", color: "text-blue-600" }
       ],
       dotColor: "bg-yellow-500",
-      side: "left"
+      side: "left",
+      logo: lenovoImage
     }
   ];
 
@@ -165,8 +173,17 @@ export default function ExperienceSection() {
                   {internship.side === "right" ? (
                     <>
                       <div className="flex-1 pr-8 text-right">
-                        <Card className="p-6 shadow-lg border-gray-100 hover:shadow-xl transition-shadow">
-                          <div className="flex items-center justify-end space-x-3 mb-3">
+                        <Card className="p-6 shadow-lg border-gray-100 hover:shadow-xl transition-shadow relative">
+                          {/* Company Logo - Top Left Corner */}
+                          <div className="absolute top-6 left-6 w-20 h-12 flex items-center justify-center">
+                            <img 
+                              src={internship.logo} 
+                              alt={`${internship.company} logo`}
+                              className="w-full h-full object-contain opacity-80"
+                            />
+                          </div>
+                          
+                          <div className="flex items-center justify-end space-x-3 mb-3 mt-4">
                             <Badge className={internship.statusColor}>{internship.status}</Badge>
                             <h4 className="text-lg font-bold text-gray-900">{internship.title}</h4>
                           </div>
@@ -208,8 +225,17 @@ export default function ExperienceSection() {
                       <div className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 ${internship.dotColor} rounded-full border-4 border-white shadow`}></div>
                       
                       <div className="flex-1 pl-8">
-                        <Card className="p-6 shadow-lg border-gray-100 hover:shadow-xl transition-shadow">
-                          <div className="flex items-center space-x-3 mb-3">
+                        <Card className="p-6 shadow-lg border-gray-100 hover:shadow-xl transition-shadow relative">
+                          {/* Company Logo - Top Right Corner */}
+                          <div className="absolute top-6 right-6 w-20 h-12 flex items-center justify-center">
+                            <img 
+                              src={internship.logo} 
+                              alt={`${internship.company} logo`}
+                              className="w-full h-full object-contain opacity-80"
+                            />
+                          </div>
+                          
+                          <div className="flex items-center space-x-3 mb-3 mt-4">
                             <h4 className="text-lg font-bold text-gray-900">{internship.title}</h4>
                             <Badge className={internship.statusColor}>{internship.status}</Badge>
                           </div>
