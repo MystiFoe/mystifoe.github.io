@@ -25,8 +25,8 @@ export default function ExperienceSection() {
         { label: "Students Empowered", value: "300+", color: "text-blue-600" },
         { label: "Team Members", value: "30", color: "text-blue-600" }
       ],
-      bgColor: "from-blue-50 to-indigo-50",
-      borderColor: "border-blue-100",
+      bgColor: "from-blue-50 to-blue-100",
+      borderColor: "border-blue-200",
       logo: gdscLogo
     },
     {
@@ -37,8 +37,8 @@ export default function ExperienceSection() {
         { label: "Workshops Conducted", value: "20+", color: "text-blue-600" },
         { label: "Global Reach", value: "500+", color: "text-green-600" }
       ],
-      bgColor: "from-blue-50 to-cyan-50",
-      borderColor: "border-blue-100",
+      bgColor: "from-slate-50 to-gray-100",
+      borderColor: "border-gray-200",
       logo: mlsaLogo
     },
     {
@@ -49,8 +49,8 @@ export default function ExperienceSection() {
         { label: "Community Members", value: "400+", color: "text-purple-600" },
         { label: "Tech Events", value: "15+", color: "text-purple-600" }
       ],
-      bgColor: "from-purple-50 to-pink-50",
-      borderColor: "border-purple-100",
+      bgColor: "from-indigo-50 to-indigo-100",
+      borderColor: "border-indigo-200",
       logo: artificgenixLogo
     }
   ];
@@ -243,30 +243,31 @@ export default function ExperienceSection() {
           <div className="grid md:grid-cols-2 gap-8">
             {freelanceWork.map((work, index) => (
               <Card key={index} className="p-6 shadow-lg border-gray-100 bg-white hover:shadow-xl transition-all">
-                <div className="flex items-start">
-                  <div className="flex-1 pr-8">
-                    <div>
+                <div className="flex flex-col">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1 pr-4">
                       <h4 className="text-xl font-bold text-gray-900 mb-1">{work.title}</h4>
                       <p className="text-gray-600 mb-2">{work.company}</p>
-                      <p className="text-sm text-gray-500 mb-4">{work.period}</p>
+                      <p className="text-sm text-gray-500 mb-2">{work.period}</p>
                     </div>
-                    <p className="text-gray-700 mb-4 text-justify">{work.description}</p>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      {work.metrics.map((metric, metricIndex) => (
-                        <div key={metricIndex} className="bg-gray-50 rounded-lg p-3">
-                          <p className={`text-lg font-bold ${metric.color}`}>{metric.value}</p>
-                          <p className="text-xs text-gray-600">{metric.label}</p>
-                        </div>
-                      ))}
+                    <div className="w-32 flex-shrink-0">
+                      <img 
+                        src={work.logo} 
+                        alt={`${work.company} logo`}
+                        className="w-full h-auto object-contain rounded-xl"
+                      />
                     </div>
                   </div>
-                  <div className="w-32 flex-shrink-0 flex items-start">
-                    <img 
-                      src={work.logo} 
-                      alt={`${work.company} logo`}
-                      className="w-full h-auto object-contain rounded-xl"
-                    />
+                  
+                  <p className="text-gray-700 mb-4 text-justify">{work.description}</p>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    {work.metrics.map((metric, metricIndex) => (
+                      <div key={metricIndex} className="bg-gray-50 rounded-lg p-3">
+                        <p className={`text-lg font-bold ${metric.color}`}>{metric.value}</p>
+                        <p className="text-xs text-gray-600">{metric.label}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </Card>

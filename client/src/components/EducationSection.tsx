@@ -65,29 +65,41 @@ export default function EducationSection() {
       name: "Data Analytics Professional Career Certification", 
       issuer: "Google", 
       logo: googleLogo, 
-      color: "text-blue-400",
-      bgColor: "bg-blue-50"
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
+      hoverBorder: "hover:border-blue-400",
+      hoverBg: "hover:bg-blue-100"
     },
     { 
       name: "Business Intelligence Professional Career Certification", 
       issuer: "Google", 
       logo: googleLogo, 
-      color: "text-blue-400",
-      bgColor: "bg-blue-50"
+      color: "text-green-600",
+      bgColor: "bg-green-50",
+      borderColor: "border-green-200",
+      hoverBorder: "hover:border-green-400",
+      hoverBg: "hover:bg-green-100"
     },
     { 
       name: "Certificate in Programming Techniques", 
       issuer: "Bharathidasan University (BDU)", 
       logo: bduLogo, 
-      color: "text-blue-400",
-      bgColor: "bg-blue-50"
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
+      borderColor: "border-purple-200",
+      hoverBorder: "hover:border-purple-400",
+      hoverBg: "hover:bg-purple-100"
     },
     { 
       name: "Python for Data Science: From the Basics to Advanced", 
       issuer: "Alison", 
       logo: alisonLogo, 
-      color: "text-blue-400",
-      bgColor: "bg-blue-50"
+      color: "text-orange-600",
+      bgColor: "bg-orange-50",
+      borderColor: "border-orange-200",
+      hoverBorder: "hover:border-orange-400",
+      hoverBg: "hover:bg-orange-100"
     }
   ];
 
@@ -165,16 +177,19 @@ export default function EducationSection() {
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               {certifications.map((cert, index) => (
-                <div key={index} className={`flex items-center justify-between p-4 ${cert.bgColor} rounded-lg border border-blue-200 hover:border-blue-300 transition-all`}>
+                <div 
+                  key={index} 
+                  className={`group flex items-center justify-between p-4 ${cert.bgColor} ${cert.hoverBg} rounded-lg border ${cert.borderColor} ${cert.hoverBorder} hover:shadow-md transition-all duration-300 cursor-pointer`}
+                >
                   <div className="flex-1">
-                    <h4 className="font-semibold text-gray-900 text-sm">{cert.name}</h4>
+                    <h4 className={`font-semibold text-gray-900 text-sm group-hover:${cert.color} transition-colors duration-300`}>{cert.name}</h4>
                     <p className="text-gray-600 text-xs">{cert.issuer}</p>
                   </div>
-                  <div className="ml-4 w-12 h-12 flex items-center justify-center">
+                  <div className="ml-4 w-12 h-12 flex items-center justify-center group-hover:animate-pulse">
                     <img 
                       src={cert.logo} 
                       alt={`${cert.issuer} logo`}
-                      className="w-10 h-10 object-contain"
+                      className="w-10 h-10 object-contain group-hover:brightness-110 transition-all duration-300"
                     />
                   </div>
                 </div>
