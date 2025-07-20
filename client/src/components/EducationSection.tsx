@@ -1,6 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { GraduationCap, Calendar, MapPin, Award } from "lucide-react";
+import { Calendar, MapPin, Award } from "lucide-react";
+import googleLogo from "@assets/Google.png";
+import bduLogo from "@assets/BHARATHIDASAN-UNIVERSITY-Logo.png";
+import alisonLogo from "@assets/alison.png";
+import jsrecLogo from "@assets/JSREC.png";
+import scmLogo from "@assets/SCM.png";
 
 export default function EducationSection() {
   const education = [
@@ -18,7 +23,8 @@ export default function EducationSection() {
       ],
       type: "University",
       color: "from-blue-500 to-indigo-600",
-      borderColor: "border-blue-500/30"
+      borderColor: "border-blue-500/30",
+      logo: jsrecLogo
     },
     {
       degree: "Higher Secondary Certificate (12th Grade)",
@@ -32,7 +38,8 @@ export default function EducationSection() {
       ],
       type: "Higher Secondary",
       color: "from-green-500 to-emerald-600",
-      borderColor: "border-green-500/30"
+      borderColor: "border-green-500/30",
+      logo: scmLogo
     },
     {
       degree: "Secondary School Certificate (10th Grade)",
@@ -48,15 +55,40 @@ export default function EducationSection() {
       ],
       type: "Secondary School",
       color: "from-purple-500 to-pink-600",
-      borderColor: "border-purple-500/30"
+      borderColor: "border-purple-500/30",
+      logo: scmLogo
     }
   ];
 
   const certifications = [
-    { name: "Data Analytics Professional Career certification", issuer: "Google", logo: "🟢", color: "text-blue-400" },
-    { name: "Business Intelligence Professional Career certification", issuer: "Google", logo: "🟢", color: "text-green-400" },
-    { name: "Certificate in Programming Techniques", issuer: "Bharathidasan University (BDU)", logo: "🎓", color: "text-purple-400" },
-    { name: "Python for Data Science: From the Basics to Advanced", issuer: "Alison", logo: "🐍", color: "text-orange-400" }
+    { 
+      name: "Data Analytics Professional Career Certification", 
+      issuer: "Google", 
+      logo: googleLogo, 
+      color: "text-blue-400",
+      bgColor: "bg-blue-50"
+    },
+    { 
+      name: "Business Intelligence Professional Career Certification", 
+      issuer: "Google", 
+      logo: googleLogo, 
+      color: "text-blue-400",
+      bgColor: "bg-blue-50"
+    },
+    { 
+      name: "Certificate in Programming Techniques", 
+      issuer: "Bharathidasan University (BDU)", 
+      logo: bduLogo, 
+      color: "text-blue-400",
+      bgColor: "bg-blue-50"
+    },
+    { 
+      name: "Python for Data Science: From the Basics to Advanced", 
+      issuer: "Alison", 
+      logo: alisonLogo, 
+      color: "text-blue-400",
+      bgColor: "bg-blue-50"
+    }
   ];
 
   return (
@@ -85,8 +117,12 @@ export default function EducationSection() {
                 <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'}`}>
                   <Card className={`p-6 bg-white backdrop-blur-lg border-2 ${edu.borderColor} hover:border-opacity-80 hover:shadow-xl transition-all github-card-hover cursor-glow slide-up`}>
                     <div className="flex items-start justify-between mb-4">
-                      <div className={`w-12 h-12 bg-gradient-to-r ${edu.color} rounded-xl flex items-center justify-center shadow-lg`}>
-                        <GraduationCap className="w-6 h-6 text-white" />
+                      <div className="w-16 h-16 flex items-center justify-center">
+                        <img 
+                          src={edu.logo} 
+                          alt={`${edu.institution} logo`}
+                          className="w-full h-full object-contain"
+                        />
                       </div>
                       <Badge className="bg-gray-100 text-gray-700 border-gray-300">{edu.type}</Badge>
                     </div>
@@ -129,13 +165,17 @@ export default function EducationSection() {
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               {certifications.map((cert, index) => (
-                <div key={index} className="flex items-center justify-between p-4 bg-blue-50 rounded-lg border border-blue-200 hover:border-blue-300 transition-all">
+                <div key={index} className={`flex items-center justify-between p-4 ${cert.bgColor} rounded-lg border border-blue-200 hover:border-blue-300 transition-all`}>
                   <div className="flex-1">
                     <h4 className="font-semibold text-gray-900 text-sm">{cert.name}</h4>
                     <p className="text-gray-600 text-xs">{cert.issuer}</p>
                   </div>
-                  <div className="text-2xl ml-4">
-                    {cert.logo}
+                  <div className="ml-4 w-12 h-12 flex items-center justify-center">
+                    <img 
+                      src={cert.logo} 
+                      alt={`${cert.issuer} logo`}
+                      className="w-10 h-10 object-contain"
+                    />
                   </div>
                 </div>
               ))}

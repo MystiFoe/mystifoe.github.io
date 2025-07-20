@@ -9,6 +9,11 @@ import {
   MapPin,
   Clock
 } from "lucide-react";
+import akshayaTexImage from "@assets/Akshaya Tex.png";
+import metresaImage from "@assets/Metresa.png";
+import gdscLogo from "@assets/gdsc.png";
+import mlsaLogo from "@assets/MLSA.png";
+import artificgenixLogo from "@assets/Artificgenix.png";
 
 export default function ExperienceSection() {
   const leadership = [
@@ -22,8 +27,7 @@ export default function ExperienceSection() {
       ],
       bgColor: "from-blue-50 to-indigo-50",
       borderColor: "border-blue-100",
-      iconBg: "bg-blue-500",
-      icon: "G"
+      logo: gdscLogo
     },
     {
       title: "Microsoft Learn Student Ambassador",
@@ -35,8 +39,7 @@ export default function ExperienceSection() {
       ],
       bgColor: "from-blue-50 to-cyan-50",
       borderColor: "border-blue-100",
-      iconBg: "bg-blue-600",
-      icon: "M"
+      logo: mlsaLogo
     },
     {
       title: "President - ArtificGenix",
@@ -48,8 +51,7 @@ export default function ExperienceSection() {
       ],
       bgColor: "from-purple-50 to-pink-50",
       borderColor: "border-purple-100",
-      iconBg: "bg-purple-500",
-      icon: "A"
+      logo: artificgenixLogo
     }
   ];
 
@@ -116,6 +118,7 @@ export default function ExperienceSection() {
     {
       title: "Data Analytics Consultant",
       company: "Akshaya Tex, Tiruppur",
+      logo: akshayaTexImage,
       period: "2024",
       description: "Collected and analyzed manufacturing data for textile industry. Created comprehensive data visualizations and helped navigate business growth through data-driven decisions for cotton cloth and inner garment manufacturing.",
       metrics: [
@@ -126,6 +129,7 @@ export default function ExperienceSection() {
     {
       title: "Business Intelligence Analyst",
       company: "Metresa ITech Solutions",
+      logo: metresaImage,
       period: "2024",
       description: "Analyzed business data for stealth startup and provided strategic business solutions based on data insights. Delivered actionable recommendations for business optimization and growth strategies.",
       metrics: [
@@ -239,15 +243,14 @@ export default function ExperienceSection() {
           <div className="grid md:grid-cols-2 gap-8">
             {freelanceWork.map((work, index) => (
               <Card key={index} className="p-6 shadow-lg border-gray-100 bg-white hover:shadow-xl transition-all">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl flex items-center justify-center">
-                    <span className="text-white text-lg font-bold">LOGO</span>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-xl font-bold text-gray-900 mb-1">{work.title}</h4>
-                    <p className="text-gray-600 mb-2">{work.company}</p>
-                    <p className="text-sm text-gray-500 mb-3">{work.period}</p>
-                    <p className="text-gray-700 mb-4">{work.description}</p>
+                <div className="flex items-start">
+                  <div className="flex-1 pr-8">
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-1">{work.title}</h4>
+                      <p className="text-gray-600 mb-2">{work.company}</p>
+                      <p className="text-sm text-gray-500 mb-4">{work.period}</p>
+                    </div>
+                    <p className="text-gray-700 mb-4 text-justify">{work.description}</p>
                     
                     <div className="grid grid-cols-2 gap-4">
                       {work.metrics.map((metric, metricIndex) => (
@@ -257,6 +260,13 @@ export default function ExperienceSection() {
                         </div>
                       ))}
                     </div>
+                  </div>
+                  <div className="w-32 flex-shrink-0 flex items-start">
+                    <img 
+                      src={work.logo} 
+                      alt={`${work.company} logo`}
+                      className="w-full h-auto object-contain rounded-xl"
+                    />
                   </div>
                 </div>
               </Card>
@@ -271,8 +281,12 @@ export default function ExperienceSection() {
             {leadership.map((item, index) => (
               <Card key={index} className={`bg-gradient-to-br ${item.bgColor} p-6 ${item.borderColor} hover:shadow-xl transition-all transform hover:scale-105`}>
                 <div className="flex flex-col items-center text-center">
-                  <div className={`w-16 h-16 ${item.iconBg} rounded-xl flex items-center justify-center mb-4`}>
-                    <span className="text-white text-2xl font-bold">{item.icon}</span>
+                  <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center mb-4 p-2">
+                    <img 
+                      src={item.logo} 
+                      alt={`${item.organization} logo`}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div className="flex-1">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h4>

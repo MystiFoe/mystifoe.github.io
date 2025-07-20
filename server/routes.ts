@@ -19,7 +19,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = contactFormSchema.parse(req.body);
       
       // Configure nodemailer (would use environment variables in production)
-      const transporter = nodemailer.createTransporter({
+      const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST || "smtp.gmail.com",
         port: 587,
         secure: false,

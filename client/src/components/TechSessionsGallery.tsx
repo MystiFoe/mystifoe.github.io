@@ -7,15 +7,15 @@ export default function TechSessionsGallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const sessions = [
-    {
-      title: "AI & Machine Learning Workshop",
-      event: "GDSC Tech Summit 2024",
-      location: "Kyungpook National University",
-      date: "March 2024",
-      attendees: "150+",
-      description: "Led a comprehensive workshop on AI fundamentals and practical ML implementation for students and professionals.",
-      imageAlt: "AI Workshop Session 1"
-    },
+  {
+    title: "Public Speaking Debut",
+    event: "DevRise by GDG On Campus",
+    location: "Info Institute of Engineering, Coimbatore",
+    date: "March 2024",
+    attendees: "150+",
+    description: "Delivered a motivational tech talk alongside leaders from Oracle and Nunnari Labs; inspired students on AI and personal growth.",
+    imageAlt: "DevRise Speech Session"
+  },
     {
       title: "Data Analytics Masterclass",
       event: "Microsoft Learn Student Ambassador Event",

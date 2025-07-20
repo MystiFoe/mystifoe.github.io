@@ -52,7 +52,7 @@ export const initializeAnimations = () => {
   
   // Add smooth scrolling to all anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
       e.preventDefault();
       const targetId = this.getAttribute('href')?.substring(1);
       if (targetId) {
@@ -61,3 +61,26 @@ export const initializeAnimations = () => {
     });
   });
 };
+
+// Role change animation keyframes
+export const roleChangeAnimation = `
+  @keyframes roleChange {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .role-change {
+    animation: roleChange 0.5s ease-out;
+  }
+`;
+
+// Add animation styles to document
+const styleSheet = document.createElement('style');
+styleSheet.textContent = roleChangeAnimation;
+document.head.appendChild(styleSheet);

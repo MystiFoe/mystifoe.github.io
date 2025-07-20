@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Download, Menu, X, Code } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,9 +56,17 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="font-bold text-xl">
-            <span className={`${roles[currentRoleIndex].color} transition-all duration-500 typing-animation`}>
-              {roles[currentRoleIndex].text}
-            </span>
+            <div className="inline-block w-[180px] h-[30px] overflow-hidden relative">
+              <div 
+                key={currentRoleIndex}
+                className={`${roles[currentRoleIndex].color} absolute w-full animate-scroll-up`}
+                style={{
+                  animationFillMode: 'both'
+                }}
+              >
+                {roles[currentRoleIndex].text}
+              </div>
+            </div>
           </div>
           
           {/* Desktop Navigation */}

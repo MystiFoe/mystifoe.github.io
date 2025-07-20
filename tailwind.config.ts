@@ -79,10 +79,86 @@ export default {
             height: "0",
           },
         },
+        roleChange: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px) rotateX(-90deg)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0) rotateX(0)",
+          },
+        },
+        typing: {
+          "0%": {
+            width: "0%",
+            visibility: "hidden",
+          },
+          "100%": {
+            width: "100%",
+          },
+        },
+        blink: {
+          "50%": {
+            borderColor: "transparent",
+          },
+          "100%": {
+            borderColor: "rgb(37, 99, 235)",
+          },
+        },
+        slideIn: {
+          "0%": {
+            transform: "translateX(-100%)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+        },
+        revealLetter: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        scrollUp: {
+          "0%": {
+            transform: "translateY(100%)",
+            opacity: "0",
+          },
+          "10%, 90%": {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateY(-100%)",
+            opacity: "0",
+          },
+        },
+        float: {
+          "0%, 100%": {
+            transform: "translateY(0) translateX(0)",
+          },
+          "50%": {
+            transform: "translateY(-10px) translateX(5px)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "role-change": "roleChange 0.5s ease-out forwards",
+        typing: "typing 1s steps(20, end)",
+        blink: "blink 1s infinite",
+        "slide-in": "slideIn 0.5s ease-out forwards",
+        reveal: "revealLetter 0.5s ease forwards",
+        "scroll-up": "scrollUp 1.8s ease-in-out forwards",
+        float: "float 3s ease-in-out infinite",
       },
     },
   },

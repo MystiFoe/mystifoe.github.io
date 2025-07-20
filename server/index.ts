@@ -2,6 +2,9 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
+// Set NODE_ENV to development if not set
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -56,15 +59,10 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = 5000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
+  // Try a different port that might not be blocked
+  const port = 3000;
+  // Use a simpler server.listen approach that works better on Windows
+  server.listen(port, () => {
     log(`serving on port ${port}`);
   });
 })();
