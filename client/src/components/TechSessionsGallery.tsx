@@ -49,7 +49,7 @@ export default function TechSessionsGallery() {
       imageAlt: "Machine Learning Workshop Session"
     },
     {
-      title: "Public Speaking Debut - From Novice to Notable",
+      title: "My First Public Talk – From Nervous to Notable",
       event: "DevRise by GDG On Campus",
       location: "Info Institute of Engineering, Coimbatore",
       date: "2024",
