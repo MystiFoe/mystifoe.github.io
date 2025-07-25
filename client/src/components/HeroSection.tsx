@@ -11,6 +11,7 @@ import {
   Code,
   Database,
   Brain,
+  Calendar,
 } from "lucide-react";
 import profileImage from "@assets/1728054411169-removebg-preview.png";
 import alliedWorldwideImage from "@assets/Allied Worldwide.png";
@@ -19,6 +20,13 @@ import knuImage from "@assets/KNU.png";
 import lenovoImage from "@assets/lenovo.png";
 import metresaImage from "@assets/Metresa.png";
 import akshayaTexImage from "@assets/Akshaya Tex.png";
+
+// Extend Window interface to include Calendly
+declare global {
+  interface Window {
+    Calendly: any;
+  }
+}
 
 interface AnimatedCounterProps {
   target: number;
@@ -93,12 +101,62 @@ function TypingAnimation() {
 }
 
 export default function HeroSection() {
+  // Load Calendly widget script
+  useEffect(() => {
+    // Add Calendly CSS
+    const link = document.createElement('link');
+    link.href = 'https://assets.calendly.com/assets/external/widget.css';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+
+    // Add Calendly JS
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    script.onload = () => {
+      // Initialize Calendly badge widget after script loads
+      if (window.Calendly) {
+        window.Calendly.initBadgeWidget({
+          url: 'https://calendly.com/giritharanmani1',
+          text: 'Hire Me',
+          color: '#0069ff',
+          textColor: '#ffffff',
+          branding: true
+        });
+      }
+    };
+    document.body.appendChild(script);
+
+    // Cleanup
+    return () => {
+      if (document.head.contains(link)) {
+        document.head.removeChild(link);
+      }
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
+  const handleHireMe = () => {
+    // Open Calendly popup
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/giritharanmani1'
+      });
+    } else {
+      // Fallback to opening in new tab
+      window.open('https://calendly.com/giritharanmani1', '_blank');
+    }
+  };
+
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   const companyLogos = [
     { name: "Allied Worldwide", image: alliedWorldwideImage },
     { name: "Kovan Labs", image: kovanLabsImage },
@@ -107,6 +165,7 @@ export default function HeroSection() {
     { name: "Metresa", image: metresaImage },
     { name: "Akshaya Tex", image: akshayaTexImage },
   ];
+
   return (
     <section
       id="hero"
@@ -129,11 +188,11 @@ export default function HeroSection() {
             {/* CTA Button */}
             <div className="fade-in mb-8">
               <Button
-                onClick={scrollToContact}
+                onClick={handleHireMe}
                 className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg transform hover:scale-105 transition-all shadow-xl rounded-xl font-semibold"
               >
-                <MessageCircle className="w-5 h-5 mr-3" />
-                Hire me
+                <Calendar className="w-5 h-5 mr-3" />
+                Hire Me
               </Button>
             </div>
             {/* Key Highlights */}
