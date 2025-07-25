@@ -2,31 +2,28 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  ExternalLink, 
   Github, 
   BarChart3, 
   Bot, 
   Battery, 
-  TrendingUp,
-  Users,
-  Zap
+  Users
 } from "lucide-react";
 
 export default function ProjectsSection() {
   const projects = [
     {
-      title: "AI-Powered LinkedIn Lead Generation System",
-      description: "Intelligent automation system that streamlines lead generation through data analytics and AI-powered outreach. Includes automated data collection, lead scoring, and personalized messaging capabilities.",
-      technologies: ["Python", "AI/ML", "Data Analytics", "LinkedIn API"],
-      icon: Users,
-      color: "from-blue-500 to-indigo-600",
-      bgColor: "bg-blue-50 dark:bg-blue-900/20",
-      borderColor: "border-blue-200 dark:border-blue-800",
+      title: "Lithium Battery RUL Prediction Dashboard",
+      description: "Machine learning-powered Remaining Useful Life (RUL) prediction system for electric vehicle batteries with advanced analytics and predictive maintenance capabilities.",
+      technologies: ["Machine Learning", "IoT", "Predictive Analytics", "Dashboard"],
+      icon: Battery,
+      color: "from-orange-500 to-red-600",
+      bgColor: "bg-orange-50 dark:bg-orange-900/20",
+      borderColor: "border-orange-200 dark:border-orange-800",
       metrics: [
-        { label: "Lead Quality", value: "85%", color: "text-blue-600" },
-        { label: "Time Saved", value: "70%", color: "text-green-600" }
+        { label: "Prediction Accuracy", value: "94%", color: "text-orange-600" },
+        { label: "Cost Savings", value: "32%", color: "text-green-600" }
       ],
-      githubUrl: "#"
+      githubUrl: "https://github.com/MystiFoe/battery-rul-prediction"
     },
     {
       title: "Customer Support Automation using RAG-Based Bot",
@@ -40,7 +37,21 @@ export default function ProjectsSection() {
         { label: "Response Accuracy", value: "92%", color: "text-purple-600" },
         { label: "Resolution Rate", value: "65%", color: "text-green-600" }
       ],
-      githubUrl: "#"
+      githubUrl: "https://github.com/MystiFoe/Customer-Support-Automation-using-RAG-Based-Bot"
+    },
+    {
+      title: "AI-Powered LinkedIn Lead Generation System",
+      description: "Intelligent automation system that streamlines lead generation through data analytics and AI-powered outreach. Includes automated data collection, lead scoring, and personalized messaging capabilities.",
+      technologies: ["Python", "AI/ML", "Data Analytics", "LinkedIn API"],
+      icon: Users,
+      color: "from-blue-500 to-indigo-600",
+      bgColor: "bg-blue-50 dark:bg-blue-900/20",
+      borderColor: "border-blue-200 dark:border-blue-800",
+      metrics: [
+        { label: "Lead Quality", value: "85%", color: "text-blue-600" },
+        { label: "Time Saved", value: "70%", color: "text-green-600" }
+      ],
+      githubUrl: "https://github.com/MystiFoe/Linkedin-retrieve"
     },
     {
       title: "Production Data Analysis & Visualization Dashboard",
@@ -54,35 +65,7 @@ export default function ProjectsSection() {
         { label: "Data Processing", value: "Real-time", color: "text-emerald-600" },
         { label: "Efficiency Gain", value: "40%", color: "text-blue-600" }
       ],
-      githubUrl: "#"
-    },
-    {
-      title: "Lithium Battery RUL Prediction Dashboard",
-      description: "Machine learning-powered Remaining Useful Life (RUL) prediction system for electric vehicle batteries with advanced analytics and predictive maintenance capabilities.",
-      technologies: ["Machine Learning", "IoT", "Predictive Analytics", "Dashboard"],
-      icon: Battery,
-      color: "from-orange-500 to-red-600",
-      bgColor: "bg-orange-50 dark:bg-orange-900/20",
-      borderColor: "border-orange-200 dark:border-orange-800",
-      metrics: [
-        { label: "Prediction Accuracy", value: "94%", color: "text-orange-600" },
-        { label: "Cost Savings", value: "32%", color: "text-green-600" }
-      ],
-      githubUrl: "#"
-    },
-    {
-      title: "Business Forecast Dashboard",
-      description: "Advanced business forecasting system with predictive analytics, trend analysis, and strategic planning tools for data-driven business decisions.",
-      technologies: ["Forecasting", "Business Intelligence", "Analytics", "Visualization"],
-      icon: TrendingUp,
-      color: "from-indigo-500 to-blue-600",
-      bgColor: "bg-indigo-50 dark:bg-indigo-900/20",
-      borderColor: "border-indigo-200 dark:border-indigo-800",
-      metrics: [
-        { label: "Forecast Accuracy", value: "89%", color: "text-indigo-600" },
-        { label: "Planning Efficiency", value: "55%", color: "text-green-600" }
-      ],
-      githubUrl: "#"
+      githubUrl: "https://github.com/MystiFoe"
     }
   ];
 
@@ -131,22 +114,15 @@ export default function ProjectsSection() {
                   ))}
                 </div>
                 
-                <div className="flex space-x-3">
+                <div className="flex justify-center">
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="flex-1"
+                    className="w-full"
                     onClick={() => window.open(project.githubUrl, '_blank')}
                   >
                     <Github className="w-4 h-4 mr-2" />
                     View Code
-                  </Button>
-                  <Button 
-                    size="sm"
-                    className={`flex-1 bg-gradient-to-r ${project.color} text-white border-0 hover:opacity-90`}
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
                   </Button>
                 </div>
               </Card>
