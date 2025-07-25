@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Users, Calendar, MapPin, Bot, Database, BarChart3, TrendingUp } from "lucide-react";
+import { ChevronLeft, ChevronRight, Users, Calendar, MapPin, Award, TrendingUp, Target } from "lucide-react";
 import { useState, useEffect } from "react";
 
 // --- Import Images ---
@@ -21,7 +21,6 @@ import googleathonImage1 from "@assets/Googleathon 1st.jpg";
 import googleathonImage2 from "@assets/Googleathon group.jpg";
 import googleathonImage3 from "@assets/Googleathon.jpg";
 import deepracerImage from "@assets/Deepracer.jpg";
-
 
 export default function TechSessionsGallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -96,7 +95,6 @@ export default function TechSessionsGallery() {
       setCurrentIndex((prev) => (prev + 1) % sessions.length);
       setCurrentImageIndex(0);
     }, 10000);
-
     return () => clearInterval(eventTimer);
   }, [sessions.length]);
 
@@ -107,7 +105,6 @@ export default function TechSessionsGallery() {
         (prev + 1) % sessions[currentIndex].images.length
       );
     }, 3000);
-
     return () => clearInterval(imageTimer);
   }, [currentIndex, sessions]);
 
@@ -183,15 +180,15 @@ export default function TechSessionsGallery() {
 
                 {/* Image Indicators */}
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex space-x-1.5">
-                    {sessions[currentIndex].images.map((_, imgIndex) => (
-                        <button
-                            key={imgIndex}
-                            onClick={() => setCurrentImageIndex(imgIndex)}
-                            className={`h-2 w-2 rounded-full transition-all ${
-                                imgIndex === currentImageIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
-                            }`}
-                        />
-                    ))}
+                  {sessions[currentIndex].images.map((_, imgIndex) => (
+                    <button
+                      key={imgIndex}
+                      onClick={() => setCurrentImageIndex(imgIndex)}
+                      className={`h-2 w-2 rounded-full transition-all ${
+                        imgIndex === currentImageIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
 
@@ -202,15 +199,19 @@ export default function TechSessionsGallery() {
                     <h3 className="text-2xl font-bold text-gray-900 flex-1">{sessions[currentIndex].title}</h3>
                     {/* Event Navigation Buttons */}
                     <div className="flex gap-2 ml-4">
-                         <Button onClick={prevEvent} variant="outline" size="icon" className="h-8 w-8 shrink-0 rounded-full bg-white/80 border-blue-200 hover:bg-blue-50"><ChevronLeft className="w-4 h-4 text-blue-600" /></Button>
-                         <Button onClick={nextEvent} variant="outline" size="icon" className="h-8 w-8 shrink-0 rounded-full bg-white/80 border-blue-200 hover:bg-blue-50"><ChevronRight className="w-4 h-4 text-blue-600" /></Button>
+                      <Button onClick={prevEvent} variant="outline" size="icon" className="h-8 w-8 shrink-0 rounded-full bg-white/80 border-blue-200 hover:bg-blue-50">
+                        <ChevronLeft className="w-4 h-4 text-blue-600" />
+                      </Button>
+                      <Button onClick={nextEvent} variant="outline" size="icon" className="h-8 w-8 shrink-0 rounded-full bg-white/80 border-blue-200 hover:bg-blue-50">
+                        <ChevronRight className="w-4 h-4 text-blue-600" />
+                      </Button>
                     </div>
                   </div>
                   <h4 className="text-lg text-blue-600 mb-4">{sessions[currentIndex].event}</h4>
                   <p className="text-gray-700 leading-relaxed">{sessions[currentIndex].description}</p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-gray-600">
+                <div className="flex items-center gap-x-6 text-gray-600">
                   <div className="flex items-center">
                     <MapPin className="w-4 h-4 mr-2 text-blue-600" />
                     <span className="text-sm">{sessions[currentIndex].location}</span>
@@ -239,8 +240,8 @@ export default function TechSessionsGallery() {
             ))}
           </div>
 
-          {/* Stats Section */}
-          <div className="grid md:grid-cols-4 gap-6 mt-12">
+          {/* Stats Section - Now with 4 well-aligned cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             <Card className="p-6 bg-blue-50 border border-blue-200 text-center hover:border-blue-300 hover:shadow-lg transition-all">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Users className="w-6 h-6 text-blue-600" />
@@ -259,15 +260,15 @@ export default function TechSessionsGallery() {
 
             <Card className="p-6 bg-purple-50 border border-purple-200 text-center hover:border-purple-300 hover:shadow-lg transition-all">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <MapPin className="w-6 h-6 text-purple-600" />
+                <Users className="w-6 h-6 text-purple-600" />
               </div>
-              <p className="text-2xl font-bold text-purple-600 mb-1">5+</p>
-              <p className="text-gray-600 text-sm">Countries</p>
+              <p className="text-2xl font-bold text-purple-600 mb-1">50+</p>
+              <p className="text-gray-600 text-sm">Team Members Led</p>
             </Card>
 
             <Card className="p-6 bg-orange-50 border border-orange-200 text-center hover:border-orange-300 hover:shadow-lg transition-all">
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Users className="w-6 h-6 text-orange-600" />
+                <TrendingUp className="w-6 h-6 text-orange-600" />
               </div>
               <p className="text-2xl font-bold text-orange-600 mb-1">95%</p>
               <p className="text-gray-600 text-sm">Satisfaction Rate</p>
