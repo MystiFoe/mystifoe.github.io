@@ -3,10 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  MessageCircle,
   Building,
   Globe,
-  Award,
   CheckCircle,
   Code,
   Database,
@@ -14,12 +12,6 @@ import {
   Calendar,
 } from "lucide-react";
 import profileImage from "@assets/1728054411169-removebg-preview.png";
-import alliedWorldwideImage from "@assets/Allied Worldwide.png";
-import kovanLabsImage from "@assets/Kovan labs.png";
-import knuImage from "@assets/KNU.png";
-import lenovoImage from "@assets/lenovo.png";
-import metresaImage from "@assets/Metresa.png";
-import akshayaTexImage from "@assets/Akshaya Tex.png";
 
 // Extend Window interface to include Calendly
 declare global {
@@ -70,11 +62,9 @@ function TypingAnimation() {
         index++;
       } else {
         clearInterval(typingTimer);
-        // Hide cursor after typing is complete
         setTimeout(() => setShowCursor(false), 1000);
       }
     }, 100);
-    // Cursor blinking
     const cursorTimer = setInterval(() => {
       setShowCursor(prev => !prev);
     }, 500);
@@ -101,33 +91,29 @@ function TypingAnimation() {
 }
 
 export default function HeroSection() {
+  const calendlyUrl = "https://calendly.com/giritharanmani1";
+
+  const handleHireMeClick = () => {
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: calendlyUrl });
+    } else {
+      // Fallback if the script hasn't loaded
+      window.open(calendlyUrl, '_blank');
+    }
+  };
+
   // Load Calendly widget script
   useEffect(() => {
-    // Add Calendly CSS
     const link = document.createElement('link');
     link.href = 'https://assets.calendly.com/assets/external/widget.css';
     link.rel = 'stylesheet';
     document.head.appendChild(link);
 
-    // Add Calendly JS
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
-    script.onload = () => {
-      // Initialize Calendly badge widget after script loads
-      if (window.Calendly) {
-        window.Calendly.initBadgeWidget({
-          url: 'https://calendly.com/giritharanmani1',
-          text: 'Hire Me',
-          color: '#0069ff',
-          textColor: '#ffffff',
-          branding: true
-        });
-      }
-    };
     document.body.appendChild(script);
 
-    // Cleanup
     return () => {
       if (document.head.contains(link)) {
         document.head.removeChild(link);
@@ -138,44 +124,15 @@ export default function HeroSection() {
     };
   }, []);
 
-  const handleHireMe = () => {
-    // Open Calendly popup
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/giritharanmani1'
-      });
-    } else {
-      // Fallback to opening in new tab
-      window.open('https://calendly.com/giritharanmani1', '_blank');
-    }
-  };
-
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const companyLogos = [
-    { name: "Allied Worldwide", image: alliedWorldwideImage },
-    { name: "Kovan Labs", image: kovanLabsImage },
-    { name: "KNU", image: knuImage },
-    { name: "Lenovo", image: lenovoImage },
-    { name: "Metresa", image: metresaImage },
-    { name: "Akshaya Tex", image: akshayaTexImage },
-  ];
-
   return (
     <section
       id="hero"
-      className="pt-16 min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden cursor-glow"
+      className="pt-16 min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div className="grid lg:grid-cols-[1.8fr_1.2fr] gap-12 items-center min-h-[80vh]">
           {/* Left Content */}
-          <div className="space-y-8 fade-in">
-            {/* Main Header */}
+          <div className="space-y-8">
             <div>
               <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
                 <TypingAnimation />
@@ -185,52 +142,44 @@ export default function HeroSection() {
                 Digging Data, Driving Business Growth
               </p>
             </div>
-            {/* CTA Button */}
-            <div className="fade-in mb-8">
+            <div className="mb-8">
               <Button
-                onClick={handleHireMe}
+                onClick={handleHireMeClick}
                 className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg transform hover:scale-105 transition-all shadow-xl rounded-xl font-semibold"
               >
                 <Calendar className="w-5 h-5 mr-3" />
                 Hire Me
               </Button>
             </div>
-            {/* Key Highlights */}
-            <div className="grid md:grid-cols-3 gap-4 slide-up">
-              <Card className="p-4 bg-white/90 backdrop-blur-lg border border-blue-200 hover:border-blue-400 hover:shadow-xl transition-all transform hover:scale-105 github-card-hover">
+            <div className="grid md:grid-cols-3 gap-4">
+              <Card className="p-4 bg-white/90 backdrop-blur-lg border border-blue-200 hover:border-blue-400 hover:shadow-xl transition-all transform hover:scale-105">
                 <div className="text-center">
                   <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <Building className="w-5 h-5 text-blue-600" />
                   </div>
-                  <p className="text-xs text-gray-600 mb-2">
-                    Worked with
-                  </p>
+                  <p className="text-xs text-gray-600 mb-2">Worked with</p>
                   <Badge className="bg-blue-100 text-blue-800 border-blue-300 text-xs px-2 py-1">
                     <AnimatedCounter target={5} suffix="+ Companies" />
                   </Badge>
                 </div>
               </Card>
-              <Card className="p-4 bg-white/90 backdrop-blur-lg border border-green-200 hover:border-green-400 hover:shadow-xl transition-all transform hover:scale-105 github-card-hover stagger-1">
+              <Card className="p-4 bg-white/90 backdrop-blur-lg border border-green-200 hover:border-green-400 hover:shadow-xl transition-all transform hover:scale-105">
                 <div className="text-center">
                   <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <CheckCircle className="w-5 h-5 text-green-600" />
                   </div>
-                  <p className="text-xs text-gray-600 mb-2">
-                    Data Analytics & BI Professional
-                  </p>
+                  <p className="text-xs text-gray-600 mb-2">Data Analytics & BI Professional</p>
                   <Badge className="bg-green-100 text-green-800 border-green-300 text-xs px-2 py-1">
                     Google Certified
                   </Badge>
                 </div>
               </Card>
-              <Card className="p-4 bg-white/90 backdrop-blur-lg border border-purple-200 hover:border-purple-400 hover:shadow-xl transition-all transform hover:scale-105 github-card-hover stagger-2">
+              <Card className="p-4 bg-white/90 backdrop-blur-lg border border-purple-200 hover:border-purple-400 hover:shadow-xl transition-all transform hover:scale-105">
                 <div className="text-center">
                   <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <Globe className="w-5 h-5 text-purple-600" />
                   </div>
-                  <p className="text-xs text-gray-600 mb-2">
-                    Clients in UK, US, and Korea
-                  </p>
+                  <p className="text-xs text-gray-600 mb-2">Clients in UK, US, and Korea</p>
                   <Badge className="bg-purple-100 text-purple-800 border-purple-300 text-xs px-2 py-1">
                     Global Experience
                   </Badge>
@@ -239,9 +188,8 @@ export default function HeroSection() {
             </div>
           </div>
           {/* Right Image Section */}
-          <div className="relative slide-up flex justify-end">
+          <div className="relative flex justify-end">
             <div className="relative w-4/5 max-w-sm">
-              {/* Professional Image */}
               <div className="relative z-10 w-full h-80 flex items-center justify-center overflow-hidden">
                 <img
                   src={profileImage}
@@ -249,29 +197,19 @@ export default function HeroSection() {
                   className="w-full h-full object-cover object-center"
                 />
               </div>
-              {/* "Data to Decisions" overlay */}
               <div className="absolute top-2 -left-8 bg-white/95 backdrop-blur-sm border border-blue-200 rounded-lg shadow-lg p-3 animate-pulse">
-                <span className="text-lg font-bold text-blue-600">
-                  Data to Decisions
-                </span>
+                <span className="text-lg font-bold text-blue-600">Data to Decisions</span>
               </div>
-              {/* Floating Achievement Cards */}
               <div className="absolute -bottom-6 -right-6 bg-white border border-orange-200 rounded-lg shadow-lg p-3 animate-bounce">
                 <div className="flex items-center space-x-2">
                   <Brain className="w-5 h-5 text-orange-600" />
-                  <span className="text-sm font-medium text-orange-600">
-                    AI Expert
-                  </span>
+                  <span className="text-sm font-medium text-orange-600">AI Expert</span>
                 </div>
               </div>
-              <div
-                className="absolute top-1/2 -left-8 bg-white border border-green-200 rounded-lg shadow-lg p-3 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
-              >
+              <div className="absolute top-1/2 -left-8 bg-white border border-green-200 rounded-lg shadow-lg p-3 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300">
                 <div className="flex items-center space-x-2">
                   <Database className="w-5 h-5 text-green-600" />
-                  <span className="text-sm font-medium text-green-600">
-                    Strategy Expert
-                  </span>
+                  <span className="text-sm font-medium text-green-600">Strategy Expert</span>
                 </div>
               </div>
             </div>
