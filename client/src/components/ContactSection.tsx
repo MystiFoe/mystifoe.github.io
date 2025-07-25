@@ -12,9 +12,20 @@ import {
   Send,
   Linkedin,
   Github,
-  Twitter,
   Globe
 } from "lucide-react";
+
+// Custom Kaggle icon component
+const KaggleIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.493c0-.236.118-.353.354-.353h2.431c.234 0 .351.117.351.353v14.343l6.203-6.272c.165-.165.33-.248.495-.248h3.239c.144 0 .236.06.28.18.043.119.014.24-.088.36l-6.396 6.506 6.52 8.332c.139.184.164.29.085.386z"/>
+  </svg>
+);
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -91,27 +102,27 @@ export default function ContactSection() {
   const socialLinks = [
     {
       icon: Linkedin,
-      href: "#",
+      href: "https://www.linkedin.com/in/mystifoe/",
       bgColor: "bg-blue-600 hover:bg-blue-700",
       label: "LinkedIn"
     },
     {
       icon: Github,
-      href: "#",
+      href: "https://github.com/MystiFoe",
       bgColor: "bg-gray-600 hover:bg-gray-700",
       label: "GitHub"
     },
     {
-      icon: Twitter,
-      href: "#",
+      icon: KaggleIcon,
+      href: "https://www.kaggle.com/mystifoe77",
       bgColor: "bg-blue-500 hover:bg-blue-600",
-      label: "Twitter"
+      label: "Kaggle"
     },
     {
       icon: Globe,
-      href: "#",
+      href: "https://giritharanmani-portfolio.vercel.app",
       bgColor: "bg-green-600 hover:bg-green-700",
-      label: "Website"
+      label: "Portfolio"
     }
   ];
 
@@ -159,6 +170,8 @@ export default function ContactSection() {
                         href={social.href}
                         className={`w-10 h-10 ${social.bgColor} rounded-lg flex items-center justify-center text-white transition-colors`}
                         aria-label={social.label}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <IconComponent className="w-5 h-5" />
                       </a>
