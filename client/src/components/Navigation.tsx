@@ -7,7 +7,6 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [isDownloading, setIsDownloading] = useState(false);
 
   const roles = [
     { text: "Business Analyst", color: "text-blue-600" },
@@ -39,49 +38,9 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
-  const handleDownloadResume = async () => {
-    setIsDownloading(true);
-    
-    try {
-      // First, try to fetch the resume file
-      const response = await fetch('/resume.pdf');
-      
-      if (response.ok) {
-        // Create blob from response
-        const blob = await response.blob();
-        
-        // Create download link
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'Giritharan_Mani_CV.pdf';
-        
-        // Trigger download
-        document.body.appendChild(link);
-        link.click();
-        
-        // Cleanup
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
-        
-        console.log('Resume downloaded successfully');
-      } else {
-        throw new Error('Resume file not found');
-      }
-    } catch (error) {
-      console.error('Failed to download resume:', error);
-      
-      // Fallback: try to open in new tab
-      try {
-        window.open('/resume.pdf', '_blank');
-        console.log('Opened resume in new tab as fallback');
-      } catch (fallbackError) {
-        console.error('Fallback failed:', fallbackError);
-        alert('Unable to download or open resume. Please contact for a copy.');
-      }
-    } finally {
-      setIsDownloading(false);
-    }
+  const handleDownloadResume = () => {
+    // Simply open the Google Drive link in a new tab
+    window.open('https://drive.google.com/file/d/1ZmEriAbV451netYgnZDcvSgyu3hjwqAI/view?usp=sharing', '_blank');
   };
 
   return (
@@ -125,11 +84,10 @@ export default function Navigation() {
           <div className="flex items-center space-x-4">
             <Button
               onClick={handleDownloadResume}
-              disabled={isDownloading}
-              className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg transform hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg transform hover:scale-105 transition-all"
             >
-              <Download className={`w-4 h-4 mr-2 ${isDownloading ? 'animate-bounce' : ''}`} />
-              {isDownloading ? 'Downloading...' : 'Resume'}
+              <Download className="w-4 h-4 mr-2" />
+              Resume
             </Button>
             
             {/* Mobile Menu Button */}
