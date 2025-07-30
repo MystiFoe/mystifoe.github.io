@@ -14,7 +14,7 @@ export default function EducationSection() {
       institution: "Jai Shriram Engineering College",
       location: "Tirupur, Tamil Nadu, India",
       period: "2021 – 2025",
-      grade: "CGPA: 8.43 / 10.0",
+      grade: "CGPA: 8.6 / 10.0",
       achievements: [
         "Winner: AWS DeepRacer League (Top 1%)",
         "1st Place: National Project Presentation Competition",
