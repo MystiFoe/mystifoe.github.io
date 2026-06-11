@@ -2,8 +2,8 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
-import EducationSection from "@/components/EducationSection";
 import ExperienceSection from "@/components/ExperienceSection";
+import EducationSection from "@/components/EducationSection";
 import TechSessionsGallery from "@/components/TechSessionsGallery";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
@@ -16,8 +16,8 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <SkillsSection />
-      <EducationSection />
       <ExperienceSection />
+      <EducationSection />
       <TechSessionsGallery />
       <ProjectsSection />
       <ContactSection />
