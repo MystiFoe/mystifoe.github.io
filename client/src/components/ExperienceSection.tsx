@@ -1,10 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-  MapPin,
-  Clock,
-  Users
-} from "lucide-react";
+import { MapPin, Clock, Users } from "lucide-react";
 import pravaigImage from "@assets/Pravaig.jpg";
 import alliedWorldwideImage from "@assets/Allied Worldwide.png";
 import kovanLabsImage from "@assets/Kovan labs.png";
@@ -28,7 +24,9 @@ export default function ExperienceSection() {
         { label: "Enterprise Impact", value: "~₹2 Cr", color: "text-green-600" }
       ],
       dotColor: "bg-blue-600",
-      logo: pravaigImage
+      side: "right",
+      logo: pravaigImage,
+      logoBg: "bg-gray-800"
     },
     {
       title: "AI Engineer Intern",
@@ -42,7 +40,9 @@ export default function ExperienceSection() {
         { label: "Client Acquisition", value: "~₹2 Cr", color: "text-green-600" }
       ],
       dotColor: "bg-green-500",
-      logo: alliedWorldwideImage
+      side: "left",
+      logo: alliedWorldwideImage,
+      logoBg: ""
     },
     {
       title: "Product Manager Intern",
@@ -56,7 +56,9 @@ export default function ExperienceSection() {
         { label: "Platform", value: "RAG + LLM", color: "text-indigo-600" }
       ],
       dotColor: "bg-purple-500",
-      logo: kovanLabsImage
+      side: "right",
+      logo: kovanLabsImage,
+      logoBg: ""
     },
     {
       title: "Machine Learning Research Intern",
@@ -70,7 +72,9 @@ export default function ExperienceSection() {
         { label: "Research Scope", value: "Global", color: "text-orange-600" }
       ],
       dotColor: "bg-red-500",
-      logo: knuImage
+      side: "left",
+      logo: knuImage,
+      logoBg: ""
     },
     {
       title: "Data Analyst Intern",
@@ -84,7 +88,9 @@ export default function ExperienceSection() {
         { label: "Visualisation", value: "Tableau", color: "text-blue-600" }
       ],
       dotColor: "bg-yellow-500",
-      logo: lenovoImage
+      side: "right",
+      logo: lenovoImage,
+      logoBg: ""
     }
   ];
 
@@ -99,8 +105,7 @@ export default function ExperienceSection() {
         { label: "Flows Built", value: "Owner + Trainer", color: "text-green-600" },
         { label: "Status", value: "Live", color: "text-blue-600" }
       ],
-      bg: "bg-emerald-600",
-      textColor: "text-white"
+      badgeBg: "bg-emerald-600"
     },
     {
       title: "Landing Page Developer",
@@ -112,8 +117,7 @@ export default function ExperienceSection() {
         { label: "Deliverable", value: "Live Website", color: "text-blue-600" },
         { label: "Type", value: "Full-stack", color: "text-purple-600" }
       ],
-      bg: "bg-blue-700",
-      textColor: "text-white"
+      badgeBg: "bg-blue-700"
     }
   ];
 
@@ -156,6 +160,49 @@ export default function ExperienceSection() {
     }
   ];
 
+  const ExperienceCard = ({ item }: { item: typeof internships[0] }) => (
+    <Card className="p-6 shadow-lg border-gray-100 hover:shadow-xl transition-shadow relative">
+      {/* Logo top corner */}
+      <div className={`absolute top-6 ${item.side === "right" ? "left-6" : "right-6"} w-16 h-10 flex items-center justify-center rounded overflow-hidden ${item.logoBg}`}>
+        <img src={item.logo} alt={item.company} className="w-full h-full object-contain" />
+      </div>
+
+      {item.side === "right" ? (
+        <>
+          <div className="flex items-center justify-end space-x-3 mb-3 mt-2">
+            <Badge className={item.statusColor}>{item.status}</Badge>
+            <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
+          </div>
+          <div className="flex items-center justify-end space-x-2 mb-3">
+            <MapPin className="w-4 h-4 text-gray-500" />
+            <p className="text-gray-600">{item.company}</p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="flex items-center space-x-3 mb-3 mt-2">
+            <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
+            <Badge className={item.statusColor}>{item.status}</Badge>
+          </div>
+          <div className="flex items-center space-x-2 mb-3">
+            <MapPin className="w-4 h-4 text-gray-500" />
+            <p className="text-gray-600">{item.company}</p>
+          </div>
+        </>
+      )}
+
+      <p className="text-sm text-gray-700 mb-4 text-left">{item.description}</p>
+      <div className="grid grid-cols-2 gap-3">
+        {item.metrics.map((metric, mi) => (
+          <div key={mi} className="bg-gray-50 rounded-lg p-2">
+            <p className={`text-lg font-bold ${metric.color}`}>{metric.value}</p>
+            <p className="text-xs text-gray-600">{metric.label}</p>
+          </div>
+        ))}
+      </div>
+    </Card>
+  );
+
   return (
     <section id="experience" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -163,53 +210,45 @@ export default function ExperienceSection() {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Professional Journey</h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto rounded mb-4"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Timeline of experience, freelance work, and leadership
+            Visual timeline showcasing experience, freelance work, and leadership
           </p>
         </div>
 
-        {/* Main Experience Timeline */}
+        {/* Alternating Timeline */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Experience</h3>
           <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200"></div>
-            <div className="space-y-8">
+            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gray-300"></div>
+            <div className="space-y-12">
               {internships.map((item, index) => (
-                <div key={index} className="relative flex items-start pl-20">
-                  {/* Dot */}
-                  <div className={`absolute left-[28px] top-6 w-4 h-4 ${item.dotColor} rounded-full border-4 border-white shadow z-10`}></div>
-                  {/* Card */}
-                  <Card className="flex-1 p-6 shadow-lg border-gray-100 hover:shadow-xl transition-shadow">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-10 flex items-center justify-center flex-shrink-0">
-                          <img src={item.logo} alt={item.company} className="w-full h-full object-contain" />
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
-                            <Badge className={item.statusColor}>{item.status}</Badge>
-                          </div>
-                          <div className="flex items-center gap-1 text-gray-500 text-sm mt-1">
-                            <MapPin className="w-3 h-3" />
-                            <span>{item.company}</span>
-                          </div>
+                <div key={index} className="relative flex items-center">
+                  {item.side === "right" ? (
+                    <>
+                      <div className="flex-1 pr-8 text-right">
+                        <ExperienceCard item={item} />
+                      </div>
+                      <div className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 ${item.dotColor} rounded-full border-4 border-white shadow z-10`}></div>
+                      <div className="flex-1 pl-8">
+                        <div className="flex items-center space-x-2 text-sm font-medium text-gray-500">
+                          <Clock className="w-4 h-4" />
+                          <span>{item.period}</span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-1 text-gray-400 text-sm flex-shrink-0 ml-4">
-                        <Clock className="w-3 h-3" />
-                        <span>{item.period}</span>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-700 mb-4">{item.description}</p>
-                    <div className="grid grid-cols-2 gap-3">
-                      {item.metrics.map((metric, mi) => (
-                        <div key={mi} className="bg-gray-50 rounded-lg p-2">
-                          <p className={`text-lg font-bold ${metric.color}`}>{metric.value}</p>
-                          <p className="text-xs text-gray-600">{metric.label}</p>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex-1 pr-8">
+                        <div className="flex items-center justify-end space-x-2 text-sm font-medium text-gray-500">
+                          <Clock className="w-4 h-4" />
+                          <span>{item.period}</span>
                         </div>
-                      ))}
-                    </div>
-                  </Card>
+                      </div>
+                      <div className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 ${item.dotColor} rounded-full border-4 border-white shadow z-10`}></div>
+                      <div className="flex-1 pl-8">
+                        <ExperienceCard item={item} />
+                      </div>
+                    </>
+                  )}
                 </div>
               ))}
             </div>
@@ -223,8 +262,8 @@ export default function ExperienceSection() {
             {freelanceWork.map((work, index) => (
               <Card key={index} className="p-6 shadow-lg border-gray-100 bg-white hover:shadow-xl transition-all">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className={`w-20 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${work.bg}`}>
-                    <span className={`font-bold text-xs text-center px-1 ${work.textColor}`}>{work.company}</span>
+                  <div className={`w-20 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${work.badgeBg}`}>
+                    <span className="text-white font-bold text-xs text-center px-1">{work.company}</span>
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-gray-900">{work.title}</h4>
@@ -271,6 +310,7 @@ export default function ExperienceSection() {
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );
