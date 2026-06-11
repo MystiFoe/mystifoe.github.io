@@ -12,58 +12,58 @@ import {
 export default function ProjectsSection() {
   const projects = [
     {
-      title: "Lithium Battery RUL Prediction Dashboard",
-      description: "Machine learning-powered Remaining Useful Life (RUL) prediction system for electric vehicle batteries with advanced analytics and predictive maintenance capabilities.",
-      technologies: ["Machine Learning", "IoT", "Predictive Analytics", "Dashboard"],
+      title: "Manufacturing Execution System (MES) — Pravaig Dynamics",
+      description: "End-to-end production monitoring system for EV manufacturing. Real-time tracking of battery assembly, quality checkpoints, and operational KPIs. Includes Hioki BT3562A battery tester integration via TCP. Shipped as a Streamlit-based internal platform serving the factory floor.",
+      technologies: ["Python", "Streamlit", "TCP Integration", "SQL", "Real-time Dashboards"],
       icon: Battery,
       color: "from-orange-500 to-red-600",
       bgColor: "bg-orange-50 dark:bg-orange-900/20",
       borderColor: "border-orange-200 dark:border-orange-800",
       metrics: [
-        { label: "Prediction Accuracy", value: "94%", color: "text-orange-600" },
-        { label: "Cost Savings", value: "32%", color: "text-green-600" }
+        { label: "Daily Active Users", value: "50+", color: "text-orange-600" },
+        { label: "Systems Integrated", value: "3+", color: "text-green-600" }
       ],
-      githubUrl: "https://github.com/MystiFoe/battery-rul-prediction"
+      githubUrl: "https://github.com/MystiFoe"
     },
     {
-      title: "Customer Support Automation using RAG-Based Bot",
-      description: "Advanced customer support system using Retrieval-Augmented Generation (RAG) technology with fine-tuned language models for automated, context-aware customer interactions.",
-      technologies: ["RAG", "LLMs", "NLP", "Python"],
+      title: "AI Agent — Enterprise Lead Generation System",
+      description: "Agentic AI workflow built with LangChain and Claude API for automated LinkedIn outreach and lead qualification. Multi-step agent design with structured outputs, error handling, and CRM integration. Contributed to ~₹2 Cr in enterprise client acquisition within 2 months.",
+      technologies: ["LangChain", "Claude API", "Python", "AI Agents", "Workflow Automation"],
       icon: Bot,
       color: "from-purple-500 to-pink-600",
       bgColor: "bg-purple-50 dark:bg-purple-900/20",
       borderColor: "border-purple-200 dark:border-purple-800",
       metrics: [
-        { label: "Response Accuracy", value: "92%", color: "text-purple-600" },
-        { label: "Resolution Rate", value: "65%", color: "text-green-600" }
-      ],
-      githubUrl: "https://github.com/MystiFoe/Customer-Support-Automation-using-RAG-Based-Bot"
-    },
-    {
-      title: "AI-Powered LinkedIn Lead Generation System",
-      description: "Intelligent automation system that streamlines lead generation through data analytics and AI-powered outreach. Includes automated data collection, lead scoring, and personalized messaging capabilities.",
-      technologies: ["Python", "AI/ML", "Data Analytics", "LinkedIn API"],
-      icon: Users,
-      color: "from-blue-500 to-indigo-600",
-      bgColor: "bg-blue-50 dark:bg-blue-900/20",
-      borderColor: "border-blue-200 dark:border-blue-800",
-      metrics: [
-        { label: "Lead Quality", value: "85%", color: "text-blue-600" },
-        { label: "Time Saved", value: "70%", color: "text-green-600" }
+        { label: "Enterprise Acquisition", value: "~₹2 Cr", color: "text-purple-600" },
+        { label: "Time Saved/Week", value: "5+ hrs", color: "text-green-600" }
       ],
       githubUrl: "https://github.com/MystiFoe/Linkedin-retrieve"
     },
     {
-      title: "Production Data Analysis & Visualization Dashboard",
-      description: "Comprehensive business intelligence dashboard for manufacturing operations with real-time data processing, trend analysis, and interactive visualizations for decision-making.",
-      technologies: ["Tableau", "Power BI", "SQL", "Python"],
-      icon: BarChart3,
+      title: "RAG-Based Customer Support Platform — Kovan Labs",
+      description: "Production RAG system for US enterprise clients using fine-tuned LLMs for automated, context-aware customer support. Built end-to-end — from data ingestion and chunking through vector retrieval and response generation. Reduced client manual support workload by 65%.",
+      technologies: ["RAG", "LLMs", "Python", "Vector DB", "NLP"],
+      icon: Bot,
+      color: "from-blue-500 to-indigo-600",
+      bgColor: "bg-blue-50 dark:bg-blue-900/20",
+      borderColor: "border-blue-200 dark:border-blue-800",
+      metrics: [
+        { label: "Workload Reduction", value: "65%", color: "text-blue-600" },
+        { label: "Query Automation", value: "68%", color: "text-green-600" }
+      ],
+      githubUrl: "https://github.com/MystiFoe/Customer-Support-Automation-using-RAG-Based-Bot"
+    },
+    {
+      title: "Gym Management SaaS — Retention MVP",
+      description: "Flutter-based gym management platform for client Aravind. Owner and Trainer flows with member retention tracking, attendance management, and payment integration. Full PM ownership — architecture, sprint planning, UI mockups, and backend design.",
+      technologies: ["Flutter", "Product Management", "SaaS", "Retention Analytics", "Razorpay"],
+      icon: Users,
       color: "from-emerald-500 to-teal-600",
       bgColor: "bg-emerald-50 dark:bg-emerald-900/20",
       borderColor: "border-emerald-200 dark:border-emerald-800",
       metrics: [
-        { label: "Data Processing", value: "Real-time", color: "text-emerald-600" },
-        { label: "Efficiency Gain", value: "40%", color: "text-blue-600" }
+        { label: "Flows Built", value: "2 MVP", color: "text-emerald-600" },
+        { label: "Live Customers", value: "Active", color: "text-blue-600" }
       ],
       githubUrl: "https://github.com/MystiFoe"
     }

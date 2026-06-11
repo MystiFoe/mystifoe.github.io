@@ -61,18 +61,33 @@ export default function ExperienceSection() {
 
   const internships = [
     {
-      title: "AI Engineer Intern",
-      company: "Allied Worldwide, Bengaluru",
-      period: "February 2025 - Present",
+      title: "Product Engineer — AI & Workflow Systems",
+      company: "Pravaig Dynamics, Bengaluru",
+      period: "September 2025 - Present",
       status: "Current",
       statusColor: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-      description: "Designed intelligent automation tools to support business operations and sales efficiency. Streamlined lead generation by building an AI-powered LinkedIn outreach system, aligning technical automation with sales strategy. Saved 5+ hours/week for teams by automating reporting workflows using Python and SQL. Structured unorganized lead data from external sources, enhancing CRM efficiency and business decision-making.",
+      description: "Sole PM across the organisation — shipped 5+ production AI systems including a Manufacturing Execution System (MES), ERP, and agentic AI workflows. Built RAG pipelines, LLM agents, and automation systems using LangChain and Claude API. Integrated Razorpay subscription payment API end-to-end in production. Reduced operational workload by 65% through AI automation contributing to ~₹2 Cr in enterprise client acquisition.",
+      metrics: [
+        { label: "Production Systems Shipped", value: "5+", color: "text-blue-600" },
+        { label: "Enterprise Impact", value: "~₹2 Cr", color: "text-green-600" }
+      ],
+      dotColor: "bg-blue-600",
+      side: "right",
+      logo: alliedWorldwideImage
+    },
+    {
+      title: "AI Engineer Intern",
+      company: "Allied Worldwide, Bengaluru",
+      period: "February 2025 - August 2025",
+      status: "AI Focus",
+      statusColor: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+      description: "Designed intelligent automation tools to support business operations and sales efficiency. Streamlined lead generation by building an AI-powered LinkedIn outreach system, aligning technical automation with sales strategy. Saved 5+ hours/week for teams by automating reporting workflows using Python and SQL.",
       metrics: [
         { label: "Time Saved per Week", value: "5+ hrs", color: "text-blue-600" },
-        { label: "Process Efficiency", value: "65%", color: "text-green-600" }
+        { label: "Client Acquisition", value: "~₹2 Cr", color: "text-green-600" }
       ],
       dotColor: "bg-green-500",
-      side: "right",
+      side: "left",
       logo: alliedWorldwideImage
     },
     {
