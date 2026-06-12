@@ -162,19 +162,21 @@ export default function ExperienceSection() {
 
   const ExperienceCard = ({ item }: { item: typeof internships[0] }) => (
     <Card className="p-6 shadow-lg border-gray-100 hover:shadow-xl transition-shadow">
-      {/* Title row — logo always inline on the left */}
-      <div className="flex items-center gap-3 mb-2">
-        <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${item.logoBg}`}>
-          <img src={item.logo} alt={item.company} className="w-full h-full object-contain" />
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 flex-wrap">
-            <Badge className={item.statusColor + " text-xs"}>{item.status}</Badge>
-            <h4 className="text-base font-bold text-gray-900">{item.title}</h4>
+      {/* Logo + Badge + Title row */}
+      <div className="flex items-start justify-between mb-3">
+        <div className="flex items-center gap-3">
+          <div className={`w-12 h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${item.logoBg} border border-gray-100`}>
+            <img src={item.logo} alt={item.company} className="w-full h-full object-contain p-1" />
           </div>
-          <div className="flex items-center gap-1 text-gray-500 text-sm mt-0.5">
-            <MapPin className="w-3 h-3 flex-shrink-0" />
-            <span>{item.company}</span>
+          <div>
+            <div className="flex items-center gap-2 flex-wrap">
+              <Badge className={item.statusColor}>{item.status}</Badge>
+              <h4 className="text-base font-bold text-gray-900">{item.title}</h4>
+            </div>
+            <div className="flex items-center gap-1 text-gray-500 text-sm mt-1">
+              <MapPin className="w-3 h-3" />
+              <span>{item.company}</span>
+            </div>
           </div>
         </div>
       </div>
