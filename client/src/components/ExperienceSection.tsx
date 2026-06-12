@@ -161,37 +161,24 @@ export default function ExperienceSection() {
   ];
 
   const ExperienceCard = ({ item }: { item: typeof internships[0] }) => (
-    <Card className="p-6 shadow-lg border-gray-100 hover:shadow-xl transition-shadow relative">
-      {/* Logo top corner */}
-      <div className={`absolute top-6 ${item.side === "right" ? "left-6" : "right-6"} w-16 h-10 flex items-center justify-center rounded overflow-hidden ${item.logoBg}`}>
-        <img src={item.logo} alt={item.company} className="w-full h-full object-contain" />
+    <Card className="p-6 shadow-lg border-gray-100 hover:shadow-xl transition-shadow">
+      {/* Title row — logo always inline on the left */}
+      <div className="flex items-center gap-3 mb-2">
+        <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${item.logoBg}`}>
+          <img src={item.logo} alt={item.company} className="w-full h-full object-contain" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 flex-wrap">
+            <Badge className={item.statusColor + " text-xs"}>{item.status}</Badge>
+            <h4 className="text-base font-bold text-gray-900">{item.title}</h4>
+          </div>
+          <div className="flex items-center gap-1 text-gray-500 text-sm mt-0.5">
+            <MapPin className="w-3 h-3 flex-shrink-0" />
+            <span>{item.company}</span>
+          </div>
+        </div>
       </div>
-
-      {item.side === "right" ? (
-        <>
-          <div className="flex items-center justify-end space-x-3 mb-3 mt-2">
-            <Badge className={item.statusColor}>{item.status}</Badge>
-            <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
-          </div>
-          <div className="flex items-center justify-end space-x-2 mb-3">
-            <MapPin className="w-4 h-4 text-gray-500" />
-            <p className="text-gray-600">{item.company}</p>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="flex items-center space-x-3 mb-3 mt-2">
-            <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
-            <Badge className={item.statusColor}>{item.status}</Badge>
-          </div>
-          <div className="flex items-center space-x-2 mb-3">
-            <MapPin className="w-4 h-4 text-gray-500" />
-            <p className="text-gray-600">{item.company}</p>
-          </div>
-        </>
-      )}
-
-      <p className="text-sm text-gray-700 mb-4 text-left">{item.description}</p>
+      <p className="text-sm text-gray-700 mb-4">{item.description}</p>
       <div className="grid grid-cols-2 gap-3">
         {item.metrics.map((metric, mi) => (
           <div key={mi} className="bg-gray-50 rounded-lg p-2">
