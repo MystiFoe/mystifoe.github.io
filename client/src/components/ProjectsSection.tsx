@@ -76,7 +76,7 @@ export default function ProjectsSection() {
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Projects Portfolio</h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto rounded mb-4"></div>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Data-driven solutions showcasing expertise in analytics, AI, and business intelligence
+            Production AI systems, SaaS platforms, and PM-owned products shipped end-to-end
           </p>
         </div>
         

@@ -62,6 +62,16 @@ export default function EducationSection() {
 
   const certifications = [
     { 
+      name: "Project Management Professional Career Certification", 
+      issuer: "Google", 
+      logo: googleLogo, 
+      color: "text-red-600",
+      bgColor: "bg-red-50",
+      borderColor: "border-red-200",
+      hoverBorder: "hover:border-red-400",
+      hoverBg: "hover:bg-red-100"
+    },
+    { 
       name: "Data Analytics Professional Career Certification", 
       issuer: "Google", 
       logo: googleLogo, 

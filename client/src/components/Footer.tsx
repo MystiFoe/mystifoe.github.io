@@ -26,8 +26,8 @@ export default function Footer() {
         <div className="text-center">
           <h3 className="text-2xl font-bold mb-4">Giritharan Mani</h3>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Transforming complex data into strategic business decisions. 
-            Available for full-time opportunities and consulting projects.
+            AI Product Manager building production systems that matter. 
+            Open to PM, APM, Business Analyst, and AI PM roles in Bangalore and internationally.
           </p>
           
           <div className="flex justify-center space-x-6 mb-8">
@@ -50,7 +50,7 @@ export default function Footer() {
           
           <div className="border-t border-gray-800 pt-8">
             <p className="text-gray-500">
-              © 2024 Giritharan Mani. All rights reserved. | Designed with data-driven insights in mind.
+              © 2026 Giritharan Mani. All rights reserved. | AI Product Manager · Open to opportunities.
             </p>
           </div>
         </div>
