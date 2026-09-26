@@ -23,34 +23,38 @@ function Hero() {
             {site.availability}
           </div>
         </Reveal>
-        <Reveal delay={0.05}>
-          <h1 className="mt-8 max-w-4xl text-[2.5rem] font-medium leading-[1.05] tracking-[-0.03em] sm:text-6xl lg:text-[4.25rem]">
-            {intro.headline}
-          </h1>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-fg-muted">{intro.lede}</p>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <ButtonLink href="/contact">Start a project</ButtonLink>
-            <ButtonLink href="/work" variant="secondary">
-              See the work
-            </ButtonLink>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <dl className="mt-16 grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
-            {highlights.map((h) => (
-              <div key={h.label} className="bg-bg p-6">
-                <dt className="sr-only">{h.label}</dt>
-                <dd className="text-2xl font-medium tracking-tight text-fg sm:text-3xl">{h.value}</dd>
-                <dd className="mt-2 text-sm leading-snug text-fg-subtle">{h.label}</dd>
+        <div className="mt-8 grid gap-14 lg:grid-cols-12 lg:items-end lg:gap-12">
+          <div className="lg:col-span-8">
+            <Reveal delay={0.05}>
+              <h1 className="max-w-4xl text-[2.5rem] font-medium leading-[1.05] tracking-[-0.03em] sm:text-6xl lg:text-[3.6rem] xl:text-[4rem]">
+                {intro.headline}
+              </h1>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-fg-muted">{intro.lede}</p>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <ButtonLink href="/contact">Start a project</ButtonLink>
+                <ButtonLink href="/work" variant="secondary">
+                  See the work
+                </ButtonLink>
               </div>
-            ))}
-          </dl>
-        </Reveal>
+            </Reveal>
+          </div>
+
+          <Reveal delay={0.2} className="lg:col-span-4">
+            <dl className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3 lg:grid-cols-1">
+              {highlights.map((h) => (
+                <div key={h.label} className="bg-bg p-6">
+                  <dt className="sr-only">{h.label}</dt>
+                  <dd className="text-2xl font-medium tracking-tight text-fg sm:text-3xl">{h.value}</dd>
+                  <dd className="mt-2 text-sm leading-snug text-fg-subtle">{h.label}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+        </div>
 
         {recurva?.cover ? (
           <Reveal delay={0.25} className="relative mt-16 sm:mt-20">

@@ -21,6 +21,7 @@
   --accent-fg: 220 14% 6%;
   --success: 152 55% 52%;
   --shadow: 0 0% 0%;
+  --shadow-alpha: 0.55;
   --grid-line: 220 10% 100% / 0.035;
 
   /* shadcn/ui bridge (toast, form primitives) */
@@ -60,6 +61,7 @@
   --accent-fg: 0 0% 100%;
   --success: 152 60% 34%;
   --shadow: 220 30% 20%;
+  --shadow-alpha: 0.16;
   --grid-line: 220 30% 10% / 0.05;
 
   color-scheme: light;
@@ -137,7 +139,7 @@
   .shadow-frame {
     box-shadow:
       0 1px 0 0 hsl(var(--fg) / 0.04) inset,
-      0 30px 60px -30px hsl(var(--shadow) / 0.55);
+      0 24px 48px -28px hsl(var(--shadow) / var(--shadow-alpha));
   }
 }
 

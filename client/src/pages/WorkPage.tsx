@@ -22,6 +22,20 @@ function matches(filter: Filter) {
   };
 }
 
+/** Fills the empty grid slot when the filtered list has an odd number of projects. */
+function CtaTile() {
+  return (
+    <div className="relative flex aspect-[16/10] flex-col justify-end overflow-hidden rounded-xl border border-line bg-surface bg-grid p-8">
+      <p className="eyebrow">Your project</p>
+      <h2 className="mt-3 text-2xl font-medium">Have something similar in mind?</h2>
+      <p className="mt-2 max-w-sm text-fg-muted">Tell me about it and I'll come back with a scope and an approach.</p>
+      <ButtonLink href="/contact" className="mt-6 self-start">
+        Start a project
+      </ButtonLink>
+    </div>
+  );
+}
+
 export default function WorkPage() {
   usePageMeta({
     title: "Work",
@@ -78,10 +92,15 @@ export default function WorkPage() {
               <ProjectCard project={p} priority={i < 2} />
             </Reveal>
           ))}
+          {visible.length % 2 === 1 ? (
+            <Reveal className="hidden md:block">
+              <CtaTile />
+            </Reveal>
+          ) : null}
         </div>
       </section>
 
-      <section className="container-site pb-24">
+      <section className={cn("container-site pb-24", visible.length % 2 === 1 && "md:hidden")}>
         <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-line bg-surface p-8 sm:flex-row sm:items-center sm:p-10">
           <div>
             <h2 className="text-2xl font-medium">Have something similar in mind?</h2>
