@@ -1,22 +1,16 @@
-import { Link } from "wouter";
 import { ArrowUpRight } from "lucide-react";
 import { clientNames, site } from "@/content/site";
-import { featuredProjects, getProject } from "@/content/projects";
+import { featuredProjects } from "@/content/projects";
 import { about, experience, highlights, intro, process, services } from "@/content/profile";
 import { usePageMeta } from "@/lib/meta";
-import { BrowserFrame, PhoneFrame } from "@/components/site/DeviceFrame";
 import { ProjectCard, ProjectFeature } from "@/components/site/ProjectCard";
 import { ButtonLink, Reveal, SectionHeader, StatusDot } from "@/components/site/primitives";
 
 function Hero() {
-  const recurva = getProject("recurva");
-  const energica = getProject("energica");
-  const heroPhone = energica?.gallery?.find((g) => g.frame === "phone");
-
   return (
     <section className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" aria-hidden />
-      <div className="container-site relative pb-20 pt-16 sm:pt-24">
+      <div className="container-site relative pb-24 pt-16 sm:pb-28 sm:pt-24">
         <Reveal>
           <div className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/60 px-3.5 py-1.5 text-xs text-fg-muted backdrop-blur">
             <StatusDot />
@@ -56,22 +50,6 @@ function Hero() {
           </Reveal>
         </div>
 
-        {recurva?.cover ? (
-          <Reveal delay={0.25} className="relative mt-16 sm:mt-20">
-            <Link href="/work/recurva" className="group block" aria-label="Recurva case study">
-              <BrowserFrame image={recurva.cover} priority className="transition-transform duration-700 group-hover:-translate-y-1" />
-            </Link>
-            {heroPhone ? (
-              <Link
-                href="/work/energica"
-                className="absolute -bottom-12 -right-2 hidden w-[16%] sm:block lg:-right-6"
-                aria-label="Energica case study"
-              >
-                <PhoneFrame image={heroPhone} priority className="transition-transform duration-700 hover:-translate-y-1" />
-              </Link>
-            ) : null}
-          </Reveal>
-        ) : null}
       </div>
     </section>
   );
