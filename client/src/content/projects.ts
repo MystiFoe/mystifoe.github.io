@@ -156,9 +156,9 @@ const projectList: Project[] = [
     year: "2026",
     status: "Live at energicamotor.com",
     summary:
-      "Website audit, brand-correct redesign and a motorcycle configurator for the Italian electric motorcycle maker.",
-    tagline: "A frame-by-frame audit, a redesign back to the real brand, and a configurator built to drive dealer enquiries.",
-    role: ["Site audit", "Redesign direction", "Front-end build", "Configurator backend", "Deployment"],
+      "A website and motorcycle configurator built from scratch for the Italian electric motorcycle maker, shaped by an audit of the old site.",
+    tagline: "A frame-by-frame audit of the old site, a new build true to the real brand, and a configurator built to drive dealer enquiries.",
+    role: ["Site audit", "Design direction", "Built from scratch", "Configurator backend", "Deployment"],
     stack: ["Next.js", "FastAPI", "Python", "Pillow", "Redis", "Vercel"],
     links: [
       { label: "Visit energicamotor.com", href: "https://energicamotor.com/" },
@@ -181,11 +181,11 @@ const projectList: Project[] = [
     approach: [
       {
         title: "Audit first",
-        body: "I recorded every page and went through it frame by frame, logging 38 bugs across the site. That list became the backlog and made it easy to agree what the redesign had to fix.",
+        body: "I recorded every page and went through it frame by frame, logging 38 bugs across the site. That list became the backlog and made it easy to agree what the new site had to fix.",
       },
       {
         title: "Back to the real brand",
-        body: "The redesign restores Energica Green (#78BE20), Barlow Condensed and IBM Plex Sans. I ran a direction exercise against references like Nothing and Zero Motorcycles before settling on the final look.",
+        body: "The new site restores Energica Green (#78BE20), Barlow Condensed and IBM Plex Sans. I ran a direction exercise against references like Nothing and Zero Motorcycles before settling on the final look.",
       },
       {
         title: "A configurator that sells",
@@ -193,7 +193,7 @@ const projectList: Project[] = [
       },
     ],
     outcome: [
-      "The redesigned site and configurator are live at energicamotor.com. The Contact Dealer flow is the main conversion point, so a configured bike turns straight into a sales lead.",
+      "The new site and configurator are live at energicamotor.com. The Contact Dealer flow is the main conversion point, so a configured bike turns straight into a sales lead.",
     ],
     productNotes: [
       "Treated the configurator as a sales tool, not a toy. Every path ends at a dealer enquiry with the configuration attached.",

@@ -1,13 +1,14 @@
 import { ArrowUpRight, Code2, Compass, Sparkles, type LucideIcon } from "lucide-react";
 import { clientNames, primaryCta, site } from "@/content/site";
-import { featuredProjects } from "@/content/projects";
+import { projects } from "@/content/projects";
+import { Link } from "wouter";
 import { about, capabilities, experience, highlights, intro, marquee, process } from "@/content/profile";
-import type { Capability } from "@/content/types";
+import type { Capability, Project } from "@/content/types";
 import { getLogo, type CompanyLogo } from "@/content/logos";
 import { LogoAvatar, LogoMarquee } from "@/components/site/Logo";
 import { usePageMeta } from "@/lib/meta";
 import { cn } from "@/lib/utils";
-import { ProjectCard, ProjectFeature } from "@/components/site/ProjectCard";
+import { ProjectFeature } from "@/components/site/ProjectCard";
 import { ButtonLink, Reveal, SectionHeader, StatusDot } from "@/components/site/primitives";
 import {
   Aurora,
@@ -143,47 +144,44 @@ function LogoWall() {
   );
 }
 
+const showcaseSlugs = ["energica", "recurva"];
+
 function SelectedWork() {
-  const [lead, second, ...rest] = featuredProjects;
+  const showcase = showcaseSlugs.map((slug) => projects.find((p) => p.slug === slug)).filter((p): p is Project => Boolean(p));
+  const others = projects.filter((p) => !showcaseSlugs.includes(p.slug));
   return (
     <section className="container-site py-24 sm:py-32">
       <SectionHeader
         eyebrow="Selected work"
         title="Products I've discovered, scoped, built and shipped."
-        description="A few highlights. Each one opens a case study with the problem, the decisions and the result."
+        description="Two live products I built end to end. Each one opens a case study with the problem, the decisions and the result."
       />
       <div className="mt-16 space-y-24">
-        {lead ? (
-          <Reveal>
-            <ProjectFeature project={lead} />
+        {showcase.map((project, i) => (
+          <Reveal key={project.slug}>
+            <ProjectFeature project={project} reverse={i % 2 === 1} />
           </Reveal>
-        ) : null}
-        {second ? (
-          <Reveal>
-            <ProjectFeature project={second} reverse />
-          </Reveal>
-        ) : null}
+        ))}
       </div>
-      {rest.length ? (
-        <Stagger className="mt-24 grid gap-x-10 gap-y-16 md:grid-cols-2">
-          {rest.slice(0, 2).map((p) => (
-            <StaggerItem key={p.slug}>
-              <Tilt>
-                <ProjectCard project={p} />
-              </Tilt>
-            </StaggerItem>
-          ))}
-        </Stagger>
-      ) : null}
-      {featuredProjects.length > 4 ? (
-        <Reveal>
-          <div className="mt-16 flex justify-center">
-            <ButtonLink href="/work" variant="secondary">
-              See all {featuredProjects.length} projects
-            </ButtonLink>
+      <Reveal>
+        <div className="mt-20 flex flex-col gap-5 border-t border-line pt-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="eyebrow mr-2">More case studies</span>
+            {others.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/work/${p.slug}`}
+                className="rounded-full border border-line px-3.5 py-1.5 text-sm text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
+              >
+                {p.title}
+              </Link>
+            ))}
           </div>
-        </Reveal>
-      ) : null}
+          <ButtonLink href="/work" variant="secondary" className="shrink-0 self-start lg:self-auto">
+            All {projects.length} projects
+          </ButtonLink>
+        </div>
+      </Reveal>
     </section>
   );
 }
