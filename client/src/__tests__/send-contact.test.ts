@@ -40,7 +40,7 @@ describe("handleContact", () => {
     const payload = JSON.parse(String(init.body));
     expect(payload.to).toEqual(["owner@example.com"]);
     expect(payload.reply_to).toBe("asha@example.com");
-    expect(payload.subject).toBe("Software engineering role enquiry from Asha Rao");
+    expect(payload.subject).toBe("Portfolio: Software engineering role from Asha Rao, Acme");
   });
 
   it("drops honeypot submissions without sending", async () => {

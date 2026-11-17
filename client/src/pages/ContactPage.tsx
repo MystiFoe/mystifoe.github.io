@@ -6,7 +6,8 @@ import { site } from "@/content/site";
 import { budgets, contactSchema, projectTypes, projectWithBudget, submitContact, timelines, type ContactInput } from "@/lib/contact";
 import { usePageMeta } from "@/lib/meta";
 import { cn } from "@/lib/utils";
-import { Reveal, StatusDot } from "@/components/site/primitives";
+import { ButtonLink, Reveal, StatusDot } from "@/components/site/primitives";
+import { motion, useReducedMotion } from "framer-motion";
 
 const fieldBase =
   "w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-[15px] text-fg placeholder:text-fg-subtle transition-colors focus:border-accent focus:outline-none focus-visible:outline-none";
@@ -94,7 +95,78 @@ function CopyEmail() {
   );
 }
 
-type Status = { kind: "idle" } | { kind: "sent" } | { kind: "mailto" } | { kind: "error"; message: string };
+type Status = { kind: "idle" } | { kind: "sent"; name: string; email: string } | { kind: "mailto" } | { kind: "error"; message: string };
+
+/** Confirmation shown after a message is delivered: what happens next and where to go meanwhile. */
+function SentPanel({ name, email, onReset }: { name: string; email: string; onReset: () => void }) {
+  const reduce = useReducedMotion();
+  const steps = [
+    { title: "I read every message myself", body: "No assistant or auto-filter in between." },
+    { title: "You'll hear back within a day", body: `My reply goes to ${email}.` },
+    { title: "Check spam if it's quiet", body: `Replies come from ${site.email}.` },
+  ];
+  return (
+    <motion.div
+      className="panel relative overflow-hidden p-8 sm:p-10"
+      role="status"
+      initial={reduce ? false : { opacity: 0, y: 12, scale: 0.98 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-gradient-to-br from-accent/30 via-accent-2/20 to-accent-3/20 blur-3xl"
+      />
+      <motion.span
+        className="relative flex h-12 w-12 items-center justify-center rounded-full bg-success/15 text-success"
+        initial={reduce ? false : { scale: 0.4, rotate: -20 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ type: "spring", stiffness: 260, damping: 16, delay: 0.1 }}
+      >
+        <Check className="h-6 w-6" aria-hidden />
+      </motion.span>
+      <h2 className="relative mt-6 text-2xl font-medium sm:text-3xl">Thanks, {name}. Your message is with me.</h2>
+      <p className="relative mt-3 text-fg-muted">Here is what happens next.</p>
+
+      <ol className="relative mt-8 space-y-5">
+        {steps.map((step, i) => (
+          <motion.li
+            key={step.title}
+            className="flex gap-4"
+            initial={reduce ? false : { opacity: 0, x: -8 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, delay: 0.25 + i * 0.1 }}
+          >
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line-strong font-mono text-[11px] text-fg">
+              {i + 1}
+            </span>
+            <div>
+              <p className="text-sm font-medium text-fg">{step.title}</p>
+              <p className="mt-0.5 text-sm text-fg-muted [overflow-wrap:anywhere]">{step.body}</p>
+            </div>
+          </motion.li>
+        ))}
+      </ol>
+
+      <div className="relative mt-10 border-t border-line pt-8">
+        <p className="eyebrow">While you wait</p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <ButtonLink href="/work">See the case studies</ButtonLink>
+          <ButtonLink href={site.socials[0].href} variant="secondary" icon="external">
+            Connect on LinkedIn
+          </ButtonLink>
+        </div>
+        <button
+          type="button"
+          onClick={onReset}
+          className="mt-6 text-sm text-fg-muted underline-offset-4 hover:text-fg hover:underline"
+        >
+          Send another message
+        </button>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function ContactPage() {
   usePageMeta({
@@ -120,7 +192,7 @@ export default function ContactPage() {
   const onSubmit = async (values: ContactInput) => {
     const result = await submitContact(values);
     if (result.status === "sent") {
-      setStatus({ kind: "sent" });
+      setStatus({ kind: "sent", name: values.name.split(/\s+/)[0] ?? values.name, email: values.email });
       reset();
     } else if (result.status === "mailto") {
       window.location.href = result.href;
@@ -177,20 +249,7 @@ export default function ContactPage() {
       <div className="lg:col-span-6 lg:col-start-7">
         <Reveal delay={0.1}>
           {status.kind === "sent" ? (
-            <div className="panel p-8 sm:p-10" role="status">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-success/15 text-success">
-                <Check className="h-5 w-5" aria-hidden />
-              </span>
-              <h2 className="mt-6 text-2xl font-medium">Thanks, your message is on its way.</h2>
-              <p className="mt-3 text-fg-muted">I'll reply to the email you gave me. If it's urgent, WhatsApp is the fastest way to reach me.</p>
-              <button
-                type="button"
-                onClick={() => setStatus({ kind: "idle" })}
-                className="mt-8 text-sm text-fg-muted underline-offset-4 hover:text-fg hover:underline"
-              >
-                Send another message
-              </button>
-            </div>
+            <SentPanel name={status.name} email={status.email} onReset={() => setStatus({ kind: "idle" })} />
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} noValidate className="panel space-y-8 p-6 sm:p-10">
               <div className="grid gap-6 sm:grid-cols-2">

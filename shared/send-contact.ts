@@ -46,29 +46,85 @@ export function resetRateLimits(): void {
 const escapeHtml = (value: string) =>
   value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c] as string);
 
-export function buildEmailHtml(input: ContactInput): string {
-  const rows: [string, string | undefined][] = [
-    ["Name", input.name],
-    ["Email", input.email],
-    ["Company", input.company || undefined],
-    ["Looking for", input.projectType],
-    ["Budget", input.budget],
-    ["Timeline", input.timeline],
+/** Accent colour per enquiry type, so role enquiries stand out in the inbox at a glance. */
+const typeColour: Record<ContactInput["projectType"], string> = {
+  "Software engineering role": "#2563eb",
+  "Product role": "#7c3aed",
+  "Contract or freelance project": "#0d9488",
+  "Something else": "#475569",
+};
+
+function formatIst(date: Date): string {
+  return new Intl.DateTimeFormat("en-IN", {
+    timeZone: "Asia/Kolkata",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(date);
+}
+
+/**
+ * Notification email for the site owner. Table-based layout with inline styles,
+ * because that is what renders consistently across Gmail, Outlook and phone mail apps.
+ */
+export function buildEmailHtml(input: ContactInput, receivedAt: Date = new Date()): string {
+  const colour = typeColour[input.projectType];
+  const name = escapeHtml(input.name);
+  const email = escapeHtml(input.email);
+  const company = input.company ? escapeHtml(input.company) : "";
+  const firstName = escapeHtml(input.name.split(/\s+/)[0] ?? input.name);
+  const message = escapeHtml(input.message).replace(/\n/g, "<br>");
+  const replySubject = encodeURIComponent(`Re: ${emailSubject(input)}`);
+  const preheader = escapeHtml(input.message.slice(0, 110));
+
+  const details: [string, string | undefined][] = [
+    ["Email", `<a href="mailto:${email}" style="color:#2563eb;text-decoration:none">${email}</a>`],
+    ["Company", company || undefined],
+    ["Budget", input.budget ? escapeHtml(input.budget) : undefined],
+    ["Timeline", input.timeline ? escapeHtml(input.timeline) : undefined],
+    ["Received", formatIst(receivedAt) + " IST"],
   ];
-  const table = rows
-    .filter((r): r is [string, string] => Boolean(r[1]))
+  const detailRows = details
+    .filter((d): d is [string, string] => Boolean(d[1]))
     .map(
-      ([k, v]) =>
-        `<tr><td style="padding:4px 16px 4px 0;color:#6b7280;vertical-align:top">${k}</td><td style="padding:4px 0;color:#111827">${escapeHtml(v)}</td></tr>`,
+      ([k, v]) => `<tr>
+        <td style="padding:6px 0;width:96px;color:#6b7280;font-size:13px;vertical-align:top">${k}</td>
+        <td style="padding:6px 0;color:#111827;font-size:14px">${v}</td>
+      </tr>`,
     )
     .join("");
-  const message = escapeHtml(input.message).replace(/\n/g, "<br>");
-  return `<div style="font-family:Arial,sans-serif;font-size:14px;line-height:1.5">
-<p style="margin:0 0 12px;color:#6b7280">New message from your portfolio contact form.</p>
-<table style="border-collapse:collapse">${table}</table>
-<div style="margin-top:16px;padding:12px 16px;border-left:3px solid #3b82f6;background:#f9fafb;color:#111827">${message}</div>
-<p style="margin-top:16px;color:#9ca3af;font-size:12px">Reply to this email to answer ${escapeHtml(input.name)} directly.</p>
-</div>`;
+
+  return `<!doctype html>
+<html><body style="margin:0;padding:0;background:#f3f4f6">
+<span style="display:none;max-height:0;overflow:hidden;opacity:0">${preheader}</span>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6;padding:24px 12px">
+  <tr><td align="center">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e5e7eb;font-family:Arial,Helvetica,sans-serif">
+      <tr><td style="height:4px;background:linear-gradient(90deg,#3b82f6,#8b5cf6,#14b8a6);background-color:#3b82f6"></td></tr>
+      <tr><td style="padding:24px 28px 8px">
+        <p style="margin:0;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af">Portfolio enquiry</p>
+        <span style="display:inline-block;margin-top:12px;padding:4px 10px;border-radius:999px;background:${colour}14;color:${colour};font-size:12px;font-weight:bold">${escapeHtml(input.projectType)}</span>
+        <h1 style="margin:14px 0 2px;font-size:22px;line-height:1.3;color:#111827">${name}</h1>
+        ${company ? `<p style="margin:0;font-size:14px;color:#6b7280">${company}</p>` : ""}
+      </td></tr>
+      <tr><td style="padding:16px 28px 0">
+        <div style="padding:16px 18px;border-radius:10px;background:#f9fafb;border-left:3px solid ${colour};color:#111827;font-size:15px;line-height:1.6">${message}</div>
+      </td></tr>
+      <tr><td style="padding:18px 28px 4px">
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%">${detailRows}</table>
+      </td></tr>
+      <tr><td style="padding:18px 28px 26px">
+        <a href="mailto:${email}?subject=${replySubject}" style="display:inline-block;padding:11px 20px;border-radius:999px;background:#111827;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none">Reply to ${firstName}</a>
+      </td></tr>
+      <tr><td style="padding:14px 28px;border-top:1px solid #f3f4f6;color:#9ca3af;font-size:12px">
+        Sent from the contact form on giritharanmani-portfolio.vercel.app. Pressing Reply answers ${name} directly.
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
 }
 
 export async function handleContact(

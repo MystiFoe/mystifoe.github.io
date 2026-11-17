@@ -25,8 +25,9 @@ export const contactSchema = z.object({
 
 export type ContactInput = z.infer<typeof contactSchema>;
 
-export function emailSubject(input: Pick<ContactInput, "projectType" | "name">): string {
-  return `${input.projectType} enquiry from ${input.name}`;
+export function emailSubject(input: Pick<ContactInput, "projectType" | "name" | "company">): string {
+  const who = input.company ? `${input.name}, ${input.company}` : input.name;
+  return `Portfolio: ${input.projectType} from ${who}`;
 }
 
 /** Plain-text summary of a message, used for the email body and the mailto fallback. */
