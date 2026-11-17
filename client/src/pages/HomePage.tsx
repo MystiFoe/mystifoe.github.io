@@ -74,19 +74,13 @@ function Hero() {
 
             <Stagger className="grid gap-3 sm:grid-cols-3 lg:col-span-4 lg:grid-cols-1" gap={0.12}>
               <StaggerItem className="sm:col-span-3 lg:col-span-1">
-                <a
-                  href="https://pravaig.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="glow-card group flex items-center gap-4 rounded-2xl border border-line bg-surface/80 p-4 backdrop-blur transition-transform duration-300 hover:-translate-y-1"
-                >
+                <div className="glow-card group flex items-center gap-4 rounded-2xl border border-line bg-surface/80 p-4 backdrop-blur transition-transform duration-300 hover:-translate-y-1">
                   <LogoAvatar logo={getLogo("Pravaig Dynamics")} className="transition-transform duration-300 group-hover:rotate-[-4deg]" />
                   <span className="min-w-0">
                     <span className="eyebrow block">Currently</span>
                     <span className="mt-1 block text-sm font-medium text-fg">SDE II at Pravaig Dynamics</span>
                   </span>
-                  <ArrowUpRight className="ml-auto h-4 w-4 shrink-0 text-fg-subtle transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-fg" aria-hidden />
-                </a>
+                </div>
               </StaggerItem>
               {highlights.map((h, i) => (
                 <StaggerItem key={h.label}>

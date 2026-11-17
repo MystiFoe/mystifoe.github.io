@@ -4,25 +4,15 @@ import type { Project } from "@/content/types";
 import { categoryLabels } from "@/content/projects";
 import { cn } from "@/lib/utils";
 import { BrowserFrame } from "./DeviceFrame";
-import { SystemDiagram } from "./SystemDiagram";
+import { ProjectPoster } from "./ProjectPoster";
 import { Tilt } from "./motion";
 import { LogoAvatar } from "./Logo";
 import { getLogo } from "@/content/logos";
 
 function ProjectVisual({ project, priority }: { project: Project; priority?: boolean }) {
-  if (project.cover) {
-    return <BrowserFrame image={project.cover} priority={priority} className="transition-transform duration-500 group-hover:-translate-y-1" />;
-  }
-  if (project.diagram) {
-    return (
-      <SystemDiagram
-        diagram={project.diagram}
-        compact
-        className="aspect-[16/10] transition-transform duration-500 group-hover:-translate-y-1"
-      />
-    );
-  }
-  return null;
+  const motionClass = "transition-transform duration-500 group-hover:-translate-y-1";
+  if (project.cover) return <BrowserFrame image={project.cover} priority={priority} className={motionClass} />;
+  return <ProjectPoster project={project} className={motionClass} />;
 }
 
 function ProjectMeta({ project }: { project: Project }) {

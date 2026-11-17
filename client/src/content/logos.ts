@@ -19,20 +19,18 @@ export interface CompanyLogo {
   tile: "light" | "dark" | "brand";
   /** Square marks fill the tile; wordmarks get side padding. */
   square?: boolean;
-  /** A tighter crop of the mark for small avatars, when the full logo is a wide wordmark. */
-  url?: string;
 }
 
 export const logos: Record<string, CompanyLogo> = {
-  "Pravaig Dynamics": { name: "Pravaig Dynamics", src: pravaig, tile: "brand", square: true, url: "https://pravaig.com" },
-  "Energica Motor Company": { name: "Energica Motor Company", src: energica, tile: "dark", url: "https://energicamotor.com" },
+  "Pravaig Dynamics": { name: "Pravaig Dynamics", src: pravaig, tile: "brand", square: true },
+  "Energica Motor Company": { name: "Energica Motor Company", src: energica, tile: "dark" },
   "Allied Worldwide": { name: "Allied Worldwide", src: allied, tile: "light" },
   "Kovan Labs": { name: "Kovan Labs", src: kovan, tile: "light" },
   "Kyungpook National University": { name: "Kyungpook National University", src: knu, tile: "light" },
   "Lenovo India": { name: "Lenovo India", src: lenovo, tile: "light" },
-  Recurva: { name: "Recurva", src: recurva, tile: "light", url: "https://recurva.in" },
-  "Prathik Softnet": { name: "Prathik Softnet", src: prathik, tile: "light", url: "https://prathiksoftnet.com" },
-  Migsak: { name: "Migsak", src: migsak, tile: "light", url: "https://migsak.com" },
+  Recurva: { name: "Recurva", src: recurva, tile: "light" },
+  "Prathik Softnet": { name: "Prathik Softnet", src: prathik, tile: "light" },
+  Migsak: { name: "Migsak", src: migsak, tile: "light" },
 };
 
 export function getLogo(company: string): CompanyLogo | undefined {

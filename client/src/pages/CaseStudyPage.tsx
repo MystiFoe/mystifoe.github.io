@@ -9,6 +9,7 @@ import { usePageMeta } from "@/lib/meta";
 import { cn } from "@/lib/utils";
 import { DeviceImage } from "@/components/site/DeviceFrame";
 import { SystemDiagram } from "@/components/site/SystemDiagram";
+import { ProjectPoster } from "@/components/site/ProjectPoster";
 import { ButtonLink, Reveal } from "@/components/site/primitives";
 import NotFoundPage from "./NotFoundPage";
 
@@ -133,11 +134,7 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
 
       <div className="container-site">
         <Reveal>
-          {project.cover ? (
-            <DeviceImage image={project.cover} priority />
-          ) : project.diagram ? (
-            <SystemDiagram diagram={project.diagram} />
-          ) : null}
+          {project.cover ? <DeviceImage image={project.cover} priority /> : <ProjectPoster project={project} />}
         </Reveal>
 
         <Reveal>
@@ -177,7 +174,7 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
             </ol>
           </Block>
 
-          {project.cover && project.diagram ? (
+          {project.diagram ? (
             <Reveal>
               <section className="border-t border-line py-14">
                 <SystemDiagram diagram={project.diagram} />

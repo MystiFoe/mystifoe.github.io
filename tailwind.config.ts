@@ -77,6 +77,12 @@ export default {
           "33%": { transform: "translate3d(6%, -8%, 0) scale(1.08)" },
           "66%": { transform: "translate3d(-6%, 6%, 0) scale(0.95)" },
         },
+        travel: {
+          "0%": { left: "0%", opacity: "0" },
+          "10%": { opacity: "1" },
+          "90%": { opacity: "1" },
+          "100%": { left: "100%", opacity: "0" },
+        },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-8px)" },
@@ -90,6 +96,7 @@ export default {
         drift: "drift 18s ease-in-out infinite",
         "drift-slow": "drift 26s ease-in-out infinite reverse",
         float: "float 6s ease-in-out infinite",
+        travel: "travel 3.2s cubic-bezier(0.45, 0, 0.55, 1) infinite",
       },
     },
   },
