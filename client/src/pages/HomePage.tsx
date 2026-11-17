@@ -150,12 +150,7 @@ function SelectedWork() {
       <SectionHeader
         eyebrow="Selected work"
         title="Products I've discovered, scoped, built and shipped."
-        description="Full-time product work first, then independent projects. Each one opens a case study with the problem, the decisions and the result."
-        action={
-          <ButtonLink href="/work" variant="secondary">
-            All projects
-          </ButtonLink>
-        }
+        description="A few highlights. Each one opens a case study with the problem, the decisions and the result."
       />
       <div className="mt-16 space-y-24">
         {lead ? (
@@ -171,7 +166,7 @@ function SelectedWork() {
       </div>
       {rest.length ? (
         <Stagger className="mt-24 grid gap-x-10 gap-y-16 md:grid-cols-2">
-          {rest.map((p) => (
+          {rest.slice(0, 2).map((p) => (
             <StaggerItem key={p.slug}>
               <Tilt>
                 <ProjectCard project={p} />
@@ -179,6 +174,15 @@ function SelectedWork() {
             </StaggerItem>
           ))}
         </Stagger>
+      ) : null}
+      {featuredProjects.length > 4 ? (
+        <Reveal>
+          <div className="mt-16 flex justify-center">
+            <ButtonLink href="/work" variant="secondary">
+              See all {featuredProjects.length} projects
+            </ButtonLink>
+          </div>
+        </Reveal>
       ) : null}
     </section>
   );
