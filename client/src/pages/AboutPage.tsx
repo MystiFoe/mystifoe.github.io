@@ -2,6 +2,8 @@ import { Link } from "wouter";
 import { site } from "@/content/site";
 import { getProject } from "@/content/projects";
 import { about, experience, toolkit } from "@/content/profile";
+import { getLogo } from "@/content/logos";
+import { LogoAvatar } from "@/components/site/Logo";
 import { usePageMeta } from "@/lib/meta";
 import { ButtonLink, Reveal, StatusDot } from "@/components/site/primitives";
 
@@ -73,6 +75,7 @@ export default function AboutPage() {
               <Reveal key={item.company}>
                 <li className="grid gap-4 border-t border-line py-10 lg:grid-cols-12 lg:gap-12">
                   <div className="lg:col-span-4">
+                    <LogoAvatar logo={getLogo(item.logo ?? item.company)} className="mb-5" />
                     <p className="font-mono text-xs text-fg-subtle">{item.period}</p>
                     <h3 className="mt-3 text-xl font-medium">{item.company}</h3>
                     <p className="mt-1 text-sm text-fg-muted">{item.role}</p>

@@ -49,7 +49,7 @@ export function SectionHeader({
 type ButtonVariant = "primary" | "secondary" | "ghost";
 
 const buttonStyles: Record<ButtonVariant, string> = {
-  primary: "bg-fg text-bg hover:bg-fg/90",
+  primary: "btn-shine bg-fg text-bg hover:bg-fg/90",
   secondary: "border border-line-strong bg-surface text-fg hover:border-fg-subtle hover:bg-surface-2",
   ghost: "text-fg-muted hover:text-fg",
 };

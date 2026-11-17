@@ -28,6 +28,7 @@ export const navigation = [
 /** Primary call to action used in the header, footer and page endings. */
 export const primaryCta = { label: "Let's talk", href: "/contact" } as const;
 
+/** Companies shown in the logo strip, in display order. Each needs an entry in logos.ts. */
 export const clientNames = [
   "Pravaig Dynamics",
   "Energica Motor Company",
@@ -36,4 +37,6 @@ export const clientNames = [
   "Kovan Labs",
   "Prathik Softnet",
   "Migsak",
+  "Lenovo India",
+  "Kyungpook National University",
 ] as const;

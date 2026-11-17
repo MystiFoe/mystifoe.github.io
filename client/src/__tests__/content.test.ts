@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { featuredProjects, getNextProject, getProject, projects } from "@/content/projects";
 import { about, capabilities, experience, highlights, intro, process } from "@/content/profile";
-import { site } from "@/content/site";
+import { clientNames, site } from "@/content/site";
+import { getLogo } from "@/content/logos";
 
 /** Collects every string value in a nested structure. */
 function strings(value: unknown): string[] {
@@ -43,6 +44,19 @@ describe("project content", () => {
     expect(getProject("does-not-exist")).toBeUndefined();
     const last = projects[projects.length - 1];
     expect(getNextProject(last.slug).slug).toBe(projects[0].slug);
+  });
+});
+
+describe("logos", () => {
+  it("has a logo for every company in the logo strip", () => {
+    for (const name of clientNames) expect(getLogo(name), name).toBeDefined();
+  });
+
+  it("has a logo for every experience entry", () => {
+    for (const item of experience) {
+      if (item.company === "Independent projects" && !item.logo) continue;
+      expect(getLogo(item.logo ?? item.company), item.company).toBeDefined();
+    }
   });
 });
 

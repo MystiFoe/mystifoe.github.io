@@ -3,6 +3,8 @@ import { clientNames, primaryCta, site } from "@/content/site";
 import { featuredProjects } from "@/content/projects";
 import { about, capabilities, experience, highlights, intro, marquee, process } from "@/content/profile";
 import type { Capability } from "@/content/types";
+import { getLogo, type CompanyLogo } from "@/content/logos";
+import { LogoAvatar, LogoMarquee } from "@/components/site/Logo";
 import { usePageMeta } from "@/lib/meta";
 import { cn } from "@/lib/utils";
 import { ProjectCard, ProjectFeature } from "@/components/site/ProjectCard";
@@ -71,6 +73,21 @@ function Hero() {
             </div>
 
             <Stagger className="grid gap-3 sm:grid-cols-3 lg:col-span-4 lg:grid-cols-1" gap={0.12}>
+              <StaggerItem className="sm:col-span-3 lg:col-span-1">
+                <a
+                  href="https://pravaig.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glow-card group flex items-center gap-4 rounded-2xl border border-line bg-surface/80 p-4 backdrop-blur transition-transform duration-300 hover:-translate-y-1"
+                >
+                  <LogoAvatar logo={getLogo("Pravaig Dynamics")} className="transition-transform duration-300 group-hover:rotate-[-4deg]" />
+                  <span className="min-w-0">
+                    <span className="eyebrow block">Currently</span>
+                    <span className="mt-1 block text-sm font-medium text-fg">SDE II at Pravaig Dynamics</span>
+                  </span>
+                  <ArrowUpRight className="ml-auto h-4 w-4 shrink-0 text-fg-subtle transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-fg" aria-hidden />
+                </a>
+              </StaggerItem>
               {highlights.map((h, i) => (
                 <StaggerItem key={h.label}>
                   <div
@@ -104,16 +121,30 @@ function SkillStrip() {
         <Marquee items={marquee.slice(0, half)} />
         <Marquee items={marquee.slice(half)} reverse />
       </div>
-      <div className="container-site mt-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-10">
-        <p className="eyebrow shrink-0">Built for and with</p>
-        <ul className="flex flex-wrap gap-x-8 gap-y-2">
-          {clientNames.map((name) => (
-            <li key={name} className="text-sm font-medium tracking-tight text-fg-subtle transition-colors hover:text-fg">
-              {name}
-            </li>
-          ))}
-        </ul>
+    </section>
+  );
+}
+
+function LogoWall() {
+  const companies = clientNames.map((n) => getLogo(n)).filter((l): l is CompanyLogo => Boolean(l));
+  return (
+    <section className="pb-2 pt-16 sm:pt-20" aria-labelledby="logos-heading">
+      <div className="container-site flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
+        <Reveal>
+          <p className="eyebrow">Built for and with</p>
+          <h2 id="logos-heading" className="mt-3 text-2xl font-medium sm:text-3xl">
+            Teams I have shipped products for.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <p className="max-w-sm text-sm leading-relaxed text-fg-muted">
+            Full-time roles, internships and independent client work, from EV manufacturing to enterprise IT.
+          </p>
+        </Reveal>
       </div>
+      <Reveal delay={0.1}>
+        <LogoMarquee items={companies} className="mt-10" />
+      </Reveal>
     </section>
   );
 }
@@ -246,7 +277,7 @@ function Process() {
 }
 
 function Journey() {
-  const roles = experience.filter((e) => e.company !== "Earlier");
+  const roles = experience.slice(0, 4);
   return (
     <section className="border-t border-line">
       <div className="container-site grid gap-16 py-24 sm:py-32 lg:grid-cols-12">
@@ -272,10 +303,15 @@ function Journey() {
                     aria-hidden
                     className="absolute left-0 top-1.5 h-[15px] w-[15px] rounded-full border-2 border-bg bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_0_4px_hsl(var(--accent)/0.12)]"
                   />
-                  <p className="font-mono text-xs text-fg-subtle">{r.period}</p>
-                  <p className="mt-1.5 font-medium text-fg">{r.role}</p>
-                  <p className="text-sm text-fg-muted">{r.company}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-fg-muted">{r.summary}</p>
+                  <div className="group flex gap-4 rounded-2xl border border-transparent p-3 -m-3 transition-colors hover:border-line hover:bg-surface/60">
+                    <LogoAvatar logo={getLogo(r.logo ?? r.company)} className="mt-0.5 transition-transform duration-300 group-hover:scale-105" />
+                    <div className="min-w-0">
+                      <p className="font-mono text-xs text-fg-subtle">{r.period}</p>
+                      <p className="mt-1 font-medium text-fg">{r.role}</p>
+                      <p className="text-sm text-fg-muted">{r.company}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-fg-muted">{r.summary}</p>
+                    </div>
+                  </div>
                 </li>
               </Reveal>
             ))}
@@ -332,6 +368,7 @@ export default function HomePage() {
     <>
       <Hero />
       <SkillStrip />
+      <LogoWall />
       <SelectedWork />
       <Capabilities />
       <Process />

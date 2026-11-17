@@ -64,6 +64,8 @@ export interface Project {
 
 export interface ExperienceItem {
   company: string;
+  /** Key into logos.ts when the company name shown differs from the logo key. */
+  logo?: string;
   role: string;
   location: string;
   period: string;

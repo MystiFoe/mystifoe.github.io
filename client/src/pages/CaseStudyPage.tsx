@@ -1,3 +1,5 @@
+import { getLogo } from "@/content/logos";
+import { LogoAvatar } from "@/components/site/Logo";
 import { Link } from "wouter";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
@@ -105,7 +107,10 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
           All work
         </Link>
         <Reveal>
-          <p className="eyebrow mt-10">
+          {getLogo(project.client) ? (
+            <LogoAvatar logo={getLogo(project.client)} className="mt-10" />
+          ) : null}
+          <p className="eyebrow mt-6">
             <span className={cn(project.engagement === "freelance" && "text-accent")}>{project.engagementLabel}</span>
             <span className="mx-2" aria-hidden>
               /

@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import { BrowserFrame } from "./DeviceFrame";
 import { SystemDiagram } from "./SystemDiagram";
 import { Tilt } from "./motion";
+import { LogoAvatar } from "./Logo";
+import { getLogo } from "@/content/logos";
 
 function ProjectVisual({ project, priority }: { project: Project; priority?: boolean }) {
   if (project.cover) {
@@ -66,6 +68,7 @@ export function ProjectFeature({ project, reverse = false, priority }: { project
         <ProjectVisual project={project} priority={priority} />
       </Tilt>
       <div className={cn("lg:col-span-5", reverse && "lg:order-1")}>
+        {getLogo(project.client) ? <LogoAvatar logo={getLogo(project.client)} className="mb-5" /> : null}
         <ProjectMeta project={project} />
         <h3 className="mt-4 text-2xl font-medium sm:text-3xl">{project.title}</h3>
         <p className="mt-4 text-base leading-relaxed text-fg-muted">{project.summary}</p>

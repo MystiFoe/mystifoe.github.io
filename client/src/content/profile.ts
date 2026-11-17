@@ -119,6 +119,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: "Independent projects",
+    logo: "Recurva",
     role: "Product engineer",
     location: "Bengaluru",
     period: "2024 to present",
@@ -131,15 +132,20 @@ export const experience: ExperienceItem[] = [
     relatedProjects: ["recurva", "quietpass", "prathik-softnet", "migsak"],
   },
   {
-    company: "Earlier",
-    role: "Research and analytics internships",
-    location: "South Korea and India",
-    period: "2022 to 2023",
-    summary: "Machine learning research at Kyungpook National University and data analytics at Lenovo India.",
-    points: [
-      "Kyungpook National University: improved NLP classification accuracy by about 15% through feature engineering.",
-      "Lenovo India: automated manufacturing reporting with Python, SQL and Tableau, cutting manual effort by 30%.",
-    ],
+    company: "Kyungpook National University",
+    role: "Machine Learning Research Intern",
+    location: "South Korea",
+    period: "Dec 2022 to Jan 2023",
+    summary: "Machine learning research on an NLP classification problem.",
+    points: ["Improved classification accuracy by about 15% through feature engineering and model evaluation."],
+  },
+  {
+    company: "Lenovo India",
+    role: "Data Analyst Intern",
+    location: "Puducherry",
+    period: "Aug 2022 to Sep 2022",
+    summary: "Data analytics for manufacturing operations.",
+    points: ["Automated manufacturing reporting with Python, SQL and Tableau, cutting manual reporting effort by 30%."],
   },
 ];
 
