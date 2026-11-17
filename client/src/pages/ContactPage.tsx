@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowUpRight, Check, Copy, Loader2 } from "lucide-react";
 import { site } from "@/content/site";
-import { budgets, contactSchema, projectTypes, submitContact, timelines, type ContactInput } from "@/lib/contact";
+import { budgets, contactSchema, projectTypes, projectWithBudget, submitContact, timelines, type ContactInput } from "@/lib/contact";
 import { usePageMeta } from "@/lib/meta";
 import { cn } from "@/lib/utils";
 import { Reveal, StatusDot } from "@/components/site/primitives";
@@ -99,7 +99,7 @@ type Status = { kind: "idle" } | { kind: "sent" } | { kind: "mailto" } | { kind:
 export default function ContactPage() {
   usePageMeta({
     title: "Contact",
-    description: "Start a project with Giritharan Mani: mobile apps, websites, backends and AI automation.",
+    description: "Get in touch with Giritharan Mani about software engineering and product roles, or a project."
   });
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
@@ -108,11 +108,14 @@ export default function ContactPage() {
     control,
     handleSubmit,
     reset,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<ContactInput>({
     resolver: zodResolver(contactSchema),
     defaultValues: { name: "", email: "", company: "", message: "", website: "" },
   });
+
+  const selectedType = watch("projectType");
 
   const onSubmit = async (values: ContactInput) => {
     const result = await submitContact(values);
@@ -139,9 +142,9 @@ export default function ContactPage() {
       <div className="lg:col-span-5">
         <Reveal>
           <p className="eyebrow">Contact</p>
-          <h1 className="mt-4 text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-6xl">Let's scope your project.</h1>
+          <h1 className="mt-4 text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-6xl">Let's talk.</h1>
           <p className="mt-6 text-lg leading-relaxed text-fg-muted">
-            Tell me what you want to build and roughly when you need it. I'll reply with questions, a first cut of the scope and how I'd approach it.
+            Hiring for a software engineering or product role, or have something you want built? Send a note and I'll reply within a day.
           </p>
           <div className="mt-8 flex items-center gap-2 text-sm text-fg">
             <StatusDot />
@@ -219,7 +222,7 @@ export default function ContactPage() {
                 <label htmlFor="company" className="mb-2 block text-sm text-fg">
                   Company <span className="ml-1 text-fg-subtle">Optional</span>
                 </label>
-                <input id="company" autoComplete="organization" className={fieldBase} placeholder="Company or project name" {...register("company")} />
+                <input id="company" autoComplete="organization" className={fieldBase} placeholder="Company name" {...register("company")} />
               </div>
 
               <Controller
@@ -227,19 +230,21 @@ export default function ContactPage() {
                 name="projectType"
                 render={({ field }) => (
                   <div>
-                    <ChoiceGroup name="projectType" label="What do you need?" options={projectTypes} value={field.value} onChange={(v) => field.onChange(v)} />
+                    <ChoiceGroup name="projectType" label="What is this about?" options={projectTypes} value={field.value} onChange={(v) => field.onChange(v)} />
                     <FieldError message={errors.projectType?.message} />
                   </div>
                 )}
               />
 
-              <Controller
-                control={control}
-                name="budget"
-                render={({ field }) => (
-                  <ChoiceGroup name="budget" label="Budget" optional options={budgets} value={field.value} onChange={(v) => field.onChange(v)} />
-                )}
-              />
+              {selectedType === projectWithBudget ? (
+                <Controller
+                  control={control}
+                  name="budget"
+                  render={({ field }) => (
+                    <ChoiceGroup name="budget" label="Budget" optional options={budgets} value={field.value} onChange={(v) => field.onChange(v)} />
+                  )}
+                />
+              ) : null}
 
               <Controller
                 control={control}
@@ -251,13 +256,13 @@ export default function ContactPage() {
 
               <div>
                 <label htmlFor="message" className="mb-2 block text-sm text-fg">
-                  About the project
+                  Message
                 </label>
                 <textarea
                   id="message"
                   rows={6}
                   className={cn(fieldBase, "resize-y")}
-                  placeholder="What should it do, who is it for, and is there anything already built?"
+                  placeholder="The role or project, the team, and anything I should know."
                   {...register("message")}
                   aria-invalid={!!errors.message}
                 />

@@ -4,7 +4,10 @@ import { createLogger } from "./logger";
 
 const log = createLogger("contact");
 
-export const projectTypes = ["Mobile app", "Website", "Web app or platform", "AI or automation", "Product role", "Something else"] as const;
+export const projectTypes = ["Software engineering role", "Product role", "Contract or freelance project", "Something else"] as const;
+
+/** Budget only applies to project work, so the form shows it for this option alone. */
+export const projectWithBudget: (typeof projectTypes)[number] = "Contract or freelance project";
 export const budgets = ["Under ₹50K", "₹50K to ₹1.5L", "₹1.5L to ₹5L", "Above ₹5L", "Not sure yet"] as const;
 export const timelines = ["As soon as possible", "Within a month", "In one to three months", "Flexible"] as const;
 
@@ -12,7 +15,7 @@ export const contactSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name"),
   email: z.string().trim().email("Please enter a valid email address"),
   company: z.string().trim().max(120).optional().or(z.literal("")),
-  projectType: z.enum(projectTypes, { errorMap: () => ({ message: "Choose what you need" }) }),
+  projectType: z.enum(projectTypes, { errorMap: () => ({ message: "Choose what this is about" }) }),
   budget: z.enum(budgets).optional(),
   timeline: z.enum(timelines).optional(),
   message: z.string().trim().min(20, "A couple of sentences helps me reply properly"),

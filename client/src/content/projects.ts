@@ -23,13 +23,13 @@ export const categoryLabels: Record<ProjectCategory, string> = {
   ai: "AI systems",
 };
 
-export const projects: Project[] = [
+const projectList: Project[] = [
   {
     slug: "recurva",
     title: "Recurva",
     client: "Recurva",
     engagement: "freelance",
-    engagementLabel: "Freelance",
+    engagementLabel: "Independent project",
     categories: ["mobile", "platform"],
     year: "2026",
     status: "Live at recurva.in",
@@ -37,7 +37,7 @@ export const projects: Project[] = [
       "A retention platform for gyms and service businesses, with separate apps for owners, staff and members, WhatsApp follow-ups, Razorpay renewals and biometric attendance.",
     tagline:
       "Three role-based Flutter apps and the backend behind them, taken from a mockup to a live product.",
-    role: ["Product scoping", "UX and UI design", "Flutter apps", "Backend and APIs", "Payments and integrations"],
+    role: ["Product scoping", "Flutter apps", "Backend and APIs", "Payments and integrations", "Release"],
     stack: ["Flutter", "Node.js", "Express", "TypeScript", "PostgreSQL", "Docker", "Razorpay", "WhatsApp"],
     links: [{ label: "Visit recurva.in", href: "https://recurva.in/" }],
     cover: { src: recurvaDesktop, alt: "Recurva website hero with the staff app follow-up screen", frame: "browser", url: "recurva.in" },
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     title: "QuietPass",
     client: "Private client",
     engagement: "freelance",
-    engagementLabel: "Freelance",
+    engagementLabel: "Independent project",
     categories: ["mobile"],
     year: "2026",
     status: "In client testing",
@@ -206,7 +206,7 @@ export const projects: Project[] = [
     title: "Prathik Softnet",
     client: "Prathik Softnet",
     engagement: "freelance",
-    engagementLabel: "Freelance",
+    engagementLabel: "Independent project",
     categories: ["web"],
     year: "2024",
     status: "Live at prathiksoftnet.com",
@@ -257,7 +257,7 @@ export const projects: Project[] = [
     title: "Migsak",
     client: "Migsak",
     engagement: "freelance",
-    engagementLabel: "Freelance",
+    engagementLabel: "Independent project",
     categories: ["web"],
     year: "2026",
     status: "Live at migsak.com",
@@ -310,7 +310,7 @@ export const projects: Project[] = [
     year: "2025",
     status: "Used in production",
     summary:
-      "An AI agent that researched prospects and ran LinkedIn outreach, contributing to two enterprise client wins worth about ₹2 crore in new business.",
+      "An AI agent that researched prospects and drafted LinkedIn outreach for the sales team, with validation and quality checks that took it from prototype to daily use.",
     tagline: "An agentic workflow that turned manual prospecting into a repeatable pipeline.",
     role: ["Workflow design", "Agent development", "Prompt design", "Reporting automation"],
     stack: ["Python", "LangChain", "Claude API", "Structured outputs"],
@@ -325,8 +325,8 @@ export const projects: Project[] = [
       ],
     },
     metrics: [
-      { value: "₹2 Cr", label: "Approximate new business from two enterprise clients" },
-      { value: "2", label: "Enterprise clients acquired through the pipeline" },
+      { value: "4", label: "Pipeline steps owned by the agent, each checked on its own" },
+      { value: "Daily", label: "Used by the sales team after launch" },
       { value: "5+ hrs", label: "Saved each week on manual reporting" },
     ],
     context: [
@@ -339,115 +339,71 @@ export const projects: Project[] = [
       },
     ],
     outcome: [
-      "The pipeline contributed to closing two enterprise clients worth roughly ₹2 crore in new business, and automated reporting saved the team more than five hours a week.",
+      "The sales team moved from manual research and drafting to a repeatable pipeline it used every day, and automated reporting saved more than five hours a week.",
     ],
     productNotes: [
-      "The value was never the automation itself. It was getting the sales team in front of the right accounts sooner, and the two enterprise wins are what that looks like.",
+      "The value was never the automation itself. It was getting the sales team in front of the right accounts sooner, with output they trusted enough to send.",
     ],
     featured: true,
   },
   {
-    slug: "battery-mes",
-    title: "Battery pack MES",
-    client: "Pravaig Dynamics",
-    engagement: "employment",
-    engagementLabel: "At Pravaig Dynamics",
-    categories: ["platform"],
-    year: "2025 to 2026",
-    status: "In daily use on the factory floor",
-    summary:
-      "A manufacturing execution system for EV battery pack assembly, including a direct TCP integration with a Hioki battery tester for cell sorting.",
-    tagline: "Production tracking for an EV factory floor, integrated with the test hardware the line already uses.",
-    role: ["Requirements with production team", "System design", "Build", "Hardware integration", "Rollout"],
-    stack: ["Python", "Streamlit", "SQLite", "SQL", "TCP sockets"],
-    diagram: {
-      title: "Line data in one place",
-      nodes: [
-        { label: "Hioki BT3562A", detail: "Cell readings over TCP" },
-        { label: "Receiver", detail: "Background listener writing to its own database" },
-        { label: "Cell sorting", detail: "Independent tab for grading cells" },
-        { label: "Dashboards", detail: "Assembly progress and quality checkpoints" },
-      ],
-    },
-    metrics: [
-      { value: "50+", label: "Daily active users across the floor" },
-      { value: "TCP", label: "Direct integration with the Hioki BT3562A tester" },
-      { value: "1", label: "System replacing scattered sheets and manual logs" },
-    ],
-    context: [
-      "Battery pack assembly was tracked across spreadsheets and handwritten logs, and cell test readings had to be copied off the tester by hand.",
-    ],
-    approach: [
-      {
-        title: "One place for line data",
-        body: "Assembly progress, quality checkpoints and operational KPIs are tracked in real time in a single internal platform that the floor team uses every day.",
-      },
-      {
-        title: "Read the hardware directly",
-        body: "A background TCP receiver pulls readings from the Hioki BT3562A into a separate SQLite database that powers an independent cell sorting tab, so a tester issue never blocks the rest of the system.",
-      },
-    ],
-    outcome: ["The MES is in daily use with more than 50 users and gives the team live visibility of assembly progress and quality checkpoints."],
-    productNotes: [
-      "Isolated the tester integration in its own process and database. Hardware is the least predictable part of a factory system, so it should fail on its own.",
-    ],
-    featured: false,
-  },
-  {
-    slug: "pravaig-internal-stack",
-    title: "Internal systems at Pravaig",
+    slug: "internal-platforms",
+    title: "Internal platforms at Pravaig",
     client: "Pravaig Dynamics",
     engagement: "employment",
     engagementLabel: "At Pravaig Dynamics",
     categories: ["platform", "ai"],
     year: "2025 to 2026",
-    status: "In production",
+    status: "Used daily by 120+ employees",
     summary:
-      "The internal stack of a Series A EV startup, built and run solo: ERP, biometric attendance, AI camera surveillance, NAS, Google Workspace and marketing bots.",
-    tagline: "Five-plus production systems shipped in the first six months, owned end to end.",
-    role: ["Owner of internal systems", "Vendor replacement", "Infrastructure", "Automation"],
-    stack: ["ERPNext", "Python", "Docker", "Frigate NVR", "TrueNAS", "Google Workspace", "ZKTeco"],
+      "The internal products an EV company runs on, built as the sole engineer: AI assistants, digitised production tracking, integrations and an ERP with an employee portal.",
+    tagline: "10+ products taken from a team's workflow to software they use every day.",
+    role: ["Discovery with each team", "Requirements and prioritisation", "System design", "Build and rollout", "Iteration after launch"],
+    stack: ["Python", "TypeScript", "React", "Node.js", "REST APIs", "LLM APIs", "Docker", "ERPNext"],
     diagram: {
-      title: "What runs the company",
+      title: "From workflow to product",
       nodes: [
-        { label: "ERP and HR", detail: "ERPNext with in-house biometric attendance sync" },
-        { label: "Surveillance", detail: "Frigate NVR across 52 IP cameras" },
-        { label: "Storage", detail: "TrueNAS with automated backups" },
-        { label: "Workspace", detail: "Company-wide Google Workspace migration" },
-        { label: "Marketing", detail: "Instagram and Twitter automation bots" },
+        { label: "Discover", detail: "Sit with the team and map how work happens today" },
+        { label: "Scope", detail: "Requirements, priorities and what ships first" },
+        { label: "Build", detail: "Services, integrations and interfaces" },
+        { label: "Adopt", detail: "Rollout, feedback and the fixes after launch" },
       ],
     },
     metrics: [
-      { value: "5+", label: "Production systems shipped solo in six months" },
-      { value: "52", label: "IP cameras running AI detection through Frigate" },
-      { value: "1", label: "Paid attendance tool replaced with in-house software" },
+      { value: "10+", label: "Products shipped to production as the sole engineer" },
+      { value: "120+", label: "Employees using them daily across 4 teams" },
+      { value: "5 to 7 hrs", label: "Saved each week for marketing by an AI assistant" },
     ],
     context: [
-      "Pravaig is a Series A electric vehicle startup. Like most startups it needed real systems for HR, security, storage and marketing, without a team to build or run them.",
+      "Like most growing companies, much of the work at Pravaig ran on spreadsheets, chat messages and manual entry. The teams did not need more tools. They needed the right ones, built around how they already worked.",
     ],
     approach: [
       {
-        title: "Replace paid tools where it makes sense",
-        body: "I built in-house software to manage the BioMax fingerprint device and sync attendance into ERPNext, which let the company drop a paid attendance suite during its move to self-hosted HR.",
+        title: "Start with the workflow, not the feature",
+        body: "Every product began with sitting down with the team that would use it, mapping where their work slowed down, and agreeing what the first useful version had to do.",
       },
       {
-        title: "Security on existing hardware",
-        body: "Frigate NVR runs AI detection across all 52 CP Plus cameras at the office and factory, with recordings backed up to TrueNAS.",
+        title: "AI with a human in the loop",
+        body: "The AI assistants for marketing and operations draft and prepare work, but a person approves before anything goes out. That review step is what made the teams willing to rely on them.",
       },
       {
-        title: "Automate the repetitive work",
-        body: "Instagram and Twitter bots handle routine marketing posts, and the Google Workspace migration moved the whole company onto one set of tools.",
+        title: "Move data off spreadsheets",
+        body: "Production and maintenance tracking moved from sheets to structured systems, and integrations removed manual data entry, so teams work from one reliable view.",
+      },
+      {
+        title: "The ERP and employee portal",
+        body: "Built on ERPNext for everyday HR processes and approvals, then redesigned around employee feedback so routine requests no longer need HR or IT.",
       },
     ],
-    outcome: ["These systems run the company day to day, and I own them from requirements through operations."],
+    outcome: ["These products are used daily by more than 120 employees across four teams, and I own them from discovery through iteration."],
     productNotes: [
-      "Where a paid tool was doing a simple job, owning it was cheaper and easier to fit to how the company actually works.",
+      "Adoption was the real measure. A product only counted as done once the team stopped falling back to the old spreadsheet.",
     ],
-    featured: false,
+    featured: true,
   },
   {
     slug: "rag-support-platform",
-    title: "RAG support platform",
+    title: "AI support assistant",
     client: "Kovan Labs",
     engagement: "employment",
     engagementLabel: "At Kovan Labs",
@@ -455,8 +411,8 @@ export const projects: Project[] = [
     year: "2024",
     status: "Delivered to US enterprise clients",
     summary:
-      "Product management for a retrieval-augmented support platform for US enterprise clients that cut manual support workload by 65 percent.",
-    tagline: "Owning delivery from discovery to production sign-off as a product manager intern.",
+      "User research found three query types behind 68% of support tickets, which shaped a retrieval-based assistant that cut support volume by 65 percent.",
+    tagline: "Owning delivery from discovery to production sign-off as an associate product manager intern.",
     role: ["Discovery", "PRDs", "Sprint planning", "UAT", "Production sign-off"],
     stack: ["RAG", "LLMs", "Python", "Vector database"],
     links: [{ label: "View related code", href: "https://github.com/MystiFoe/Customer-Support-Automation-using-RAG-Based-Bot" }],
@@ -470,21 +426,50 @@ export const projects: Project[] = [
       ],
     },
     metrics: [
-      { value: "65%", label: "Reduction in manual support workload in six months" },
-      { value: "US", label: "Enterprise client base" },
+      { value: "68%", label: "Of support tickets traced to just three query types" },
+      { value: "65%", label: "Reduction in support volume within six months" },
       { value: "End to end", label: "Discovery through production sign-off" },
     ],
-    context: ["Client support teams were answering the same questions from their own documentation again and again."],
+    context: [
+      "The client's support team was answering the same questions from their own documentation again and again, and the backlog kept growing. The obvious request was a chatbot. The real question was which questions it should answer first.",
+    ],
     approach: [
       {
+        title: "Research before scope",
+        body: "I ran user interviews and went through the ticket history with the client team. Three query types turned out to drive 68% of all tickets, so the first version was scoped tightly around those.",
+      },
+      {
+        title: "Answers grounded in the client's own docs",
+        body: "Working with engineering, we built a retrieval-based assistant that answers only from the client's documentation, so support staff could trust what it said.",
+      },
+      {
         title: "Own the delivery",
-        body: "I ran discovery with clients, wrote the PRDs, planned sprints, coordinated UAT and handled production sign-off.",
+        body: "I wrote the requirements, planned sprints, coordinated UAT with the client and handled production sign-off.",
       },
     ],
-    outcome: ["Manual support workload dropped by 65 percent within six months of rollout."],
-    productNotes: [],
-    featured: false,
+    outcome: ["Support volume dropped by 65 percent within six months of rollout."],
+    productNotes: [
+      "Narrowing the scope to three query types was the decision that mattered. A general chatbot would have taken longer and answered the high-volume questions worse.",
+    ],
+    featured: true,
   },
+];
+
+/** Display order: full-time product work first, then independent projects. */
+const displayOrder = [
+  "internal-platforms",
+  "energica",
+  "rag-support-platform",
+  "recurva",
+  "linkedin-ai-agent",
+  "quietpass",
+  "prathik-softnet",
+  "migsak",
+];
+
+export const projects: Project[] = [
+  ...displayOrder.map((slug) => projectList.find((p) => p.slug === slug)).filter((p): p is Project => Boolean(p)),
+  ...projectList.filter((p) => !displayOrder.includes(p.slug)),
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);

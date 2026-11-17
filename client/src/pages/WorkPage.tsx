@@ -5,12 +5,13 @@ import { usePageMeta } from "@/lib/meta";
 import { cn } from "@/lib/utils";
 import { ProjectCard } from "@/components/site/ProjectCard";
 import { ButtonLink, Reveal } from "@/components/site/primitives";
+import { Tilt } from "@/components/site/motion";
 
 type Filter = "all" | "freelance" | ProjectCategory;
 
 const filters: { id: Filter; label: string }[] = [
   { id: "all", label: "All" },
-  { id: "freelance", label: "Freelance" },
+  { id: "freelance", label: "Independent" },
   ...(Object.keys(categoryLabels) as ProjectCategory[]).map((id) => ({ id, label: categoryLabels[id] })),
 ];
 
@@ -26,11 +27,11 @@ function matches(filter: Filter) {
 function CtaTile() {
   return (
     <div className="relative flex aspect-[16/10] flex-col justify-end overflow-hidden rounded-xl border border-line bg-surface bg-grid p-8">
-      <p className="eyebrow">Your project</p>
-      <h2 className="mt-3 text-2xl font-medium">Have something similar in mind?</h2>
-      <p className="mt-2 max-w-sm text-fg-muted">Tell me about it and I'll come back with a scope and an approach.</p>
+      <p className="eyebrow">Hiring?</p>
+      <h2 className="mt-3 text-2xl font-medium">Want to see how I would work on your team?</h2>
+      <p className="mt-2 max-w-sm text-fg-muted">Happy to walk through any of these in more depth, including the trade-offs.</p>
       <ButtonLink href="/contact" className="mt-6 self-start">
-        Start a project
+        Let's talk
       </ButtonLink>
     </div>
   );
@@ -39,7 +40,7 @@ function CtaTile() {
 export default function WorkPage() {
   usePageMeta({
     title: "Work",
-    description: "Case studies of mobile apps, websites, internal platforms and AI systems built by Giritharan Mani.",
+    description: "Case studies of internal platforms, AI products, apps and websites built by Giritharan Mani, SDE II in Bengaluru.",
   });
   const [filter, setFilter] = useState<Filter>("all");
   const visible = useMemo(() => projects.filter(matches(filter)), [filter]);
@@ -50,10 +51,10 @@ export default function WorkPage() {
         <Reveal>
           <p className="eyebrow">Work</p>
           <h1 className="mt-4 max-w-3xl text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-6xl">
-            Case studies from client projects and full-time roles.
+            Products I have discovered, scoped, built and shipped.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-fg-muted">
-            Each project covers the problem, the decisions I made, what I built and how it turned out. Freelance work is marked in blue.
+            Each case study covers the problem, the decisions I made, what I built and how it turned out. Full-time work comes first, then independent projects.
           </p>
         </Reveal>
       </section>
@@ -89,7 +90,9 @@ export default function WorkPage() {
         <div className="grid gap-x-10 gap-y-16 md:grid-cols-2">
           {visible.map((p, i) => (
             <Reveal key={`${filter}-${p.slug}`} delay={(i % 2) * 0.05}>
-              <ProjectCard project={p} priority={i < 2} />
+              <Tilt>
+                <ProjectCard project={p} priority={i < 2} />
+              </Tilt>
             </Reveal>
           ))}
           {visible.length % 2 === 1 ? (
@@ -103,10 +106,10 @@ export default function WorkPage() {
       <section className={cn("container-site pb-24", visible.length % 2 === 1 && "md:hidden")}>
         <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-line bg-surface p-8 sm:flex-row sm:items-center sm:p-10">
           <div>
-            <h2 className="text-2xl font-medium">Have something similar in mind?</h2>
-            <p className="mt-2 text-fg-muted">Tell me about it and I'll come back with a scope and an approach.</p>
+            <h2 className="text-2xl font-medium">Want to see how I would work on your team?</h2>
+            <p className="mt-2 text-fg-muted">Happy to walk through any of these in more depth, including the trade-offs.</p>
           </div>
-          <ButtonLink href="/contact">Start a project</ButtonLink>
+          <ButtonLink href="/contact">Let's talk</ButtonLink>
         </div>
       </section>
     </>

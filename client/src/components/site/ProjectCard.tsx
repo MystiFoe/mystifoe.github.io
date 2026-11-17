@@ -5,6 +5,7 @@ import { categoryLabels } from "@/content/projects";
 import { cn } from "@/lib/utils";
 import { BrowserFrame } from "./DeviceFrame";
 import { SystemDiagram } from "./SystemDiagram";
+import { Tilt } from "./motion";
 
 function ProjectVisual({ project, priority }: { project: Project; priority?: boolean }) {
   if (project.cover) {
@@ -61,9 +62,9 @@ export function ProjectFeature({ project, reverse = false, priority }: { project
       href={`/work/${project.slug}`}
       className="group grid items-center gap-8 focus-visible:outline-offset-8 lg:grid-cols-12 lg:gap-12"
     >
-      <div className={cn("lg:col-span-7", reverse && "lg:order-2")}>
+      <Tilt className={cn("lg:col-span-7", reverse && "lg:order-2")} max={4}>
         <ProjectVisual project={project} priority={priority} />
-      </div>
+      </Tilt>
       <div className={cn("lg:col-span-5", reverse && "lg:order-1")}>
         <ProjectMeta project={project} />
         <h3 className="mt-4 text-2xl font-medium sm:text-3xl">{project.title}</h3>

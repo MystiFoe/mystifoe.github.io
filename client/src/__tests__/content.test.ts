@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { featuredProjects, getNextProject, getProject, projects } from "@/content/projects";
-import { about, experience, intro, process, services } from "@/content/profile";
+import { about, capabilities, experience, highlights, intro, process } from "@/content/profile";
 import { site } from "@/content/site";
 
 /** Collects every string value in a nested structure. */
@@ -28,10 +28,10 @@ describe("project content", () => {
     }
   });
 
-  it("leads the featured list with freelance work", () => {
+  it("leads the featured list with full-time product work", () => {
     expect(featuredProjects.length).toBeGreaterThanOrEqual(4);
-    expect(featuredProjects[0].engagement).toBe("freelance");
-    expect(featuredProjects[1].engagement).toBe("freelance");
+    expect(featuredProjects[0].engagement).toBe("employment");
+    expect(featuredProjects[1].engagement).toBe("employment");
   });
 
   it("uses https for all external project links", () => {
@@ -47,6 +47,15 @@ describe("project content", () => {
 });
 
 describe("profile content", () => {
+  it("keeps headline numbers positive so they can count up", () => {
+    for (const h of highlights) expect(h.value).toBeGreaterThan(0);
+  });
+
+  it("keeps confidential internal details off the public site", () => {
+    const text = strings([projects, experience, about, intro, capabilities]).join(" ");
+    for (const term of ["TrueNAS", "Hioki", "Frigate", "52 IP", "Series A", "₹2"]) expect(text).not.toContain(term);
+  });
+
   it("only references case studies that exist", () => {
     for (const item of experience) {
       for (const slug of item.relatedProjects ?? []) expect(getProject(slug), slug).toBeDefined();
@@ -55,7 +64,7 @@ describe("profile content", () => {
 });
 
 describe("house style", () => {
-  const all = strings([projects, experience, about, intro, process, services, site]);
+  const all = strings([projects, experience, about, intro, process, capabilities, site]);
 
   it("contains no em dashes", () => {
     const offenders = all.filter((s) => s.includes("—"));

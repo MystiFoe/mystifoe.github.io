@@ -5,6 +5,7 @@ import { navigation, site } from "@/content/site";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 import { ButtonLink, StatusDot } from "./primitives";
+import { ScrollProgress } from "./motion";
 
 function ThemeToggle() {
   const { theme, toggle } = useTheme();
@@ -56,8 +57,9 @@ function SiteHeader() {
     >
       <div className="container-site flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-3" aria-label={`${site.name}, home`}>
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-line-strong bg-surface text-[13px] font-semibold tracking-tight">
-            GM
+          <span className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg border border-line-strong bg-surface text-[13px] font-semibold tracking-tight transition-transform duration-300 hover:rotate-[-6deg] hover:scale-105">
+            <span className="absolute inset-0 bg-gradient-to-br from-accent/25 via-accent-2/20 to-accent-3/25" aria-hidden />
+            <span className="relative">GM</span>
           </span>
           <span className="hidden flex-col leading-tight sm:flex">
             <span className="text-sm font-medium text-fg">{site.name}</span>
@@ -84,7 +86,7 @@ function SiteHeader() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <ButtonLink href="/contact" className="hidden h-9 px-4 md:inline-flex">
-            Start a project
+            Let's talk
           </ButtonLink>
           <button
             type="button"
@@ -111,7 +113,7 @@ function SiteHeader() {
             ))}
           </ul>
           <ButtonLink href="/contact" className="mt-8 w-full">
-            Start a project
+            Let's talk
           </ButtonLink>
         </nav>
       ) : null}
@@ -130,10 +132,10 @@ function SiteFooter() {
             {site.availability}
           </div>
           <p className="mt-6 max-w-md text-2xl font-medium leading-snug text-fg">
-            Have an app, website or internal tool in mind? Tell me what it needs to do.
+            Hiring for a software engineering or product role? I would like to hear about it.
           </p>
           <ButtonLink href="/contact" className="mt-8">
-            Start a project
+            Let's talk
           </ButtonLink>
         </div>
         <div className="grid grid-cols-2 gap-8 md:col-span-6 md:grid-cols-[1fr_1fr_1.5fr]">
@@ -184,7 +186,7 @@ function SiteFooter() {
           <p>
             © {year} {site.name}
           </p>
-          <p>Designed and built by me.</p>
+          <p>Designed and built by me, with React, TypeScript and Framer Motion.</p>
         </div>
       </div>
     </footer>
@@ -206,6 +208,7 @@ export function Layout({ children }: { children: ReactNode }) {
       >
         Skip to content
       </a>
+      <ScrollProgress />
       <SiteHeader />
       <main id="main" className="flex-1">
         {children}

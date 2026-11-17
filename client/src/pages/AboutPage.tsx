@@ -8,12 +8,12 @@ import { ButtonLink, Reveal, StatusDot } from "@/components/site/primitives";
 export default function AboutPage() {
   usePageMeta({
     title: "About",
-    description: "Background, experience and toolkit of Giritharan Mani, product engineer in Bengaluru.",
+    description: "Background, experience and toolkit of Giritharan Mani, Software Development Engineer II in Bengaluru."
   });
 
   const facts = [
     { label: "Based in", value: site.location },
-    { label: "Works on", value: "Mobile apps, websites, backends, AI automation" },
+    { label: "Works on", value: "Internal platforms, web products, AI agents, product discovery" },
     { label: "Education", value: about.education.map((e) => e.title).join(". ") },
   ];
 
@@ -24,7 +24,7 @@ export default function AboutPage() {
           <Reveal>
             <p className="eyebrow">About</p>
             <h1 className="mt-4 text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-6xl">
-              I build products and take responsibility for how they turn out.
+              Engineer by trade, product manager by habit.
             </h1>
           </Reveal>
           <Reveal delay={0.05}>
@@ -52,7 +52,7 @@ export default function AboutPage() {
                 ))}
               </dl>
               <div className="mt-8 flex flex-col gap-2">
-                <ButtonLink href="/contact">Start a project</ButtonLink>
+                <ButtonLink href="/contact">Let's talk</ButtonLink>
                 <ButtonLink href={site.socials[0].href} variant="secondary" icon="external">
                   LinkedIn
                 </ButtonLink>
@@ -66,7 +66,7 @@ export default function AboutPage() {
         <div className="container-site py-20 sm:py-28">
           <Reveal>
             <p className="eyebrow">Experience</p>
-            <h2 className="mt-4 text-3xl font-medium sm:text-4xl">Where the work came from.</h2>
+            <h2 className="mt-4 text-3xl font-medium sm:text-4xl">Where I have done the work.</h2>
           </Reveal>
           <ol className="mt-14">
             {experience.map((item) => (

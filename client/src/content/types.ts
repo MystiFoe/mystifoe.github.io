@@ -72,10 +72,18 @@ export interface ExperienceItem {
   relatedProjects?: string[];
 }
 
-export interface Service {
+export interface Capability {
+  kind: "engineering" | "product" | "ai";
   title: string;
   body: string;
   items: string[];
+}
+
+/** A headline number. Kept numeric so it can count up on screen. */
+export interface Highlight {
+  value: number;
+  suffix: string;
+  label: string;
 }
 
 export interface ProcessStep {

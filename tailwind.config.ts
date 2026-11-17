@@ -32,6 +32,8 @@ export default {
           fg: token("accent-fg"),
           foreground: token("accent-fg"),
         },
+        "accent-2": token("accent-2"),
+        "accent-3": token("accent-3"),
         success: token("success"),
 
         /* shadcn/ui bridge */
@@ -66,11 +68,28 @@ export default {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
+        "marquee-reverse": {
+          from: { transform: "translateX(-50%)" },
+          to: { transform: "translateX(0)" },
+        },
+        drift: {
+          "0%, 100%": { transform: "translate3d(0, 0, 0) scale(1)" },
+          "33%": { transform: "translate3d(6%, -8%, 0) scale(1.08)" },
+          "66%": { transform: "translate3d(-6%, 6%, 0) scale(0.95)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         marquee: "marquee 40s linear infinite",
+        "marquee-reverse": "marquee-reverse 46s linear infinite",
+        drift: "drift 18s ease-in-out infinite",
+        "drift-slow": "drift 26s ease-in-out infinite reverse",
+        float: "float 6s ease-in-out infinite",
       },
     },
   },

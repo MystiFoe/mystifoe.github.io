@@ -6,7 +6,7 @@ const valid: ContactInput = {
   name: "Asha Rao",
   email: "asha@example.com",
   company: "",
-  projectType: "Mobile app",
+  projectType: "Contract or freelance project",
   budget: "₹50K to ₹1.5L",
   timeline: undefined,
   message: "We need a booking app for our clinic with WhatsApp reminders.",
@@ -37,7 +37,7 @@ describe("contact schema", () => {
 describe("mail fallback", () => {
   it("includes only the fields that were filled in", () => {
     const body = buildEmailBody(valid);
-    expect(body).toContain("Looking for: Mobile app");
+    expect(body).toContain("Looking for: Contract or freelance project");
     expect(body).toContain("Budget: ₹50K to ₹1.5L");
     expect(body).not.toContain("Company:");
     expect(body).not.toContain("Timeline:");
