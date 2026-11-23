@@ -11,7 +11,7 @@ export const site = {
   calendly: "https://calendly.com/giritharanmani1",
   url: "https://giritharanmani-portfolio.vercel.app",
   resumeHref: "mailto:giritharanmani1@gmail.com?subject=Resume%20request",
-  availability: "Open to SDE II and product roles in Bengaluru",
+  availability: "Open to product and engineering roles in Bengaluru",
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/mystifoe/" },
     { label: "GitHub", href: "https://github.com/MystiFoe" },

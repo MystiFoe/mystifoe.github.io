@@ -2,10 +2,10 @@ import type { Capability, ExperienceItem, Highlight, ProcessStep } from "./types
 
 export const intro = {
   /** Rotating phrases shown after "I'm a" in the hero. */
-  roles: ["Software Development Engineer II", "product-minded engineer", "builder of AI tools people trust"],
+  roles: ["product builder", "Software Development Engineer II", "builder of AI tools people trust"],
   headline: "I turn messy workflows into products people use every day.",
   lede:
-    "SDE II at Pravaig Dynamics in Bengaluru. I sit with the team, find where the work breaks, decide what to build first, then design, ship and improve it myself. Engineer by trade, product manager by habit.",
+    "SDE II at Pravaig Dynamics in Bengaluru. I sit with the team, find where the work breaks and decide what to build first. Then I ship it with AI tools and stay with it until it becomes part of the daily routine.",
 };
 
 export const highlights: Highlight[] = [

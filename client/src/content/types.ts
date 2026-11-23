@@ -53,6 +53,8 @@ export interface Project {
   cover?: ImageAsset;
   gallery?: ImageAsset[];
   diagram?: SystemDiagram;
+  /** Problem, decision and result in one line each, shown first on the case study. */
+  brief: { problem: string; decision: string; result: string };
   metrics: Metric[];
   context: string[];
   approach: CaseStudyStep[];

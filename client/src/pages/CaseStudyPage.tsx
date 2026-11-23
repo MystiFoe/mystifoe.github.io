@@ -149,6 +149,23 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
           </dl>
         </Reveal>
 
+        <Reveal>
+          <section aria-label="At a glance" className="mt-12 grid overflow-hidden rounded-2xl border border-line sm:grid-cols-3">
+            {(
+              [
+                ["Problem", project.brief.problem],
+                ["Decision", project.brief.decision],
+                ["Result", project.brief.result],
+              ] as const
+            ).map(([label, text], i) => (
+              <div key={label} className={`p-6 ${i > 0 ? "border-t border-line sm:border-l sm:border-t-0" : ""}`}>
+                <p className="eyebrow">{label}</p>
+                <p className="mt-3 text-base leading-relaxed text-fg">{text}</p>
+              </div>
+            ))}
+          </section>
+        </Reveal>
+
         <div className="mt-16">
           <Reveal>
             <SpecSheet project={project} />

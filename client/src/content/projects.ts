@@ -51,6 +51,11 @@ const projectList: Project[] = [
       { value: "100+", label: "API endpoints, up from roughly 20 in the first scope" },
       { value: "Live", label: "Product site and Android build available" },
     ],
+    brief: {
+      problem: "Gym members drift away silently, and owners notice only after the membership lapses.",
+      decision: "Built three role-based apps on one backend, with follow-ups on WhatsApp where members already reply.",
+      result: "Delivered end to end and live at recurva.in, with the API growing from 20 planned endpoints to 100+ within the original engagement.",
+    },
     context: [
       "Gym members rarely cancel. They stop showing up, and by the time the membership lapses the owner has already lost them for weeks. The client wanted a tool the front desk would actually use every day rather than another report nobody opens.",
       "The brief started as a gym retention app. It grew into a product for service businesses in general, with three kinds of users who each need a different view of the same data.",
@@ -116,6 +121,11 @@ const projectList: Project[] = [
       { value: "2", label: "Platforms from one codebase: iOS and Android" },
       { value: "Live", label: "Backend running on Google Cloud Run" },
     ],
+    brief: {
+      problem: "People sharing a home had no calm way to see who is free, book shared spaces or ask for quiet.",
+      decision: "Cut hardware control from the first release to focus on the daily coordination loop.",
+      result: "Presence, reservations and anonymous nudges work on device and are in client testing.",
+    },
     context: [
       "The client lives in a busy household and wanted a simple way for everyone at home to see who is available, book shared spaces and ask for quiet without it turning into an argument. It had to feel calm and look good, not like a utility.",
     ],
@@ -175,6 +185,11 @@ const projectList: Project[] = [
       { value: "4", label: "Models in the configurator" },
       { value: "1", label: "Primary conversion path: contact a dealer" },
     ],
+    brief: {
+      problem: "The old site had drifted from the brand and gave visitors no clear path to a dealer.",
+      decision: "Treated the configurator as a sales tool, so every configuration ends in a dealer enquiry.",
+      result: "Rebuilt from scratch and live at energicamotor.com, with the configurator as the main conversion point.",
+    },
     context: [
       "Energica is a premium electric motorcycle brand from Modena and the exclusive supplier to the MotoE World Cup for four seasons. The existing site had drifted from the brand: it used red where Energica is green, and the fonts were wrong.",
     ],
@@ -227,6 +242,11 @@ const projectList: Project[] = [
       { value: "8", label: "OEM technology partners showcased" },
       { value: "Live", label: "In production with quote and WhatsApp enquiries" },
     ],
+    brief: {
+      problem: "B2B hardware buyers compare vendors fast and drop anyone who looks slow or unclear.",
+      decision: "Put specs, partner brands and a short quote path ahead of visual flourish.",
+      result: "Live at prathiksoftnet.com and taking quote requests directly.",
+    },
     context: [
       "Prathik Softnet has supplied servers, storage and networking to businesses across India since 2018. Buyers in this market compare vendors on trust and speed of response, so the site needed to establish credibility quickly and make asking for a quote effortless.",
     ],
@@ -277,6 +297,11 @@ const projectList: Project[] = [
       { value: "3", label: "Service lines: AI and automation, custom software, web and mobile" },
       { value: "Live", label: "In production at migsak.com" },
     ],
+    brief: {
+      problem: "A services firm selling to cautious buyers needed a site that earns trust on first visit.",
+      decision: "Structured the page around the buyer's questions: who it is for, how it works, what the risk is.",
+      result: "Live at migsak.com and routing enquiries to consultation requests.",
+    },
     context: [
       "Migsak sells to logistics providers, healthcare networks and growing enterprises where downtime costs money. The audience is cautious, so the site had to feel dependable rather than flashy.",
     ],
@@ -329,6 +354,11 @@ const projectList: Project[] = [
       { value: "Daily", label: "Used by the sales team after launch" },
       { value: "5+ hrs", label: "Saved each week on manual reporting" },
     ],
+    brief: {
+      problem: "Sales outreach was manual, slow and uneven in quality.",
+      decision: "Added validation and quality checks so the team trusted drafts enough to send them.",
+      result: "Became a daily pipeline for the sales team, with reporting saving 5+ hours a week.",
+    },
     context: [
       "Outreach at Allied Worldwide was manual: find the right people, research each one, write a message, track replies in a spreadsheet. It did not scale, and the quality varied with whoever had time that week.",
     ],
@@ -374,6 +404,11 @@ const projectList: Project[] = [
       { value: "120+", label: "Employees using them daily across 4 teams" },
       { value: "5 to 7 hrs", label: "Saved each week for marketing by an AI assistant" },
     ],
+    brief: {
+      problem: "Teams ran on spreadsheets, chat messages and manual entry.",
+      decision: "Built each product around how the team already worked, and counted it done only when the old spreadsheet stopped being used.",
+      result: "10+ products in daily use by 120+ employees across 4 teams.",
+    },
     context: [
       "Like most growing companies, much of the work at Pravaig ran on spreadsheets, chat messages and manual entry. The teams did not need more tools. They needed the right ones, built around how they already worked.",
     ],
@@ -430,6 +465,11 @@ const projectList: Project[] = [
       { value: "65%", label: "Reduction in support volume within six months" },
       { value: "End to end", label: "Discovery through production sign-off" },
     ],
+    brief: {
+      problem: "A client's support team kept answering the same questions from its own documentation.",
+      decision: "Research showed three query types drove 68% of tickets, so the assistant was scoped to those first.",
+      result: "Support volume fell 65% within six months of rollout.",
+    },
     context: [
       "The client's support team was answering the same questions from their own documentation again and again, and the backlog kept growing. The obvious request was a chatbot. The real question was which questions it should answer first.",
     ],
